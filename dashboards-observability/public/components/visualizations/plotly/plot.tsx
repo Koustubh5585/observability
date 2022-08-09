@@ -8,7 +8,6 @@ import plotComponentFactory from 'react-plotly.js/factory';
 import Plotly from 'plotly.js-dist';
 import { uiSettingsService } from '../../../../common/utils';
 import { Annotations } from '../annotations/annotations';
-import { visChartTypes } from 'common/constants/shared';
 
 interface PltProps {
   data: Plotly.Data[];

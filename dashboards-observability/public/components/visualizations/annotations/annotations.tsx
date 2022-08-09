@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ChangeEventHandler } from 'react';
 
 interface AnnotationProps {
   showInputBox: boolean;
-  onTextChange: Function;
+  onTextChange: (e: React.FormEvent<HTMLInputElement>) => {};
   onAddAnnotation: Function;
 }
 
@@ -17,7 +17,7 @@ export const Annotations: React.FC<AnnotationProps> = (props) => {
         type="text"
         name="annotationText"
         placeholder="Add annotations"
-        onChange={(e) => props.onTextChange(e)}
+        onChange={props.onTextChange}
         className="euiFieldText"
       />
       <button type="submit" onClick={handleAddAnnotation} className="addButton">

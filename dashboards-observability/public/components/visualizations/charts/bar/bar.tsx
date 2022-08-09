@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { isEmpty, last, take } from 'lodash';
 import { Plt } from '../../plotly/plot';
 import { LONG_CHART_COLOR, PLOTLY_COLOR } from '../../../../../common/constants/shared';
@@ -37,6 +37,14 @@ export const Bar = ({ visualizations, layout, config }: any) => {
   const isVertical = barOrientation === vis.orientation;
   let bars, valueSeries, valueForXSeries;
 
+  const [showInputBox, setShowInputBox] = useState<boolean>(false);
+  const [xAnnotation, setXAnnotation] = useState<string>('');
+  const [yAnnotation, setYAnnotation] = useState<string>('');
+  const [annotationText, setAnnotationText] = useState<string[]>(
+    Array(visualizations.data.rawVizData.size).fill('')
+  );
+  const [annotationIndex, setAnnotationIndex] = useState(0);
+
   if (!isEmpty(xaxis) && !isEmpty(yaxis)) {
     valueSeries = isVertical ? [...yaxis] : [...xaxis];
     valueForXSeries = isVertical ? [...xaxis] : [...yaxis];
@@ -68,11 +76,11 @@ export const Bar = ({ visualizations, layout, config }: any) => {
     PLOTLY_COLOR[index % PLOTLY_COLOR.length];
 
   const prepareData = (valueForXSeries) => {
-    return (valueForXSeries.map((dimension: any) => data[dimension.label]))?.reduce(
-      (prev, cur) => {
+    return valueForXSeries
+      .map((dimension: any) => data[dimension.label])
+      ?.reduce((prev, cur) => {
         return prev.map((i, j) => `${i}, ${cur[j]}`);
-      }
-    );
+      });
   };
 
   const createNameData = (nameData, metricName: string) =>
@@ -82,43 +90,44 @@ export const Bar = ({ visualizations, layout, config }: any) => {
   if (valueForXSeries.some((e) => e.type === 'timestamp')) {
     const nameData =
       valueForXSeries.length > 1
-        ? (valueForXSeries
-              .filter((item) => item.type !== 'timestamp')
-              .map((dimension) => data[dimension.label])
-          ).reduce((prev, cur) => {
-            return prev.map((i, j) => `${i}, ${cur[j]}`);
-          })
+        ? valueForXSeries
+            .filter((item) => item.type !== 'timestamp')
+            .map((dimension) => data[dimension.label])
+            .reduce((prev, cur) => {
+              return prev.map((i, j) => `${i}, ${cur[j]}`);
+            })
         : [];
 
-    let dimensionsData = 
-      valueForXSeries
-        .filter((item) => item.type === 'timestamp')
-        .map((dimension) => data[dimension.label]).flat();
+    let dimensionsData = valueForXSeries
+      .filter((item) => item.type === 'timestamp')
+      .map((dimension) => data[dimension.label])
+      .flat();
 
-    bars = (valueSeries.map((field: any, index: number) => {
-      const selectedColor = getSelectedColorTheme(field, index);
-      return dimensionsData.map((dimension: any, j: number) => {
-        return {
-          x: isVertical
-            ? !isEmpty(xaxis)
-              ? dimension
-              : data[fields[lastIndex].name]
-            : data[field.label],
-          y: isVertical ? data[field.label][j] : dimensionsData, // TODO: orinetation
-          type: vis.type,
-          marker: {
-            color: hexToRgb(selectedColor, fillOpacity),
-            line: {
-              color: selectedColor,
-              width: lineWidth,
+    bars = valueSeries
+      .map((field: any, index: number) => {
+        const selectedColor = getSelectedColorTheme(field, index);
+        return dimensionsData.map((dimension: any, j: number) => {
+          return {
+            x: isVertical
+              ? !isEmpty(xaxis)
+                ? dimension
+                : data[fields[lastIndex].name]
+              : data[field.label],
+            y: isVertical ? data[field.label][j] : dimensionsData, // TODO: orinetation
+            type: vis.type,
+            marker: {
+              color: hexToRgb(selectedColor, fillOpacity),
+              line: {
+                color: selectedColor,
+                width: lineWidth,
+              },
             },
-          },
-          name: nameData.length > 0 ? createNameData(nameData, field.label)[j] : field.label, // dimensionsData[index]+ ',' + field.label,
-          orientation: barOrientation,
-        };
-      });
-    })).flat();
-
+            name: nameData.length > 0 ? createNameData(nameData, field.label)[j] : field.label, // dimensionsData[index]+ ',' + field.label,
+            orientation: barOrientation,
+          };
+        });
+      })
+      .flat();
 
     // merging x, y for same names
     bars = Object.values(
@@ -181,6 +190,16 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       orientation: legendPosition,
     },
     showlegend: showLegend,
+    annotations: [
+      {
+        x: xAnnotation,
+        y: yAnnotation,
+        xref: 'x',
+        yref: 'y',
+        text: annotationText[annotationIndex],
+        showarrow: true,
+      },
+    ],
   };
   if (dataConfig.thresholds || availabilityConfig.level) {
     const thresholdTraces = {
@@ -224,5 +243,42 @@ export const Bar = ({ visualizations, layout, config }: any) => {
     ...(layoutConfig.config && layoutConfig.config),
   };
 
-  return <Plt data={bars} layout={mergedLayout} config={mergedConfigs} />;
+  let newAnnotationText = '';
+  const handleChange = (event: any) => {
+    newAnnotationText = event.target.value;
+  };
+
+  const handleAddAnnotation = () => {
+    const newAnnotation = [
+      ...annotationText.slice(0, annotationIndex),
+      newAnnotationText,
+      ...annotationText.slice(annotationIndex + 1),
+    ];
+    setAnnotationText(newAnnotation);
+    setShowInputBox(false);
+  };
+
+  const onBarChartClick = () => {
+    var myPlot = document.getElementById('explorerPlotComponent');
+    myPlot?.on('plotly_click', function (data) {
+      for (var i = 0; i < data.points.length; i++) {
+        setXAnnotation('' + data.points[i].x);
+        setYAnnotation('' + parseFloat(data.points[i].y.toPrecision(4)));
+        setAnnotationIndex(data.points[i].pointIndex);
+      }
+      setShowInputBox(true);
+    });
+  };
+
+  return (
+    <Plt
+      data={bars}
+      layout={mergedLayout}
+      config={mergedConfigs}
+      onClickHandler={onBarChartClick}
+      showAnnotationInput={showInputBox}
+      onChangeHandler={handleChange}
+      onAddAnnotationHandler={handleAddAnnotation}
+    />
+  );
 };

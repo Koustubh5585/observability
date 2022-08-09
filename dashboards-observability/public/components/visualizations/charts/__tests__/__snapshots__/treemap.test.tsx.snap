@@ -533,105 +533,108 @@ exports[`Treemap component Renders treemap component 1`] = `
       }
     }
   >
-    <PlotlyComponent
-      config={
-        Object {
-          "displayModeBar": false,
-        }
-      }
-      data={
-        Array [
+    <div>
+      <Annotations />
+      <PlotlyComponent
+        config={
           Object {
-            "labels": Array [
-              "error",
-              "info",
-              "login",
-              "security",
-              "success",
-              "warning",
-            ],
-            "marker": Object {},
-            "parents": Array [
-              "",
-              "",
-              "",
-              "",
-              "",
-              "",
-            ],
-            "sort": true,
-            "textinfo": "label+value+percent parent+percent entry",
-            "tiling": Object {
-              "packing": undefined,
+            "displayModeBar": false,
+          }
+        }
+        data={
+          Array [
+            Object {
+              "labels": Array [
+                "error",
+                "info",
+                "login",
+                "security",
+                "success",
+                "warning",
+              ],
+              "marker": Object {},
+              "parents": Array [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+              ],
+              "sort": true,
+              "textinfo": "label+value+percent parent+percent entry",
+              "tiling": Object {
+                "packing": undefined,
+              },
+              "type": "treemap",
+              "values": Array [
+                154,
+                1753,
+                116,
+                468,
+                1964,
+                219,
+              ],
             },
-            "type": "treemap",
-            "values": Array [
-              154,
-              1753,
-              116,
-              468,
-              1964,
-              219,
+          ]
+        }
+        debug={false}
+        divId="explorerPlotComponent"
+        layout={
+          Object {
+            "autosize": true,
+            "barmode": "stack",
+            "colorway": Array [
+              "#8C55A3",
             ],
-          },
-        ]
-      }
-      debug={false}
-      divId="explorerPlotComponent"
-      layout={
-        Object {
-          "autosize": true,
-          "barmode": "stack",
-          "colorway": Array [
-            "#8C55A3",
-          ],
-          "height": 220,
-          "hovermode": "closest",
-          "legend": Object {
-            "orientation": "h",
-            "traceorder": "normal",
-          },
-          "margin": Object {
-            "b": 15,
-            "l": 60,
-            "pad": 0,
-            "r": 10,
-            "t": 30,
-          },
-          "showlegend": true,
-          "title": "",
-          "treemapcolorway": Object {},
-          "xaxis": Object {
-            "automargin": true,
-            "rangemode": "normal",
-            "showgrid": true,
-            "zeroline": false,
-          },
-          "yaxis": Object {
-            "rangemode": "normal",
-            "showgrid": true,
-            "zeroline": false,
-          },
+            "height": 220,
+            "hovermode": "closest",
+            "legend": Object {
+              "orientation": "h",
+              "traceorder": "normal",
+            },
+            "margin": Object {
+              "b": 15,
+              "l": 60,
+              "pad": 0,
+              "r": 10,
+              "t": 30,
+            },
+            "showlegend": true,
+            "title": "",
+            "treemapcolorway": Object {},
+            "xaxis": Object {
+              "automargin": true,
+              "rangemode": "normal",
+              "showgrid": true,
+              "zeroline": false,
+            },
+            "yaxis": Object {
+              "rangemode": "normal",
+              "showgrid": true,
+              "zeroline": false,
+            },
+          }
         }
-      }
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
-      useResizeHandler={true}
-    >
-      <div
-        id="explorerPlotComponent"
         style={
           Object {
             "height": "100%",
             "width": "100%",
           }
         }
-      />
-    </PlotlyComponent>
+        useResizeHandler={true}
+      >
+        <div
+          id="explorerPlotComponent"
+          style={
+            Object {
+              "height": "100%",
+              "width": "100%",
+            }
+          }
+        />
+      </PlotlyComponent>
+    </div>
   </Plt>
 </TreeMap>
 `;

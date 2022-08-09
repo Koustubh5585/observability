@@ -2190,131 +2190,134 @@ exports[`Dashboard table component renders dashboard table 1`] = `
                                         onFocus={[Function]}
                                         onHoverHandler={[Function]}
                                       >
-                                        <PlotlyComponent
-                                          config={
-                                            Object {
-                                              "displayModeBar": false,
-                                            }
-                                          }
-                                          data={
-                                            Array [
+                                        <div>
+                                          <Annotations />
+                                          <PlotlyComponent
+                                            config={
                                               Object {
-                                                "hoverinfo": "none",
-                                                "marker": Object {
-                                                  "color": "rgba(0, 0, 0, 0)",
+                                                "displayModeBar": false,
+                                              }
+                                            }
+                                            data={
+                                              Array [
+                                                Object {
+                                                  "hoverinfo": "none",
+                                                  "marker": Object {
+                                                    "color": "rgba(0, 0, 0, 0)",
+                                                  },
+                                                  "orientation": "h",
+                                                  "showlegend": false,
+                                                  "type": "bar",
+                                                  "width": 1,
+                                                  "x": Array [
+                                                    26.43,
+                                                  ],
+                                                  "y": Array [
+                                                    0,
+                                                  ],
                                                 },
-                                                "orientation": "h",
+                                                Object {
+                                                  "marker": Object {
+                                                    "color": "#ffffff",
+                                                    "line": Object {
+                                                      "color": "#957ac9",
+                                                      "width": 1,
+                                                    },
+                                                  },
+                                                  "orientation": "h",
+                                                  "type": "bar",
+                                                  "width": 1,
+                                                  "x": Array [
+                                                    298.96999999999997,
+                                                  ],
+                                                  "y": Array [
+                                                    0,
+                                                  ],
+                                                },
+                                                Object {
+                                                  "marker": Object {
+                                                    "color": "#957ac9",
+                                                    "line": Object {
+                                                      "color": "#957ac9",
+                                                      "width": 1,
+                                                    },
+                                                  },
+                                                  "orientation": "h",
+                                                  "type": "bar",
+                                                  "width": 1,
+                                                  "x": Array [
+                                                    0,
+                                                  ],
+                                                  "y": Array [
+                                                    0,
+                                                  ],
+                                                },
+                                              ]
+                                            }
+                                            debug={false}
+                                            divId="explorerPlotComponent"
+                                            layout={
+                                              Object {
+                                                "autosize": true,
+                                                "barmode": "stack",
+                                                "height": 15,
+                                                "hovermode": "closest",
+                                                "legend": Object {
+                                                  "orientation": "h",
+                                                  "traceorder": "normal",
+                                                },
+                                                "margin": Object {
+                                                  "b": 0,
+                                                  "l": 0,
+                                                  "pad": 0,
+                                                  "r": 0,
+                                                  "t": 0,
+                                                },
+                                                "paper_bgcolor": "rgba(0, 0, 0, 0)",
+                                                "plot_bgcolor": "rgba(0, 0, 0, 0)",
                                                 "showlegend": false,
-                                                "type": "bar",
-                                                "width": 1,
-                                                "x": Array [
-                                                  26.43,
-                                                ],
-                                                "y": Array [
-                                                  0,
-                                                ],
-                                              },
-                                              Object {
-                                                "marker": Object {
-                                                  "color": "#ffffff",
-                                                  "line": Object {
-                                                    "color": "#957ac9",
-                                                    "width": 1,
-                                                  },
+                                                "width": 250,
+                                                "xaxis": Object {
+                                                  "fixedrange": true,
+                                                  "range": Array [
+                                                    0,
+                                                    412,
+                                                  ],
+                                                  "showgrid": false,
+                                                  "visible": false,
                                                 },
-                                                "orientation": "h",
-                                                "type": "bar",
-                                                "width": 1,
-                                                "x": Array [
-                                                  298.96999999999997,
-                                                ],
-                                                "y": Array [
-                                                  0,
-                                                ],
-                                              },
-                                              Object {
-                                                "marker": Object {
-                                                  "color": "#957ac9",
-                                                  "line": Object {
-                                                    "color": "#957ac9",
-                                                    "width": 1,
-                                                  },
+                                                "yaxis": Object {
+                                                  "fixedrange": true,
+                                                  "range": Array [
+                                                    -0.6,
+                                                    0.6,
+                                                  ],
+                                                  "showgrid": false,
+                                                  "visible": false,
                                                 },
-                                                "orientation": "h",
-                                                "type": "bar",
-                                                "width": 1,
-                                                "x": Array [
-                                                  0,
-                                                ],
-                                                "y": Array [
-                                                  0,
-                                                ],
-                                              },
-                                            ]
-                                          }
-                                          debug={false}
-                                          divId="explorerPlotComponent"
-                                          layout={
-                                            Object {
-                                              "autosize": true,
-                                              "barmode": "stack",
-                                              "height": 15,
-                                              "hovermode": "closest",
-                                              "legend": Object {
-                                                "orientation": "h",
-                                                "traceorder": "normal",
-                                              },
-                                              "margin": Object {
-                                                "b": 0,
-                                                "l": 0,
-                                                "pad": 0,
-                                                "r": 0,
-                                                "t": 0,
-                                              },
-                                              "paper_bgcolor": "rgba(0, 0, 0, 0)",
-                                              "plot_bgcolor": "rgba(0, 0, 0, 0)",
-                                              "showlegend": false,
-                                              "width": 250,
-                                              "xaxis": Object {
-                                                "fixedrange": true,
-                                                "range": Array [
-                                                  0,
-                                                  412,
-                                                ],
-                                                "showgrid": false,
-                                                "visible": false,
-                                              },
-                                              "yaxis": Object {
-                                                "fixedrange": true,
-                                                "range": Array [
-                                                  -0.6,
-                                                  0.6,
-                                                ],
-                                                "showgrid": false,
-                                                "visible": false,
-                                              },
+                                              }
                                             }
-                                          }
-                                          onClick={[Function]}
-                                          onHover={[Function]}
-                                          style={
-                                            Object {
-                                              "height": "100%",
-                                              "width": "100%",
-                                            }
-                                          }
-                                          useResizeHandler={true}
-                                        >
-                                          <div
-                                            id="explorerPlotComponent"
+                                            onClick={[Function]}
+                                            onHover={[Function]}
                                             style={
                                               Object {
                                                 "height": "100%",
                                                 "width": "100%",
                                               }
                                             }
-                                          />
-                                        </PlotlyComponent>
+                                            useResizeHandler={true}
+                                          >
+                                            <div
+                                              id="explorerPlotComponent"
+                                              style={
+                                                Object {
+                                                  "height": "100%",
+                                                  "width": "100%",
+                                                }
+                                              }
+                                            />
+                                          </PlotlyComponent>
+                                        </div>
                                       </Plt>
                                     </span>
                                   </EuiToolTip>

@@ -523,90 +523,93 @@ exports[`Histogram component Renders histogram component 1`] = `
       }
     }
   >
-    <PlotlyComponent
-      config={
-        Object {
-          "displayModeBar": false,
-        }
-      }
-      data={
-        Array [
+    <div>
+      <Annotations />
+      <PlotlyComponent
+        config={
           Object {
-            "marker": Object {
-              "color": "rgba(60,161,199,0.2)",
-              "line": Object {
-                "color": "rgba(60,161,199,1)",
-                "width": 2,
+            "displayModeBar": false,
+          }
+        }
+        data={
+          Array [
+            Object {
+              "marker": Object {
+                "color": "rgba(60,161,199,0.2)",
+                "line": Object {
+                  "color": "rgba(60,161,199,1)",
+                  "width": 2,
+                },
               },
+              "name": "count()",
+              "type": "histogram",
+              "x": Array [
+                154,
+                1753,
+                116,
+                468,
+                1964,
+                219,
+              ],
+              "xbins": undefined,
             },
-            "name": "count()",
-            "type": "histogram",
-            "x": Array [
-              154,
-              1753,
-              116,
-              468,
-              1964,
-              219,
+          ]
+        }
+        debug={false}
+        divId="explorerPlotComponent"
+        layout={
+          Object {
+            "autosize": true,
+            "barmode": "group",
+            "colorway": Array [
+              "#8C55A3",
             ],
-            "xbins": undefined,
-          },
-        ]
-      }
-      debug={false}
-      divId="explorerPlotComponent"
-      layout={
-        Object {
-          "autosize": true,
-          "barmode": "group",
-          "colorway": Array [
-            "#8C55A3",
-          ],
-          "height": 220,
-          "hovermode": "closest",
-          "legend": Object {
-            "orientation": "v",
-          },
-          "margin": Object {
-            "b": 15,
-            "l": 60,
-            "pad": 0,
-            "r": 10,
-            "t": 30,
-          },
-          "showlegend": true,
-          "title": "",
-          "xaxis": Object {
-            "automargin": true,
-            "rangemode": "normal",
-            "showgrid": true,
-            "zeroline": false,
-          },
-          "yaxis": Object {
-            "rangemode": "normal",
-            "showgrid": true,
-            "zeroline": false,
-          },
+            "height": 220,
+            "hovermode": "closest",
+            "legend": Object {
+              "orientation": "v",
+            },
+            "margin": Object {
+              "b": 15,
+              "l": 60,
+              "pad": 0,
+              "r": 10,
+              "t": 30,
+            },
+            "showlegend": true,
+            "title": "",
+            "xaxis": Object {
+              "automargin": true,
+              "rangemode": "normal",
+              "showgrid": true,
+              "zeroline": false,
+            },
+            "yaxis": Object {
+              "rangemode": "normal",
+              "showgrid": true,
+              "zeroline": false,
+            },
+          }
         }
-      }
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
-      useResizeHandler={true}
-    >
-      <div
-        id="explorerPlotComponent"
         style={
           Object {
             "height": "100%",
             "width": "100%",
           }
         }
-      />
-    </PlotlyComponent>
+        useResizeHandler={true}
+      >
+        <div
+          id="explorerPlotComponent"
+          style={
+            Object {
+              "height": "100%",
+              "width": "100%",
+            }
+          }
+        />
+      </PlotlyComponent>
+    </div>
   </Plt>
 </Histogram>
 `;

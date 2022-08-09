@@ -264,17 +264,11 @@ export const Bar = ({ visualizations, layout, config }: any) => {
   const onBarChartClick = () => {
     const myPlot = document.getElementById('explorerPlotComponent');
     myPlot?.on('plotly_click', (data) => {
-      let x = '', y = '', z;
-      for (var i = 0; i < data.points.length; i++) {
-        x = '' + data.points[i].x;
-        y = '' + parseFloat(data.points[i].y.toPrecision(4));
-        z = data.points[i].pointIndex;
-      }
       setAnnotationParam({
         ...annotationParam,
-        xAnnotation: x,
-        yAnnotation: y,
-        annotationIndex: z,
+        xAnnotation: `${data.points[0].x}`,
+        yAnnotation: `${parseFloat(data.points[0].y.toPrecision(4))}`,
+        annotationIndex: data.points[0].pointIndex,
         showInputBox: true,
       });
     });

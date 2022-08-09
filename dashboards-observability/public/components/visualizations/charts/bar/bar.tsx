@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { isEmpty, last, take } from 'lodash';
 import { Plt } from '../../plotly/plot';
 import { LONG_CHART_COLOR, PLOTLY_COLOR } from '../../../../../common/constants/shared';
@@ -46,6 +46,14 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       ? dataConfig.tooltipOptions.tooltipText
       : 'all';
   let bars, valueSeries, valueForXSeries;
+
+  const [showInputBox, setShowInputBox] = useState<boolean>(false);
+  const [xAnnotation, setXAnnotation] = useState<string>('');
+  const [yAnnotation, setYAnnotation] = useState<string>('');
+  const [annotationText, setAnnotationText] = useState<string[]>(
+    Array(visualizations.data.rawVizData.size).fill('')
+  );
+  const [annotationIndex, setAnnotationIndex] = useState(0);
 
   if (!isEmpty(xaxis) && !isEmpty(yaxis)) {
     valueSeries = isVertical ? [...yaxis] : [...xaxis];
@@ -194,6 +202,16 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       orientation: legendPosition,
     },
     showlegend: showLegend,
+    annotations: [
+      {
+        x: xAnnotation,
+        y: yAnnotation,
+        xref: 'x',
+        yref: 'y',
+        text: annotationText[annotationIndex],
+        showarrow: true,
+      },
+    ],
   };
   if (dataConfig.thresholds || availabilityConfig.level) {
     const thresholdTraces = {
@@ -240,5 +258,42 @@ export const Bar = ({ visualizations, layout, config }: any) => {
     [config, layoutConfig.config]
   );
 
-  return <Plt data={bars} layout={mergedLayout} config={mergedConfigs} />;
+  let newAnnotationText = '';
+  const handleChange = (event: any) => {
+    newAnnotationText = event.target.value;
+  };
+
+  const handleAddAnnotation = () => {
+    const newAnnotation = [
+      ...annotationText.slice(0, annotationIndex),
+      newAnnotationText,
+      ...annotationText.slice(annotationIndex + 1),
+    ];
+    setAnnotationText(newAnnotation);
+    setShowInputBox(false);
+  };
+
+  const onBarChartClick = () => {
+    var myPlot = document.getElementById('explorerPlotComponent');
+    myPlot?.on('plotly_click', function (data) {
+      for (var i = 0; i < data.points.length; i++) {
+        setXAnnotation('' + data.points[i].x);
+        setYAnnotation('' + parseFloat(data.points[i].y.toPrecision(4)));
+        setAnnotationIndex(data.points[i].pointIndex);
+      }
+      setShowInputBox(true);
+    });
+  };
+
+  return (
+    <Plt
+      data={bars}
+      layout={mergedLayout}
+      config={mergedConfigs}
+      onClickHandler={onBarChartClick}
+      showAnnotationInput={showInputBox}
+      onChangeHandler={handleChange}
+      onAddAnnotationHandler={handleAddAnnotation}
+    />
+  );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface AnnotationProps {
   showInputBox: boolean;
@@ -11,31 +11,16 @@ export const Annotations: React.FC<AnnotationProps> = (props) => {
     props.onAddAnnotation();
   };
 
-  const handleEditAnnotation = () => {};
-
-  const handleDeleteAnnotation = () => {};
-
   return props.showInputBox ? (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <div className="annotationContainer">
       <input
         type="text"
-        name="name"
+        name="annotationText"
         placeholder="Add annotations"
         onChange={(e) => props.onTextChange(e)}
-        style={{ padding: '5px' }}
+        className="euiFieldText"
       />
-      <button
-        type="submit"
-        onClick={handleAddAnnotation}
-        style={{
-          backgroundColor: 'blue',
-          borderColor: 'gray',
-          margin: '5px',
-          padding: '5px',
-          color: 'white',
-          borderRadius: '5px',
-        }}
-      >
+      <button type="submit" onClick={handleAddAnnotation} className="addButton">
         Add
       </button>
     </div>

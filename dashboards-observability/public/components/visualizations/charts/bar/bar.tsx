@@ -39,13 +39,13 @@ export const Bar = ({ visualizations, layout, config }: any) => {
   const isVertical = barOrientation === vis.orientation;
   let bars, valueSeries, valueForXSeries;
 
-  const [showInputBox, setShowInputBox] = useState<boolean>(false);
-  const [xAnnotation, setXAnnotation] = useState<string>('');
-  const [yAnnotation, setYAnnotation] = useState<string>('');
-  const [annotationText, setAnnotationText] = useState<string[]>(
-    Array(visualizations.data.rawVizData.size).fill('')
-  );
-  const [annotationIndex, setAnnotationIndex] = useState(0);
+  const [annotationParam, setAnnotationParam] = useState({
+    showInputBox: false,
+    xAnnotation: '',
+    yAnnotation: '',
+    annotationText: Array(visualizations.data.rawVizData.size).fill(''),
+    annotationIndex: 0,
+  });
 
   if (!isEmpty(xaxis) && !isEmpty(yaxis)) {
     valueSeries = isVertical ? [...yaxis] : [...xaxis];
@@ -80,7 +80,7 @@ export const Bar = ({ visualizations, layout, config }: any) => {
   const prepareData = (valueForXSeries) => {
     return valueForXSeries
       .map((dimension: any) => data[dimension.label])
-      ?.reduce((prev, cur) => {
+      .reduce((prev, cur) => {
         return prev.map((i, j) => `${i}, ${cur[j]}`);
       });
   };
@@ -194,11 +194,11 @@ export const Bar = ({ visualizations, layout, config }: any) => {
     showlegend: showLegend,
     annotations: [
       {
-        x: xAnnotation,
-        y: yAnnotation,
+        x: annotationParam.xAnnotation,
+        y: annotationParam.yAnnotation,
         xref: 'x',
         yref: 'y',
-        text: annotationText[annotationIndex],
+        text: annotationParam.annotationText[annotationParam.annotationIndex],
         showarrow: true,
       },
     ],
@@ -246,29 +246,39 @@ export const Bar = ({ visualizations, layout, config }: any) => {
   }), [config, layoutConfig.config]);
 
   let newAnnotationText = '';
-  const handleChange = (event: any) => {
+  const handleChange = (event) => {
     newAnnotationText = event.target.value;
   };
 
   const handleAddAnnotation = () => {
     const newAnnotation = [
-      ...annotationText.slice(0, annotationIndex),
+      ...annotationParam.annotationText.slice(0, annotationParam.annotationIndex),
       newAnnotationText,
-      ...annotationText.slice(annotationIndex + 1),
+      ...annotationParam.annotationText.slice(annotationParam.annotationIndex + 1),
     ];
-    setAnnotationText(newAnnotation);
-    setShowInputBox(false);
+    setAnnotationParam({
+      ...annotationParam,
+      annotationText: newAnnotation,
+      showInputBox: false,
+    });
   };
 
   const onBarChartClick = () => {
-    var myPlot = document.getElementById('explorerPlotComponent');
-    myPlot?.on('plotly_click', function (data) {
+    const myPlot = document.getElementById('explorerPlotComponent');
+    myPlot?.on('plotly_click', (data) => {
+      let x = '', y = '', z;
       for (var i = 0; i < data.points.length; i++) {
-        setXAnnotation('' + data.points[i].x);
-        setYAnnotation('' + parseFloat(data.points[i].y.toPrecision(4)));
-        setAnnotationIndex(data.points[i].pointIndex);
+        x = '' + data.points[i].x;
+        y = '' + parseFloat(data.points[i].y.toPrecision(4));
+        z = data.points[i].pointIndex;
       }
-      setShowInputBox(true);
+      setAnnotationParam({
+        ...annotationParam,
+        xAnnotation: x,
+        yAnnotation: y,
+        annotationIndex: z,
+        showInputBox: true,
+      });
     });
   };
 
@@ -278,7 +288,7 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       layout={mergedLayout}
       config={mergedConfigs}
       onClickHandler={onBarChartClick}
-      showAnnotationInput={showInputBox}
+      showAnnotationInput={annotationParam.showInputBox}
       onChangeHandler={handleChange}
       onAddAnnotationHandler={handleAddAnnotation}
     />

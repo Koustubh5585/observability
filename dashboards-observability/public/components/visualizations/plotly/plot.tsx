@@ -7,6 +7,7 @@ import React from 'react';
 import plotComponentFactory from 'react-plotly.js/factory';
 import Plotly from 'plotly.js-dist';
 import { uiSettingsService } from '../../../../common/utils';
+import { Annotations } from '../annotations/annotations';
 
 interface PltProps {
   data: Plotly.Data[];
@@ -17,6 +18,9 @@ interface PltProps {
   onClickHandler?: (event: Readonly<Plotly.PlotMouseEvent>) => void;
   height?: string;
   dispatch?: (props: any) => void;
+  showAnnotationInput?: boolean;
+  onChangeHandler?: Function;
+  onAddAnnotationHandler?: Function;
 }
 
 export function Plt(props: PltProps) {
@@ -68,16 +72,23 @@ export function Plt(props: PltProps) {
   };
 
   return (
-    <PlotComponent
-      divId="explorerPlotComponent"
-      data={props.data}
-      style={{ width: '100%', height: props.height || '100%' }}
-      onHover={props.onHoverHandler}
-      onUnhover={props.onUnhoverHandler}
-      onClick={props.onClickHandler}
-      useResizeHandler
-      config={finalConfig}
-      layout={finalLayout}
-    />
+    <div>
+      <Annotations
+        showInputBox={props.showAnnotationInput!}
+        onTextChange={props.onChangeHandler!}
+        onAddAnnotation={props.onAddAnnotationHandler!}
+      />
+      <PlotComponent
+        divId="explorerPlotComponent"
+        data={props.data}
+        style={{ width: '100%', height: props.height || '100%' }}
+        onHover={props.onHoverHandler}
+        onUnhover={props.onUnhoverHandler}
+        onClick={props.onClickHandler}
+        useResizeHandler
+        config={finalConfig}
+        layout={finalLayout}
+      />
+    </div>
   );
 }

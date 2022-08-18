@@ -8,7 +8,7 @@ import { uniqueId } from 'lodash';
 import React from 'react';
 import moment from 'moment';
 import dateMath from '@elastic/datemath';
-import { IExplorerFields, IField } from '../../../../common/types/explorer';
+import { IExplorerFields, IField, ConfigListEntry } from '../../../../common/types/explorer';
 import { DocViewRow, IDocType } from '../explorer/events_views';
 import { HttpStart } from '../../../../../../src/core/public';
 import PPLService from '../../../services/requests/ppl';
@@ -120,8 +120,8 @@ export const populateDataGrid = (
           </table>
         )}
         {explorerFields?.queriedFields &&
-          explorerFields?.queriedFields?.length > 0 &&
-          explorerFields.selectedFields?.length === 0 ? null : (
+        explorerFields?.queriedFields?.length > 0 &&
+        explorerFields.selectedFields?.length === 0 ? null : (
           <table className="osd-table table" data-test-subj="docTable">
             <thead>{header2}</thead>
             <tbody>{body2}</tbody>
@@ -318,3 +318,6 @@ export const lightenColor = (color: string, percent: number) => {
       .slice(1)
   );
 };
+
+export const filterDataConfigParameter = (parameter: Array<ConfigListEntry>) =>
+  parameter.filter((i: ConfigListEntry) => i.label !== '');

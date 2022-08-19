@@ -36,7 +36,7 @@ export const Bar = ({ visualizations, layout, config }: any) => {
   const yaxis = dataConfig?.valueOptions?.metrics
     ? filterDataConfigParameter(dataConfig.valueOptions.metrics)
     : [];
-  const isVertical = vis.orientation === 'v' ? true : false;
+  const isVertical = vis.orientation === 'v';
   let bars, valueSeries, valueForXSeries;
 
   if (!isEmpty(xaxis) && !isEmpty(yaxis)) {
@@ -78,7 +78,6 @@ export const Bar = ({ visualizations, layout, config }: any) => {
 
   // for multiple dimention and metrics with timestamp
   if (valueForXSeries.some((e) => e.type === 'timestamp')) {
-    console.log("TIMESTAMP DIMNSION+++ valueForXSeries", valueForXSeries)
     const nameData =
       valueForXSeries.length > 1
         ? valueForXSeries
@@ -88,7 +87,6 @@ export const Bar = ({ visualizations, layout, config }: any) => {
               return prev.map((i, j) => `${i}, ${cur[j]}`);
             })
         : [];
-    console.log("nameData====", nameData)
     let dimensionsData = valueForXSeries
       .filter((item) => item.type === 'timestamp')
       .map((dimension) => data[dimension.label])
@@ -223,7 +221,7 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       });
     };
 
-    mergedLayout.shapes = [...mapToLine(levels, {})];
+    mergedLayout.shapes = mapToLine(levels, {});
     bars = [...bars, thresholdTraces];
   }
   const mergedConfigs = useMemo(

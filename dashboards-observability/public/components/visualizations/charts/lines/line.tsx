@@ -5,7 +5,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { take, isEmpty, last } from 'lodash';
-import { Plt } from '../../plotly/plot';
+import { ChartType, Plt } from '../../plotly/plot';
 import { AvailabilityUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_availability';
 import { ThresholdUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_thresholds';
 import {

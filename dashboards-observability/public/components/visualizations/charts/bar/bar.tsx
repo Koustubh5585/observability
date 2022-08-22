@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { isEmpty, last, take } from 'lodash';
-import { Plt } from '../../plotly/plot';
+import { ChartType, Plt } from '../../plotly/plot';
 import { LONG_CHART_COLOR, PLOTLY_COLOR } from '../../../../../common/constants/shared';
 import { AvailabilityUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_availability';
 import { ThresholdUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_thresholds';
@@ -37,6 +37,7 @@ export const Bar = ({ visualizations, layout, config }: any) => {
   const isVertical = barOrientation === vis.orientation;
   let bars, valueSeries, valueForXSeries;
 
+  const [newAnnotationText, setNewAnnotationText] = useState<string>();
   const [annotationParam, setAnnotationParam] = useState({
     showInputBox: false,
     xAnnotation: '',
@@ -243,9 +244,15 @@ export const Bar = ({ visualizations, layout, config }: any) => {
     ...(layoutConfig.config && layoutConfig.config),
   };
 
-  let newAnnotationText = '';
   const handleChange = (event) => {
-    newAnnotationText = event.target.value;
+    setNewAnnotationText(event.target.value);
+  };
+
+  const handleCancelAnnotation = () => {
+    setAnnotationParam({
+      ...annotationParam,
+      showInputBox: false,
+    });
   };
 
   const handleAddAnnotation = () => {
@@ -271,6 +278,7 @@ export const Bar = ({ visualizations, layout, config }: any) => {
         annotationIndex: data.points[0].pointIndex,
         showInputBox: true,
       });
+      setNewAnnotationText(annotationParam.annotationText[data.points[0].pointIndex]);
     });
   };
 
@@ -283,6 +291,10 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       showAnnotationInput={annotationParam.showInputBox}
       onChangeHandler={handleChange}
       onAddAnnotationHandler={handleAddAnnotation}
+      onCancelAnnotationHandler={handleCancelAnnotation}
+      isEditMode={annotationParam.annotationText[annotationParam.annotationIndex]}
+      annotationText={newAnnotationText}
+      chartType={ChartType.BAR}
     />
   );
 };

@@ -9,6 +9,11 @@ import Plotly from 'plotly.js-dist';
 import { uiSettingsService } from '../../../../common/utils';
 import { Annotations } from '../annotations/annotations';
 
+export enum ChartType {
+  BAR = 'Bar',
+  TIME_SERIES = 'Time Series'
+}
+
 interface PltProps {
   data: Plotly.Data[];
   layout?: Partial<Plotly.Layout>;
@@ -18,9 +23,13 @@ interface PltProps {
   onClickHandler?: (event: Readonly<Plotly.PlotMouseEvent>) => void;
   height?: string;
   dispatch?: (props: any) => void;
+  chartType?: ChartType;
+  annotationText?: string;
   showAnnotationInput?: boolean;
+  isEditMode?: boolean;
   onChangeHandler?: Function;
   onAddAnnotationHandler?: Function;
+  onCancelAnnotationHandler?: Function;
 }
 
 export function Plt(props: PltProps) {
@@ -74,9 +83,12 @@ export function Plt(props: PltProps) {
   return (
     <div>
       <Annotations
+        annotationText={props.annotationText!}
         showInputBox={props.showAnnotationInput!}
+        isEditMode={props.isEditMode!}
         onTextChange={props.onChangeHandler!}
         onAddAnnotation={props.onAddAnnotationHandler!}
+        onCancelAnnotation={props.onCancelAnnotationHandler!}
       />
       <PlotComponent
         divId="explorerPlotComponent"

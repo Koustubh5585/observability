@@ -5,7 +5,7 @@
 
 import React, { useMemo, useState } from 'react';
 import { take, isEmpty, last } from 'lodash';
-import { Plt } from '../../plotly/plot';
+import { ChartType, Plt } from '../../plotly/plot';
 import { AvailabilityUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_availability';
 import { ThresholdUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_thresholds';
 import {
@@ -35,6 +35,7 @@ export const Line = ({ visualizations, layout, config }: any) => {
   } = visualizations.data.rawVizData;
   const { defaultAxes } = visualizations.data;
 
+  const [newAnnotationText, setNewAnnotationText] = useState<string>();
   const [annotationParam, setAnnotationParam] = useState({
     showInputBox: false,
     xAnnotation: '',
@@ -264,9 +265,15 @@ export const Line = ({ visualizations, layout, config }: any) => {
     });
   };
 
-  let newAnnotationText = '';
   const handleChange = (event) => {
-    newAnnotationText = event.target.value;
+    setNewAnnotationText(event.target.value);
+  };
+
+  const handleCancelAnnotation = () => {
+    setAnnotationParam({
+      ...annotationParam,
+      showInputBox: false,
+    });
   };
 
   const handleAddAnnotation = () => {
@@ -291,6 +298,10 @@ export const Line = ({ visualizations, layout, config }: any) => {
       showAnnotationInput={annotationParam.showInputBox}
       onChangeHandler={handleChange}
       onAddAnnotationHandler={handleAddAnnotation}
+      onCancelAnnotationHandler={handleCancelAnnotation}
+      isEditMode={annotationParam.annotationText[annotationParam.annotationIndex]}
+      annotationText={newAnnotationText}
+      chartType={ChartType.TIME_SERIES}
     />
   ) : (
     <EmptyPlaceholder icon={visualizations?.vis?.icontype} />

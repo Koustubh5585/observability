@@ -101,9 +101,7 @@ export const Annotations: React.FC<AnnotationProps> = (props) => {
           type="submit"
           color="primary"
           onClick={handleEditAnnotation}
-          style={{
-            margin: '0px 0px 0px 5px',
-          }}
+          className="buttonLeftMargin"
         >
           Edit
         </EuiButton>
@@ -113,9 +111,7 @@ export const Annotations: React.FC<AnnotationProps> = (props) => {
           type="submit"
           color="primary"
           onClick={handleAddAnnotation}
-          style={{
-            margin: '0px 0px 0px 5px',
-          }}
+          className="buttonLeftMargin"
         >
           Add
         </EuiButton>
@@ -126,9 +122,7 @@ export const Annotations: React.FC<AnnotationProps> = (props) => {
         type="submit"
         color="text"
         onClick={handleCancelAnnotation}
-        style={{
-          margin: '0px 0px 0px 5px',
-        }}
+        className="buttonLeftMargin"
       >
         Cancel
       </EuiButton>

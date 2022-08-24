@@ -7,6 +7,8 @@ interface AnnotationProps {
   isEditMode: boolean;
   onTextChange: (e: React.FormEvent<HTMLInputElement>) => {};
   onAddAnnotation: Function;
+  onEditAnnotation: Function;
+  onDeleteAnnotation: Function;
   onCancelAnnotation: Function;
 }
 
@@ -18,60 +20,71 @@ export const Annotations: React.FC<AnnotationProps> = (props) => {
 
   // Update annotations
   const handleEditAnnotation = () => {
-    props.onAddAnnotation();
+    props.onEditAnnotation();
   };
 
   // Delete annotations
   const handleDeleteAnnotation = () => {
-    //TODO: Add delete operations
+    props.onDeleteAnnotation();
   };
 
   const handleCancelAnnotation = () => {
     props.onCancelAnnotation();
   };
 
-  const formAnnotation = (
-    <div className="annotationContainer">
-      <EuiFieldText
-        value={props.annotationText || ''}
-        name="annotationText"
-        placeholder="Add annotations"
-        onChange={props.onTextChange}
-        className="euiFieldText"
-      />
-      {props.isEditMode ? (
-        <EuiButton
-          fill
-          type="submit"
-          color="primary"
-          onClick={handleEditAnnotation}
-          className="buttonLeftMargin"
-        >
-          Edit
-        </EuiButton>
-      ) : (
-        <EuiButton
-          fill
-          type="submit"
-          color="primary"
-          onClick={handleAddAnnotation}
-          className="buttonLeftMargin"
-        >
-          Add
-        </EuiButton>
-      )}
+  // const formAnnotation = (
+  //   <div className="annotationContainer">
+  //     <EuiFieldText
+  //       value={props.annotationText || ''}
+  //       name="annotationText"
+  //       placeholder="Add annotations"
+  //       onChange={props.onTextChange}
+  //       className="euiFieldText"
+  //     />
+  //     {props.isEditMode ? (
+  //       <div>
+  //         <EuiButton
+  //           fill
+  //           type="submit"
+  //           color="primary"
+  //           onClick={handleEditAnnotation}
+  //           className="buttonLeftMargin"
+  //         >
+  //           Edit
+  //         </EuiButton>
+  //         <EuiButton
+  //           fill
+  //           type="submit"
+  //           color="danger"
+  //           onClick={handleDeleteAnnotation}
+  //           className="buttonLeftMargin"
+  //         >
+  //           Delete
+  //         </EuiButton>
+  //       </div>
+  //     ) : (
+  //       <EuiButton
+  //         fill
+  //         type="submit"
+  //         color="primary"
+  //         onClick={handleAddAnnotation}
+  //         className="buttonLeftMargin"
+  //       >
+  //         Add
+  //       </EuiButton>
+  //     )}
 
-      <EuiButton
-        fill
-        type="submit"
-        color="text"
-        onClick={handleCancelAnnotation}
-        className="buttonLeftMargin"
-      >
-        Cancel
-      </EuiButton>
-    </div>
-  );
+  //     <EuiButton
+  //       fill
+  //       type="submit"
+  //       color="text"
+  //       onClick={handleCancelAnnotation}
+  //       className="buttonLeftMargin"
+  //     >
+  //       Cancel
+  //     </EuiButton>
+  //   </div>
+  // );
 
   // return (
   //   <div>
@@ -96,15 +109,26 @@ export const Annotations: React.FC<AnnotationProps> = (props) => {
         className="euiFieldText"
       />
       {props.isEditMode ? (
-        <EuiButton
-          fill
-          type="submit"
-          color="primary"
-          onClick={handleEditAnnotation}
-          className="buttonLeftMargin"
-        >
-          Edit
-        </EuiButton>
+        <div style={{ display: 'flex' }}>
+          <EuiButton
+            fill
+            type="submit"
+            color="primary"
+            onClick={handleEditAnnotation}
+            className="buttonLeftMargin"
+          >
+            Edit
+          </EuiButton>
+          <EuiButton
+            fill
+            type="submit"
+            color="danger"
+            onClick={handleDeleteAnnotation}
+            className="buttonLeftMargin"
+          >
+            Delete
+          </EuiButton>
+        </div>
       ) : (
         <EuiButton
           fill

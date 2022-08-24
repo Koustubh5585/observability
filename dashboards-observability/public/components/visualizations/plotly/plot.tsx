@@ -8,11 +8,7 @@ import plotComponentFactory from 'react-plotly.js/factory';
 import Plotly from 'plotly.js-dist';
 import { uiSettingsService } from '../../../../common/utils';
 import { Annotations } from '../annotations/annotations';
-
-export enum ChartType {
-  BAR = 'Bar',
-  TIME_SERIES = 'Time Series'
-}
+import { visChartTypes } from 'common/constants/shared';
 
 interface PltProps {
   data: Plotly.Data[];
@@ -23,12 +19,13 @@ interface PltProps {
   onClickHandler?: (event: Readonly<Plotly.PlotMouseEvent>) => void;
   height?: string;
   dispatch?: (props: any) => void;
-  chartType?: ChartType;
   annotationText?: string;
   showAnnotationInput?: boolean;
   isEditMode?: boolean;
   onChangeHandler?: Function;
   onAddAnnotationHandler?: Function;
+  onEditAnnotationHandler?: Function;
+  onDeleteAnnotationHandler?: Function;
   onCancelAnnotationHandler?: Function;
 }
 
@@ -88,6 +85,8 @@ export function Plt(props: PltProps) {
         isEditMode={props.isEditMode!}
         onTextChange={props.onChangeHandler!}
         onAddAnnotation={props.onAddAnnotationHandler!}
+        onEditAnnotation={props.onEditAnnotationHandler!}
+        onDeleteAnnotation={props.onDeleteAnnotationHandler!}
         onCancelAnnotation={props.onCancelAnnotationHandler!}
       />
       <PlotComponent

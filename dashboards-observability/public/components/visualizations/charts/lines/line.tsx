@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { take, isEmpty, last } from 'lodash';
-import { ChartType, Plt } from '../../plotly/plot';
+import { Plt } from '../../plotly/plot';
 import { AvailabilityUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_availability';
 import { ThresholdUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_thresholds';
 import {
@@ -35,6 +35,7 @@ export const Line = ({ visualizations, layout, config }: any) => {
   } = visualizations.data.rawVizData;
   const { defaultAxes } = visualizations.data;
 
+  const storedAnnotations = sessionStorage.getItem('ChartsAnnotations');
   const [newAnnotationText, setNewAnnotationText] = useState<string>();
   const [annotationParam, setAnnotationParam] = useState({
     showInputBox: false,
@@ -43,6 +44,25 @@ export const Line = ({ visualizations, layout, config }: any) => {
     annotationText: Array(visualizations.data.rawVizData.size).fill(''),
     annotationIndex: 0,
   });
+
+  useEffect(() => {
+    const annotations = storedAnnotations ? JSON.parse(storedAnnotations) : [];
+    let annotationTexts;
+    annotations.map((item) => {
+      if (item.type === visualizations.vis.name) {
+        annotationTexts = item.annotationTexts;
+      }
+    });
+
+    // Reset values on chart change
+    setAnnotationParam({
+      showInputBox: false,
+      xAnnotation: '',
+      yAnnotation: '',
+      annotationText: annotationTexts || [],
+      annotationIndex: 0,
+    });
+  }, [visualizations.vis.name]);
 
   const {
     dataConfig = {},
@@ -197,7 +217,9 @@ export const Line = ({ visualizations, layout, config }: any) => {
         y: annotationParam.yAnnotation,
         xref: 'x',
         yref: 'y',
-        text: annotationParam.annotationText[annotationParam.annotationIndex],
+        text: annotationParam.xAnnotation
+          ? annotationParam.annotationText[annotationParam.annotationIndex]
+          : '',
         showarrow: true,
       },
     ],
@@ -244,13 +266,10 @@ export const Line = ({ visualizations, layout, config }: any) => {
     calculatedLineValues = [...calculatedLineValues, thresholdTraces];
   }
 
-  const mergedConfigs = useMemo(
-    () => ({
-      ...config,
-      ...(layoutConfig.config && layoutConfig.config),
-    }),
-    [config, layoutConfig.config]
-  );
+  const mergedConfigs = {
+    ...config,
+    ...(layoutConfig.config && layoutConfig.config),
+  };
 
   const onLineChartClick = () => {
     const myPlot = document.getElementById('explorerPlotComponent');
@@ -262,6 +281,7 @@ export const Line = ({ visualizations, layout, config }: any) => {
         annotationIndex: data.points[0].pointIndex,
         showInputBox: true,
       });
+      setNewAnnotationText(annotationParam.annotationText[data.points[0].pointIndex]);
     });
   };
 
@@ -287,6 +307,59 @@ export const Line = ({ visualizations, layout, config }: any) => {
       annotationText: newAnnotation,
       showInputBox: false,
     });
+    saveAnnotations(newAnnotation);
+  };
+
+  const handleEditAnnotation = () => {
+    const newAnnotation = [
+      ...annotationParam.annotationText.slice(0, annotationParam.annotationIndex),
+      newAnnotationText,
+      ...annotationParam.annotationText.slice(annotationParam.annotationIndex + 1),
+    ];
+    setAnnotationParam({
+      ...annotationParam,
+      annotationText: newAnnotation,
+      showInputBox: false,
+    });
+    saveAnnotations(newAnnotation);
+  };
+
+  const handleDeleteAnnotation = () => {
+    const newAnnotation = [
+      ...annotationParam.annotationText.slice(0, annotationParam.annotationIndex),
+      '',
+      ...annotationParam.annotationText.slice(annotationParam.annotationIndex + 1),
+    ];
+    setAnnotationParam({
+      ...annotationParam,
+      annotationText: newAnnotation,
+      showInputBox: false,
+    });
+    saveAnnotations(newAnnotation);
+  };
+
+  const saveAnnotations = (text: string[]) => {
+    let storedData = [];
+    const updatedData = {
+      type: visualizations.vis.name,
+      annotationTexts: text,
+    };
+
+    if (storedAnnotations) {
+      storedData = JSON.parse(storedAnnotations);
+      const found = storedData.some((item) => item.type === visualizations.vis.name);
+      if (!found) {
+        storedData.push(updatedData);
+      } else {
+        storedData = storedData.map((item) =>
+          item.type === visualizations.vis.name ? updatedData : item
+        );
+      }
+    } else {
+      storedData.push(updatedData);
+    }
+
+    sessionStorage.setItem('ChartsAnnotations', JSON.stringify(storedData));
   };
 
   return isDimensionTimestamp ? (
@@ -298,10 +371,11 @@ export const Line = ({ visualizations, layout, config }: any) => {
       showAnnotationInput={annotationParam.showInputBox}
       onChangeHandler={handleChange}
       onAddAnnotationHandler={handleAddAnnotation}
+      onEditAnnotationHandler={handleEditAnnotation}
+      onDeleteAnnotationHandler={handleDeleteAnnotation}
       onCancelAnnotationHandler={handleCancelAnnotation}
       isEditMode={annotationParam.annotationText[annotationParam.annotationIndex]}
       annotationText={newAnnotationText}
-      chartType={ChartType.TIME_SERIES}
     />
   ) : (
     <EmptyPlaceholder icon={visualizations?.vis?.icontype} />

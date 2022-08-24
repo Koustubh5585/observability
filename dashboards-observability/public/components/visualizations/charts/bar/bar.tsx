@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { isEmpty, last, take } from 'lodash';
-import { ChartType, Plt } from '../../plotly/plot';
-import { LONG_CHART_COLOR, PLOTLY_COLOR } from '../../../../../common/constants/shared';
+import { Plt } from '../../plotly/plot';
+import { LONG_CHART_COLOR, PLOTLY_COLOR, visChartTypes } from '../../../../../common/constants/shared';
 import { AvailabilityUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_availability';
 import { ThresholdUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_thresholds';
 import { hexToRgb } from '../../../event_analytics/utils/utils';
@@ -47,6 +47,7 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       : 'all';
   let bars, valueSeries, valueForXSeries;
 
+  const storedAnnotations = sessionStorage.getItem('ChartsAnnotations');
   const [newAnnotationText, setNewAnnotationText] = useState<string>();
   const [annotationParam, setAnnotationParam] = useState({
     showInputBox: false,
@@ -55,6 +56,20 @@ export const Bar = ({ visualizations, layout, config }: any) => {
     annotationText: Array(visualizations.data.rawVizData.size).fill(''),
     annotationIndex: 0,
   });
+
+  useEffect(() => {
+    const annotations = storedAnnotations ? JSON.parse(storedAnnotations) : [];
+    console.log(annotations);
+
+    annotations.map((item) => {
+      if (item.type === visualizations.vis.name) {
+        setAnnotationParam({
+          ...annotationParam,
+          annotationText: item.annotationTexts,
+        });
+      }
+    });
+  }, []);
 
   if (!isEmpty(xaxis) && !isEmpty(yaxis)) {
     valueSeries = isVertical ? [...yaxis] : [...xaxis];
@@ -209,7 +224,9 @@ export const Bar = ({ visualizations, layout, config }: any) => {
         y: annotationParam.yAnnotation,
         xref: 'x',
         yref: 'y',
-        text: annotationParam.annotationText[annotationParam.annotationIndex],
+        text: annotationParam.xAnnotation
+          ? annotationParam.annotationText[annotationParam.annotationIndex]
+          : '',
         showarrow: true,
       },
     ],
@@ -251,13 +268,11 @@ export const Bar = ({ visualizations, layout, config }: any) => {
     mergedLayout.shapes = [...mapToLine(thresholds, { dash: 'dashdot' }), ...mapToLine(levels, {})];
     bars = [...bars, thresholdTraces];
   }
-  const mergedConfigs = useMemo(
-    () => ({
-      ...config,
-      ...(layoutConfig.config && layoutConfig.config),
-    }),
-    [config, layoutConfig.config]
-  );
+
+  const mergedConfigs = {
+    ...config,
+    ...(layoutConfig.config && layoutConfig.config),
+  };
 
   const handleChange = (event) => {
     setNewAnnotationText(event.target.value);
@@ -281,6 +296,57 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       annotationText: newAnnotation,
       showInputBox: false,
     });
+    saveAnnotations(newAnnotation);
+  };
+
+  const handleEditAnnotation = () => {
+    const newAnnotation = [
+      ...annotationParam.annotationText.slice(0, annotationParam.annotationIndex),
+      newAnnotationText,
+      ...annotationParam.annotationText.slice(annotationParam.annotationIndex + 1),
+    ];
+    setAnnotationParam({
+      ...annotationParam,
+      annotationText: newAnnotation,
+      showInputBox: false,
+    });
+    saveAnnotations(newAnnotation);
+  };
+
+  const handleDeleteAnnotation = () => {
+    const newAnnotation = [
+      ...annotationParam.annotationText.slice(0, annotationParam.annotationIndex),
+      '',
+      ...annotationParam.annotationText.slice(annotationParam.annotationIndex + 1),
+    ];
+    setAnnotationParam({
+      ...annotationParam,
+      annotationText: newAnnotation,
+      showInputBox: false,
+    });
+    saveAnnotations(newAnnotation);
+  };
+
+  const saveAnnotations = (text: string[]) => {
+    let storedData = [];
+    const updatedData = {
+      type: visualizations.vis.name,
+      annotationTexts: text,
+    };
+
+    if (storedAnnotations) {
+      storedData = JSON.parse(storedAnnotations);
+      const found = storedData.some((item) => item.type === visualizations.vis.name);
+      if (!found) {
+        storedData.push(updatedData);
+      } else {
+        storedData = storedData.map((item) => (item.type === visualizations.vis.name ? updatedData : item));
+      }
+    } else {
+      storedData.push(updatedData);
+    }
+
+    sessionStorage.setItem('ChartsAnnotations', JSON.stringify(storedData));
   };
 
   const onBarChartClick = () => {
@@ -306,10 +372,11 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       showAnnotationInput={annotationParam.showInputBox}
       onChangeHandler={handleChange}
       onAddAnnotationHandler={handleAddAnnotation}
+      onEditAnnotationHandler={handleEditAnnotation}
+      onDeleteAnnotationHandler={handleDeleteAnnotation}
       onCancelAnnotationHandler={handleCancelAnnotation}
       isEditMode={annotationParam.annotationText[annotationParam.annotationIndex]}
       annotationText={newAnnotationText}
-      chartType={ChartType.BAR}
     />
   );
 };

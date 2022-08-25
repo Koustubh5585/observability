@@ -593,7 +593,45 @@ exports[`Treemap component Renders treemap component 1`] = `
     }
   >
     <div>
-      <Annotations />
+      <Annotations
+        data={
+          Array [
+            Object {
+              "labels": Array [
+                "error",
+                "info",
+                "login",
+                "security",
+                "success",
+                "warning",
+              ],
+              "marker": Object {},
+              "parents": Array [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+              ],
+              "sort": true,
+              "textinfo": "label+value+percent parent+percent entry",
+              "tiling": Object {
+                "packing": undefined,
+              },
+              "type": "treemap",
+              "values": Array [
+                154,
+                1753,
+                116,
+                468,
+                1964,
+                219,
+              ],
+            },
+          ]
+        }
+      />
       <PlotlyComponent
         config={
           Object {

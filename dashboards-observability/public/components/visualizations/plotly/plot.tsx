@@ -9,11 +9,6 @@ import Plotly from 'plotly.js-dist';
 import { uiSettingsService } from '../../../../common/utils';
 import { Annotations } from '../annotations/annotations';
 
-export enum ChartType {
-  BAR = 'Bar',
-  TIME_SERIES = 'Time Series'
-}
-
 interface PltProps {
   data: Plotly.Data[];
   layout?: Partial<Plotly.Layout>;
@@ -86,7 +81,7 @@ export function Plt(props: PltProps) {
   return (
     <div>
       <Annotations
-        dataSize={props.data[0].x.length}
+        data={props.data}
         chartType={props.chartType!}
         annotationText={props.annotationText!}
         annotationIndex={props.annotationIndex!}

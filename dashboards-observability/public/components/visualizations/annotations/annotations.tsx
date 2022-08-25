@@ -2,7 +2,7 @@ import { EuiButton, EuiFieldText, EuiPopover, EuiToolTip, EuiWrappingPopover } f
 import React from 'react';
 
 interface AnnotationProps {
-  dataSize: number;
+  data: Plotly.Data[];
   chartType: string;
   annotationText: string;
   annotationIndex: number;
@@ -40,7 +40,7 @@ export const Annotations: React.FC<AnnotationProps> = (props) => {
 
   const updateAnnotations = (mode: string) => {
     // read
-    let annotationTexts = Array(props.dataSize).fill('');
+    let annotationTexts = Array(props.data[0].x.length).fill('');
     const storedAnnotations = sessionStorage.getItem('ChartsAnnotations');
     const annotations = storedAnnotations ? JSON.parse(storedAnnotations) : [];
     annotations.map((item) => {

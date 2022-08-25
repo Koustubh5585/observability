@@ -2191,7 +2191,64 @@ exports[`Dashboard table component renders dashboard table 1`] = `
                                         onHoverHandler={[Function]}
                                       >
                                         <div>
-                                          <Annotations />
+                                          <Annotations
+                                            data={
+                                              Array [
+                                                Object {
+                                                  "hoverinfo": "none",
+                                                  "marker": Object {
+                                                    "color": "rgba(0, 0, 0, 0)",
+                                                  },
+                                                  "orientation": "h",
+                                                  "showlegend": false,
+                                                  "type": "bar",
+                                                  "width": 1,
+                                                  "x": Array [
+                                                    26.43,
+                                                  ],
+                                                  "y": Array [
+                                                    0,
+                                                  ],
+                                                },
+                                                Object {
+                                                  "marker": Object {
+                                                    "color": "#ffffff",
+                                                    "line": Object {
+                                                      "color": "#957ac9",
+                                                      "width": 1,
+                                                    },
+                                                  },
+                                                  "orientation": "h",
+                                                  "type": "bar",
+                                                  "width": 1,
+                                                  "x": Array [
+                                                    298.96999999999997,
+                                                  ],
+                                                  "y": Array [
+                                                    0,
+                                                  ],
+                                                },
+                                                Object {
+                                                  "marker": Object {
+                                                    "color": "#957ac9",
+                                                    "line": Object {
+                                                      "color": "#957ac9",
+                                                      "width": 1,
+                                                    },
+                                                  },
+                                                  "orientation": "h",
+                                                  "type": "bar",
+                                                  "width": 1,
+                                                  "x": Array [
+                                                    0,
+                                                  ],
+                                                  "y": Array [
+                                                    0,
+                                                  ],
+                                                },
+                                              ]
+                                            }
+                                          />
                                           <PlotlyComponent
                                             config={
                                               Object {

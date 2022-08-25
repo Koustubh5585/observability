@@ -23,7 +23,9 @@ interface PltProps {
   onClickHandler?: (event: Readonly<Plotly.PlotMouseEvent>) => void;
   height?: string;
   dispatch?: (props: any) => void;
+  chartType?: string;
   annotationText?: string;
+  annotationIndex?: number;
   showAnnotationInput?: boolean;
   isEditMode?: boolean;
   onChangeHandler?: Function;
@@ -84,7 +86,10 @@ export function Plt(props: PltProps) {
   return (
     <div>
       <Annotations
+        dataSize={props.data[0].x.length}
+        chartType={props.chartType!}
         annotationText={props.annotationText!}
+        annotationIndex={props.annotationIndex!}
         showInputBox={props.showAnnotationInput!}
         isEditMode={props.isEditMode!}
         onTextChange={props.onChangeHandler!}

@@ -6,7 +6,11 @@
 import React, { useEffect, useState } from 'react';
 import { isEmpty, last, take } from 'lodash';
 import { Plt } from '../../plotly/plot';
-import { LONG_CHART_COLOR, PLOTLY_COLOR, visChartTypes } from '../../../../../common/constants/shared';
+import {
+  LONG_CHART_COLOR,
+  PLOTLY_COLOR,
+  visChartTypes,
+} from '../../../../../common/constants/shared';
 import { AvailabilityUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_availability';
 import { ThresholdUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_thresholds';
 import { hexToRgb } from '../../../event_analytics/utils/utils';
@@ -296,7 +300,6 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       annotationText: newAnnotation,
       showInputBox: false,
     });
-    saveAnnotations(newAnnotation);
   };
 
   const handleEditAnnotation = () => {
@@ -310,7 +313,6 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       annotationText: newAnnotation,
       showInputBox: false,
     });
-    saveAnnotations(newAnnotation);
   };
 
   const handleDeleteAnnotation = () => {
@@ -324,29 +326,6 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       annotationText: newAnnotation,
       showInputBox: false,
     });
-    saveAnnotations(newAnnotation);
-  };
-
-  const saveAnnotations = (text: string[]) => {
-    let storedData = [];
-    const updatedData = {
-      type: visualizations.vis.name,
-      annotationTexts: text,
-    };
-
-    if (storedAnnotations) {
-      storedData = JSON.parse(storedAnnotations);
-      const found = storedData.some((item) => item.type === visualizations.vis.name);
-      if (!found) {
-        storedData.push(updatedData);
-      } else {
-        storedData = storedData.map((item) => (item.type === visualizations.vis.name ? updatedData : item));
-      }
-    } else {
-      storedData.push(updatedData);
-    }
-
-    sessionStorage.setItem('ChartsAnnotations', JSON.stringify(storedData));
   };
 
   const onBarChartClick = () => {
@@ -377,6 +356,8 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       onCancelAnnotationHandler={handleCancelAnnotation}
       isEditMode={annotationParam.annotationText[annotationParam.annotationIndex]}
       annotationText={newAnnotationText}
+      chartType={visualizations.vis.name}
+      annotationIndex={annotationParam.annotationIndex}
     />
   );
 };

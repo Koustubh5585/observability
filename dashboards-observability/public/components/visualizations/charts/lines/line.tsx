@@ -307,7 +307,6 @@ export const Line = ({ visualizations, layout, config }: any) => {
       annotationText: newAnnotation,
       showInputBox: false,
     });
-    saveAnnotations(newAnnotation);
   };
 
   const handleEditAnnotation = () => {
@@ -321,7 +320,6 @@ export const Line = ({ visualizations, layout, config }: any) => {
       annotationText: newAnnotation,
       showInputBox: false,
     });
-    saveAnnotations(newAnnotation);
   };
 
   const handleDeleteAnnotation = () => {
@@ -335,31 +333,6 @@ export const Line = ({ visualizations, layout, config }: any) => {
       annotationText: newAnnotation,
       showInputBox: false,
     });
-    saveAnnotations(newAnnotation);
-  };
-
-  const saveAnnotations = (text: string[]) => {
-    let storedData = [];
-    const updatedData = {
-      type: visualizations.vis.name,
-      annotationTexts: text,
-    };
-
-    if (storedAnnotations) {
-      storedData = JSON.parse(storedAnnotations);
-      const found = storedData.some((item) => item.type === visualizations.vis.name);
-      if (!found) {
-        storedData.push(updatedData);
-      } else {
-        storedData = storedData.map((item) =>
-          item.type === visualizations.vis.name ? updatedData : item
-        );
-      }
-    } else {
-      storedData.push(updatedData);
-    }
-
-    sessionStorage.setItem('ChartsAnnotations', JSON.stringify(storedData));
   };
 
   return isDimensionTimestamp ? (
@@ -376,6 +349,8 @@ export const Line = ({ visualizations, layout, config }: any) => {
       onCancelAnnotationHandler={handleCancelAnnotation}
       isEditMode={annotationParam.annotationText[annotationParam.annotationIndex]}
       annotationText={newAnnotationText}
+      chartType={visualizations.vis.name}
+      annotationIndex={annotationParam.annotationIndex}
     />
   ) : (
     <EmptyPlaceholder icon={visualizations?.vis?.icontype} />

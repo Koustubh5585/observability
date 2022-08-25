@@ -63,8 +63,6 @@ export const Bar = ({ visualizations, layout, config }: any) => {
 
   useEffect(() => {
     const annotations = storedAnnotations ? JSON.parse(storedAnnotations) : [];
-    console.log(annotations);
-
     annotations.map((item) => {
       if (item.type === visualizations.vis.name) {
         setAnnotationParam({

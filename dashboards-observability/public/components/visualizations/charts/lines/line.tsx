@@ -190,7 +190,6 @@ export const Line = ({ visualizations, layout, config }: any) => {
     barmode: 'group',
   };
 
-  console.log(">>>>>>>>>>>>>>>", annotationParam)
   const mergedLayout = {
     ...layout,
     ...layoutConfig.layout,

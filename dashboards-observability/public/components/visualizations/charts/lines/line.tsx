@@ -59,7 +59,7 @@ export const Line = ({ visualizations, layout, config }: any) => {
       showInputBox: false,
       xAnnotation: '',
       yAnnotation: '',
-      annotationText: annotationTexts || [],
+      annotationText: annotationTexts || Array(visualizations.data.rawVizData.size).fill(''),
       annotationIndex: 0,
     });
   }, [visualizations.vis.name]);
@@ -177,6 +177,8 @@ export const Line = ({ visualizations, layout, config }: any) => {
   let layoutForBarMode = {
     barmode: 'group',
   };
+
+  console.log(">>>>>>>>>>>>>>>", annotationParam)
   const mergedLayout = {
     ...layout,
     ...layoutConfig.layout,

@@ -8,7 +8,6 @@ import plotComponentFactory from 'react-plotly.js/factory';
 import Plotly from 'plotly.js-dist';
 import { uiSettingsService } from '../../../../common/utils';
 import { Annotations } from '../annotations/annotations';
-import { visChartTypes } from 'common/constants/shared';
 
 interface PltProps {
   data: Plotly.Data[];
@@ -82,7 +81,7 @@ export function Plt(props: PltProps) {
   return (
     <div>
       <Annotations
-        dataSize={props.data[0].x.length}
+        data={props.data}
         chartType={props.chartType!}
         annotationText={props.annotationText!}
         annotationIndex={props.annotationIndex!}

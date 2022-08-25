@@ -164,7 +164,28 @@ exports[`Service breakdown panel component renders service breakdown panel 1`] =
                 }
               >
                 <div>
-                  <Annotations />
+                  <Annotations
+                    data={
+                      Array [
+                        Object {
+                          "hovertemplate": "%{label}<br>%{value:.2f}%<extra></extra>",
+                          "labels": Array [
+                            "inventory",
+                          ],
+                          "marker": Object {
+                            "colors": Array [
+                              "#7492e7",
+                            ],
+                          },
+                          "textinfo": "none",
+                          "type": "pie",
+                          "values": Array [
+                            100,
+                          ],
+                        },
+                      ]
+                    }
+                  />
                   <PlotlyComponent
                     config={
                       Object {

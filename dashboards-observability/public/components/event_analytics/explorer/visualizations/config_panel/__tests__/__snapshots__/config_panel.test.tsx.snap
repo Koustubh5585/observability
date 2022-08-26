@@ -398,7 +398,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                     },
                     Object {
                       "component": [Function],
-                      "defaultState": 80,
+                      "defaultState": 40,
                       "eleType": "slider",
                       "mapTo": "fillOpacity",
                       "name": "Fill opacity",
@@ -432,7 +432,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
             },
           ],
         },
-        "fillopacity": 80,
+        "fillopacity": 40,
         "fulllabel": "Vertical bar",
         "groupwidth": 0.7,
         "icon": [Function],
@@ -688,7 +688,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                               },
                               Object {
                                 "component": [Function],
-                                "defaultState": 80,
+                                "defaultState": 40,
                                 "eleType": "slider",
                                 "mapTo": "fillOpacity",
                                 "name": "Fill opacity",
@@ -722,7 +722,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                       },
                     ],
                   },
-                  "fillopacity": 80,
+                  "fillopacity": 40,
                   "fulllabel": "Vertical bar",
                   "groupwidth": 0.7,
                   "icon": [Function],
@@ -943,7 +943,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                               },
                               Object {
                                 "component": [Function],
-                                "defaultState": 80,
+                                "defaultState": 40,
                                 "eleType": "slider",
                                 "mapTo": "fillOpacity",
                                 "name": "Fill opacity",
@@ -977,7 +977,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                       },
                     ],
                   },
-                  "fillopacity": 80,
+                  "fillopacity": 40,
                   "fulllabel": "Horizontal bar",
                   "groupwidth": 0.7,
                   "icon": [Function],
@@ -3263,7 +3263,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                               },
                               Object {
                                 "component": [Function],
-                                "defaultState": 80,
+                                "defaultState": 40,
                                 "eleType": "slider",
                                 "mapTo": "fillOpacity",
                                 "name": "Fill opacity",
@@ -3297,7 +3297,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                       },
                     ],
                   },
-                  "fillopacity": 80,
+                  "fillopacity": 40,
                   "fulllabel": "Vertical bar",
                   "groupwidth": 0.7,
                   "icon": [Function],
@@ -3550,7 +3550,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   },
                                   Object {
                                     "component": [Function],
-                                    "defaultState": 80,
+                                    "defaultState": 40,
                                     "eleType": "slider",
                                     "mapTo": "fillOpacity",
                                     "name": "Fill opacity",
@@ -3584,7 +3584,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                           },
                         ],
                       },
-                      "fillopacity": 80,
+                      "fillopacity": 40,
                       "fulllabel": "Vertical bar",
                       "groupwidth": 0.7,
                       "icon": [Function],
@@ -3842,7 +3842,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         },
                                         Object {
                                           "component": [Function],
-                                          "defaultState": 80,
+                                          "defaultState": 40,
                                           "eleType": "slider",
                                           "mapTo": "fillOpacity",
                                           "name": "Fill opacity",
@@ -3877,7 +3877,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                               ],
                             }
                           }
-                          fillopacity={80}
+                          fillopacity={40}
                           fulllabel="Vertical bar"
                           groupwidth={0.7}
                           icon={[Function]}
@@ -4069,7 +4069,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                           },
                                           Object {
                                             "component": [Function],
-                                            "defaultState": 80,
+                                            "defaultState": 40,
                                             "eleType": "slider",
                                             "mapTo": "fillOpacity",
                                             "name": "Fill opacity",
@@ -4103,7 +4103,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   },
                                 ],
                               },
-                              "fillopacity": 80,
+                              "fillopacity": 40,
                               "fulllabel": "Vertical bar",
                               "groupwidth": 0.7,
                               "icon": [Function],
@@ -4362,7 +4362,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                           },
                                           Object {
                                             "component": [Function],
-                                            "defaultState": 80,
+                                            "defaultState": 40,
                                             "eleType": "slider",
                                             "mapTo": "fillOpacity",
                                             "name": "Fill opacity",
@@ -4397,7 +4397,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 ],
                               }
                             }
-                            fillopacity={80}
+                            fillopacity={40}
                             fulllabel="Vertical bar"
                             groupwidth={0.7}
                             icon={[Function]}
@@ -4625,7 +4625,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               },
                                               Object {
                                                 "component": [Function],
-                                                "defaultState": 80,
+                                                "defaultState": 40,
                                                 "eleType": "slider",
                                                 "mapTo": "fillOpacity",
                                                 "name": "Fill opacity",
@@ -4660,7 +4660,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                     ],
                                   }
                                 }
-                                fillopacity={80}
+                                fillopacity={40}
                                 fulllabel="Vertical bar"
                                 groupwidth={0.7}
                                 icon={[Function]}
@@ -5072,7 +5072,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 },
                                 Object {
                                   "component": [Function],
-                                  "defaultState": 80,
+                                  "defaultState": 40,
                                   "eleType": "slider",
                                   "mapTo": "fillOpacity",
                                   "name": "Fill opacity",
@@ -5472,7 +5472,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         },
                                         Object {
                                           "component": [Function],
-                                          "defaultState": 80,
+                                          "defaultState": 40,
                                           "eleType": "slider",
                                           "mapTo": "fillOpacity",
                                           "name": "Fill opacity",
@@ -5506,7 +5506,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 },
                               ],
                             },
-                            "fillopacity": 80,
+                            "fillopacity": 40,
                             "fulllabel": "Vertical bar",
                             "groupwidth": 0.7,
                             "icon": [Function],
@@ -5754,7 +5754,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   },
                                   Object {
                                     "component": [Function],
-                                    "defaultState": 80,
+                                    "defaultState": 40,
                                     "eleType": "slider",
                                     "mapTo": "fillOpacity",
                                     "name": "Fill opacity",
@@ -6154,7 +6154,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                           },
                                           Object {
                                             "component": [Function],
-                                            "defaultState": 80,
+                                            "defaultState": 40,
                                             "eleType": "slider",
                                             "mapTo": "fillOpacity",
                                             "name": "Fill opacity",
@@ -6188,7 +6188,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   },
                                 ],
                               },
-                              "fillopacity": 80,
+                              "fillopacity": 40,
                               "fulllabel": "Vertical bar",
                               "groupwidth": 0.7,
                               "icon": [Function],
@@ -6667,7 +6667,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                           },
                                           Object {
                                             "component": [Function],
-                                            "defaultState": 80,
+                                            "defaultState": 40,
                                             "eleType": "slider",
                                             "mapTo": "fillOpacity",
                                             "name": "Fill opacity",
@@ -6701,7 +6701,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   },
                                 ],
                               },
-                              "fillopacity": 80,
+                              "fillopacity": 40,
                               "fulllabel": "Vertical bar",
                               "groupwidth": 0.7,
                               "icon": [Function],
@@ -7017,7 +7017,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 },
                                 Object {
                                   "component": [Function],
-                                  "defaultState": 80,
+                                  "defaultState": 40,
                                   "eleType": "slider",
                                   "mapTo": "fillOpacity",
                                   "name": "Fill opacity",
@@ -7417,7 +7417,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         },
                                         Object {
                                           "component": [Function],
-                                          "defaultState": 80,
+                                          "defaultState": 40,
                                           "eleType": "slider",
                                           "mapTo": "fillOpacity",
                                           "name": "Fill opacity",
@@ -7451,7 +7451,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 },
                               ],
                             },
-                            "fillopacity": 80,
+                            "fillopacity": 40,
                             "fulllabel": "Vertical bar",
                             "groupwidth": 0.7,
                             "icon": [Function],
@@ -7926,7 +7926,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                       },
                                                       Object {
                                                         "component": [Function],
-                                                        "defaultState": 80,
+                                                        "defaultState": 40,
                                                         "eleType": "slider",
                                                         "mapTo": "fillOpacity",
                                                         "name": "Fill opacity",
@@ -7960,7 +7960,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               },
                                             ],
                                           },
-                                          "fillopacity": 80,
+                                          "fillopacity": 40,
                                           "fulllabel": "Vertical bar",
                                           "groupwidth": 0.7,
                                           "icon": [Function],
@@ -8705,7 +8705,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                       },
                                                       Object {
                                                         "component": [Function],
-                                                        "defaultState": 80,
+                                                        "defaultState": 40,
                                                         "eleType": "slider",
                                                         "mapTo": "fillOpacity",
                                                         "name": "Fill opacity",
@@ -8739,7 +8739,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               },
                                             ],
                                           },
-                                          "fillopacity": 80,
+                                          "fillopacity": 40,
                                           "fulllabel": "Vertical bar",
                                           "groupwidth": 0.7,
                                           "icon": [Function],
@@ -9611,7 +9611,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         },
                                         Object {
                                           "component": [Function],
-                                          "defaultState": 80,
+                                          "defaultState": 40,
                                           "eleType": "slider",
                                           "mapTo": "fillOpacity",
                                           "name": "Fill opacity",
@@ -10003,7 +10003,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                       },
                                                       Object {
                                                         "component": [Function],
-                                                        "defaultState": 80,
+                                                        "defaultState": 40,
                                                         "eleType": "slider",
                                                         "mapTo": "fillOpacity",
                                                         "name": "Fill opacity",
@@ -10037,7 +10037,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               },
                                             ],
                                           },
-                                          "fillopacity": 80,
+                                          "fillopacity": 40,
                                           "fulllabel": "Vertical bar",
                                           "groupwidth": 0.7,
                                           "icon": [Function],
@@ -11997,7 +11997,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                   />
                                                 </EuiSpacer>
                                                 <SliderConfig
-                                                  currentRange={80}
+                                                  currentRange={40}
                                                   handleSliderChange={[Function]}
                                                   max={100}
                                                   maxRange={100}
@@ -12040,7 +12040,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                     showTicks={false}
                                                     showValue={false}
                                                     step={1}
-                                                    value={80}
+                                                    value={40}
                                                   >
                                                     <EuiRangeWrapper
                                                       className="euiRange euiRange--hasInput"
@@ -12059,7 +12059,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                           onChange={[Function]}
                                                           showTicks={false}
                                                           step={1}
-                                                          value={80}
+                                                          value={40}
                                                         >
                                                           <div
                                                             aria-hidden={true}
@@ -12077,7 +12077,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                               showTicks={false}
                                                               step={1}
                                                               tabIndex={-1}
-                                                              value={80}
+                                                              value={40}
                                                             >
                                                               <input
                                                                 aria-hidden={true}
@@ -12090,7 +12090,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                                 step={1}
                                                                 tabIndex={-1}
                                                                 type="range"
-                                                                value={80}
+                                                                value={40}
                                                               />
                                                             </EuiRangeSlider>
                                                           </div>
@@ -12111,7 +12111,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                           name="Fill opacity"
                                                           onChange={[Function]}
                                                           step={1}
-                                                          value={80}
+                                                          value={40}
                                                         >
                                                           <EuiFieldNumber
                                                             aria-label="change lineWidth slider"
@@ -12130,7 +12130,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                                 "width": "4.4em",
                                                               }
                                                             }
-                                                            value={80}
+                                                            value={40}
                                                           >
                                                             <EuiFormControlLayout
                                                               compressed={true}
@@ -12160,7 +12160,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                                         }
                                                                       }
                                                                       type="number"
-                                                                      value={80}
+                                                                      value={40}
                                                                     />
                                                                   </EuiValidatableControl>
                                                                   <EuiFormControlLayoutIcons
@@ -12597,7 +12597,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                       },
                                                       Object {
                                                         "component": [Function],
-                                                        "defaultState": 80,
+                                                        "defaultState": 40,
                                                         "eleType": "slider",
                                                         "mapTo": "fillOpacity",
                                                         "name": "Fill opacity",
@@ -12631,7 +12631,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               },
                                             ],
                                           },
-                                          "fillopacity": 80,
+                                          "fillopacity": 40,
                                           "fulllabel": "Vertical bar",
                                           "groupwidth": 0.7,
                                           "icon": [Function],

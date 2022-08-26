@@ -15,14 +15,16 @@ import {
   SliderConfig,
   ConfigBarChartStyles,
   ButtonGroupItem,
-  ConfigAvailability
+  ConfigAvailability,
 } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls';
 import { DefaultChartStyles, visChartTypes } from '../../../../../common/constants/shared';
+import { DefaultBarChartStyles } from '../../../../../common/constants/explorer';
 
 const sharedConfigs = getPlotlySharedConfigs();
 const VIS_CATEGORY = getPlotlyCategory();
 
-const { LegendPosition, ShowLegend } = DefaultChartStyles;
+const { LegendPosition, ShowLegend, LabelAngle, FillOpacity } = DefaultChartStyles;
+const { BarMode, GroupWidth, BarWidth, LineWidth } = DefaultBarChartStyles;
 const isHorizontalBar = (paramstype: string) =>
   paramstype === visChartTypes.HorizontalBar ? true : false;
 
@@ -41,12 +43,12 @@ export const createBarTypeDefinition = (params: any) => ({
   categoryaxis: 'xaxis',
   seriesaxis: 'yaxis',
   orientation: isHorizontalBar(params.type) ? 'h' : 'v',
-  mode: 'group',
-  labelangle: 0,
-  linewidth: 1,
-  fillopacity: 80,
-  groupwidth: 0.7,
-  barwidth: 0.97,
+  mode: BarMode,
+  labelangle: LabelAngle,
+  linewidth: LineWidth,
+  fillopacity: FillOpacity,
+  groupwidth: GroupWidth,
+  barwidth: BarWidth,
   showlegend: ShowLegend,
   legendposition: LegendPosition,
   component: Bar,
@@ -113,7 +115,7 @@ export const createBarTypeDefinition = (params: any) => ({
                     { name: 'Group', id: 'group' },
                     { name: 'Stack', id: 'stack' },
                   ],
-                  defaultSelections: [{ name: 'Group', id: 'group' }],
+                  defaultSelections: [{ name: 'Group', id: BarMode }],
                 },
               },
               {
@@ -127,7 +129,7 @@ export const createBarTypeDefinition = (params: any) => ({
                 component: SliderConfig,
                 mapTo: 'rotateBarLabels',
                 eleType: 'slider',
-                defaultState: 0,
+                defaultState: LabelAngle,
                 props: {
                   ticks: [
                     { label: '-90°', value: -90 },
@@ -145,7 +147,7 @@ export const createBarTypeDefinition = (params: any) => ({
                 name: 'Group width',
                 component: SliderConfig,
                 mapTo: 'groupWidth',
-                defaultState: 0.7,
+                defaultState: GroupWidth,
                 props: {
                   max: 1,
                   step: 0.01,
@@ -156,7 +158,7 @@ export const createBarTypeDefinition = (params: any) => ({
                 name: 'Bar width',
                 component: SliderConfig,
                 mapTo: 'barWidth',
-                defaultState: 0.97,
+                defaultState: BarWidth,
                 props: {
                   max: 1,
                   step: 0.01,
@@ -167,7 +169,7 @@ export const createBarTypeDefinition = (params: any) => ({
                 name: 'Line width',
                 component: SliderConfig,
                 mapTo: 'lineWidth',
-                defaultState: 1,
+                defaultState: LineWidth,
                 props: {
                   max: 10,
                 },
@@ -177,7 +179,7 @@ export const createBarTypeDefinition = (params: any) => ({
                 name: 'Fill opacity',
                 component: SliderConfig,
                 mapTo: 'fillOpacity',
-                defaultState: 80,
+                defaultState: FillOpacity,
                 props: {
                   max: 100,
                 },

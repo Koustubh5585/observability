@@ -322,7 +322,7 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
                       },
                       Object {
                         "component": [Function],
-                        "defaultState": 80,
+                        "defaultState": 40,
                         "eleType": "slider",
                         "mapTo": "fillOpacity",
                         "name": "Fill opacity",
@@ -356,7 +356,7 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
               },
             ],
           },
-          "fillopacity": 80,
+          "fillopacity": 40,
           "fulllabel": "Vertical bar",
           "groupwidth": 0.7,
           "icon": [Function],
@@ -721,7 +721,7 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
                         },
                         Object {
                           "component": [Function],
-                          "defaultState": 80,
+                          "defaultState": 40,
                           "eleType": "slider",
                           "mapTo": "fillOpacity",
                           "name": "Fill opacity",
@@ -755,7 +755,7 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
                 },
               ],
             },
-            "fillopacity": 80,
+            "fillopacity": 40,
             "fulllabel": "Vertical bar",
             "groupwidth": 0.7,
             "icon": [Function],
@@ -1143,7 +1143,7 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
                           },
                           Object {
                             "component": [Function],
-                            "defaultState": 80,
+                            "defaultState": 40,
                             "eleType": "slider",
                             "mapTo": "fillOpacity",
                             "name": "Fill opacity",
@@ -1177,7 +1177,7 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
                   },
                 ],
               },
-              "fillopacity": 80,
+              "fillopacity": 40,
               "fulllabel": "Vertical bar",
               "groupwidth": 0.7,
               "icon": [Function],
@@ -1233,7 +1233,7 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
             Array [
               Object {
                 "marker": Object {
-                  "color": "rgba(60,161,199,0.4)",
+                  "color": "rgba(60,161,199,0.2)",
                   "line": Object {
                     "color": "#3CA1C7",
                     "width": 1,
@@ -1312,7 +1312,7 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
               Array [
                 Object {
                   "marker": Object {
-                    "color": "rgba(60,161,199,0.4)",
+                    "color": "rgba(60,161,199,0.2)",
                     "line": Object {
                       "color": "#3CA1C7",
                       "width": 1,
@@ -3275,7 +3275,7 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                       },
                       Object {
                         "component": [Function],
-                        "defaultState": 80,
+                        "defaultState": 40,
                         "eleType": "slider",
                         "mapTo": "fillOpacity",
                         "name": "Fill opacity",
@@ -3309,7 +3309,7 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
               },
             ],
           },
-          "fillopacity": 80,
+          "fillopacity": 40,
           "fulllabel": "Horizontal bar",
           "groupwidth": 0.7,
           "icon": [Function],
@@ -3674,7 +3674,7 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                         },
                         Object {
                           "component": [Function],
-                          "defaultState": 80,
+                          "defaultState": 40,
                           "eleType": "slider",
                           "mapTo": "fillOpacity",
                           "name": "Fill opacity",
@@ -3708,7 +3708,7 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                 },
               ],
             },
-            "fillopacity": 80,
+            "fillopacity": 40,
             "fulllabel": "Horizontal bar",
             "groupwidth": 0.7,
             "icon": [Function],
@@ -4096,7 +4096,7 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                           },
                           Object {
                             "component": [Function],
-                            "defaultState": 80,
+                            "defaultState": 40,
                             "eleType": "slider",
                             "mapTo": "fillOpacity",
                             "name": "Fill opacity",
@@ -4130,7 +4130,7 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                   },
                 ],
               },
-              "fillopacity": 80,
+              "fillopacity": 40,
               "fulllabel": "Horizontal bar",
               "groupwidth": 0.7,
               "icon": [Function],
@@ -4186,7 +4186,7 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
             Array [
               Object {
                 "marker": Object {
-                  "color": "rgba(60,161,199,0.4)",
+                  "color": "rgba(60,161,199,0.2)",
                   "line": Object {
                     "color": "#3CA1C7",
                     "width": 1,
@@ -4265,7 +4265,7 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
               Array [
                 Object {
                   "marker": Object {
-                    "color": "rgba(60,161,199,0.4)",
+                    "color": "rgba(60,161,199,0.2)",
                     "line": Object {
                       "color": "#3CA1C7",
                       "width": 1,
@@ -4628,7 +4628,7 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
                       },
                       Object {
                         "component": [Function],
-                        "defaultState": 80,
+                        "defaultState": 40,
                         "eleType": "slider",
                         "mapTo": "fillOpacity",
                         "name": "Fill opacity",
@@ -4662,7 +4662,7 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
               },
             ],
           },
-          "fillopacity": 80,
+          "fillopacity": 40,
           "fulllabel": "Horizontal bar",
           "groupwidth": 0.7,
           "icon": [Function],
@@ -4973,7 +4973,7 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
                         },
                         Object {
                           "component": [Function],
-                          "defaultState": 80,
+                          "defaultState": 40,
                           "eleType": "slider",
                           "mapTo": "fillOpacity",
                           "name": "Fill opacity",
@@ -5007,7 +5007,7 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
                 },
               ],
             },
-            "fillopacity": 80,
+            "fillopacity": 40,
             "fulllabel": "Horizontal bar",
             "groupwidth": 0.7,
             "icon": [Function],
@@ -5341,7 +5341,7 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
                           },
                           Object {
                             "component": [Function],
-                            "defaultState": 80,
+                            "defaultState": 40,
                             "eleType": "slider",
                             "mapTo": "fillOpacity",
                             "name": "Fill opacity",
@@ -5375,7 +5375,7 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
                   },
                 ],
               },
-              "fillopacity": 80,
+              "fillopacity": 40,
               "fulllabel": "Horizontal bar",
               "groupwidth": 0.7,
               "icon": [Function],

@@ -286,6 +286,13 @@ exports[`Line component Renders line component 1`] = `
                         ],
                       },
                     },
+                    Object {
+                      "component": [Function],
+                      "eleType": "input",
+                      "mapTo": "legendSize",
+                      "name": "Legend size",
+                      "title": "Legend size",
+                    },
                   ],
                 },
                 Object {

@@ -285,6 +285,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                         ],
                       },
                     },
+                    Object {
+                      "component": [Function],
+                      "eleType": "input",
+                      "mapTo": "legendSize",
+                      "name": "Legend size",
+                      "title": "Legend size",
+                    },
                   ],
                 },
                 Object {
@@ -568,6 +575,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   ],
                                 },
                               },
+                              Object {
+                                "component": [Function],
+                                "eleType": "input",
+                                "mapTo": "legendSize",
+                                "name": "Legend size",
+                                "title": "Legend size",
+                              },
                             ],
                           },
                           Object {
@@ -815,6 +829,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                     },
                                   ],
                                 },
+                              },
+                              Object {
+                                "component": [Function],
+                                "eleType": "input",
+                                "mapTo": "legendSize",
+                                "name": "Legend size",
+                                "title": "Legend size",
                               },
                             ],
                           },
@@ -3129,6 +3150,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   ],
                                 },
                               },
+                              Object {
+                                "component": [Function],
+                                "eleType": "input",
+                                "mapTo": "legendSize",
+                                "name": "Legend size",
+                                "title": "Legend size",
+                              },
                             ],
                           },
                           Object {
@@ -3408,6 +3436,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         },
                                       ],
                                     },
+                                  },
+                                  Object {
+                                    "component": [Function],
+                                    "eleType": "input",
+                                    "mapTo": "legendSize",
+                                    "name": "Legend size",
+                                    "title": "Legend size",
                                   },
                                 ],
                               },
@@ -3694,6 +3729,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                             ],
                                           },
                                         },
+                                        Object {
+                                          "component": [Function],
+                                          "eleType": "input",
+                                          "mapTo": "legendSize",
+                                          "name": "Legend size",
+                                          "title": "Legend size",
+                                        },
                                       ],
                                     },
                                     Object {
@@ -3913,6 +3955,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                 },
                                               ],
                                             },
+                                          },
+                                          Object {
+                                            "component": [Function],
+                                            "eleType": "input",
+                                            "mapTo": "legendSize",
+                                            "name": "Legend size",
+                                            "title": "Legend size",
                                           },
                                         ],
                                       },
@@ -4200,6 +4249,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               ],
                                             },
                                           },
+                                          Object {
+                                            "component": [Function],
+                                            "eleType": "input",
+                                            "mapTo": "legendSize",
+                                            "name": "Legend size",
+                                            "title": "Legend size",
+                                          },
                                         ],
                                       },
                                       Object {
@@ -4455,6 +4511,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                     },
                                                   ],
                                                 },
+                                              },
+                                              Object {
+                                                "component": [Function],
+                                                "eleType": "input",
+                                                "mapTo": "legendSize",
+                                                "name": "Legend size",
+                                                "title": "Legend size",
                                               },
                                             ],
                                           },
@@ -4896,6 +4959,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                     ],
                                   },
                                 },
+                                Object {
+                                  "component": [Function],
+                                  "eleType": "input",
+                                  "mapTo": "legendSize",
+                                  "name": "Legend size",
+                                  "title": "Legend size",
+                                },
                               ],
                             },
                             Object {
@@ -5289,6 +5359,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                             ],
                                           },
                                         },
+                                        Object {
+                                          "component": [Function],
+                                          "eleType": "input",
+                                          "mapTo": "legendSize",
+                                          "name": "Legend size",
+                                          "title": "Legend size",
+                                        },
                                       ],
                                     },
                                     Object {
@@ -5563,6 +5640,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         },
                                       ],
                                     },
+                                  },
+                                  Object {
+                                    "component": [Function],
+                                    "eleType": "input",
+                                    "mapTo": "legendSize",
+                                    "name": "Legend size",
+                                    "title": "Legend size",
                                   },
                                 ],
                               },
@@ -5956,6 +6040,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                 },
                                               ],
                                             },
+                                          },
+                                          Object {
+                                            "component": [Function],
+                                            "eleType": "input",
+                                            "mapTo": "legendSize",
+                                            "name": "Legend size",
+                                            "title": "Legend size",
                                           },
                                         ],
                                       },
@@ -6463,6 +6554,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               ],
                                             },
                                           },
+                                          Object {
+                                            "component": [Function],
+                                            "eleType": "input",
+                                            "mapTo": "legendSize",
+                                            "name": "Legend size",
+                                            "title": "Legend size",
+                                          },
                                         ],
                                       },
                                       Object {
@@ -6805,6 +6903,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                       },
                                     ],
                                   },
+                                },
+                                Object {
+                                  "component": [Function],
+                                  "eleType": "input",
+                                  "mapTo": "legendSize",
+                                  "name": "Legend size",
+                                  "title": "Legend size",
                                 },
                               ],
                             },
@@ -7198,6 +7303,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               },
                                             ],
                                           },
+                                        },
+                                        Object {
+                                          "component": [Function],
+                                          "eleType": "input",
+                                          "mapTo": "legendSize",
+                                          "name": "Legend size",
+                                          "title": "Legend size",
                                         },
                                       ],
                                     },
@@ -7701,6 +7813,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                           ],
                                                         },
                                                       },
+                                                      Object {
+                                                        "component": [Function],
+                                                        "eleType": "input",
+                                                        "mapTo": "legendSize",
+                                                        "name": "Legend size",
+                                                        "title": "Legend size",
+                                                      },
                                                     ],
                                                   },
                                                   Object {
@@ -8195,6 +8314,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                             ],
                                           },
                                         },
+                                        Object {
+                                          "component": [Function],
+                                          "eleType": "input",
+                                          "mapTo": "legendSize",
+                                          "name": "Legend size",
+                                          "title": "Legend size",
+                                        },
                                       ]
                                     }
                                     sectionId="legend"
@@ -8465,6 +8591,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                             },
                                                           ],
                                                         },
+                                                      },
+                                                      Object {
+                                                        "component": [Function],
+                                                        "eleType": "input",
+                                                        "mapTo": "legendSize",
+                                                        "name": "Legend size",
+                                                        "title": "Legend size",
                                                       },
                                                     ],
                                                   },
@@ -9273,6 +9406,80 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                     className="euiSpacer euiSpacer--s"
                                                   />
                                                 </EuiSpacer>
+                                                <InputFieldItem
+                                                  currentValue=""
+                                                  handleInputChange={[Function]}
+                                                  numValue=""
+                                                  title="Legend size"
+                                                  vizState={Object {}}
+                                                >
+                                                  <EuiTitle
+                                                    size="xxs"
+                                                  >
+                                                    <h3
+                                                      className="euiTitle euiTitle--xxsmall"
+                                                    >
+                                                      Legend size
+                                                    </h3>
+                                                  </EuiTitle>
+                                                  <EuiSpacer
+                                                    size="s"
+                                                  >
+                                                    <div
+                                                      className="euiSpacer euiSpacer--s"
+                                                    />
+                                                  </EuiSpacer>
+                                                  <EuiFieldNumber
+                                                    data-test-subj="valueFieldNumber"
+                                                    fullWidth={true}
+                                                    id="random_html_id"
+                                                    min={1}
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    placeholder="auto"
+                                                    value=""
+                                                  >
+                                                    <EuiFormControlLayout
+                                                      compressed={false}
+                                                      fullWidth={true}
+                                                      inputId="random_html_id"
+                                                      isLoading={false}
+                                                    >
+                                                      <div
+                                                        className="euiFormControlLayout euiFormControlLayout--fullWidth"
+                                                      >
+                                                        <div
+                                                          className="euiFormControlLayout__childrenWrapper"
+                                                        >
+                                                          <EuiValidatableControl>
+                                                            <input
+                                                              className="euiFieldNumber euiFieldNumber--fullWidth"
+                                                              data-test-subj="valueFieldNumber"
+                                                              id="random_html_id"
+                                                              min={1}
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              placeholder="auto"
+                                                              type="number"
+                                                              value=""
+                                                            />
+                                                          </EuiValidatableControl>
+                                                          <EuiFormControlLayoutIcons
+                                                            compressed={false}
+                                                            isLoading={false}
+                                                          />
+                                                        </div>
+                                                      </div>
+                                                    </EuiFormControlLayout>
+                                                  </EuiFieldNumber>
+                                                </InputFieldItem>
+                                                <EuiSpacer
+                                                  size="s"
+                                                >
+                                                  <div
+                                                    className="euiSpacer euiSpacer--s"
+                                                  />
+                                                </EuiSpacer>
                                               </div>
                                             </div>
                                           </EuiResizeObserver>
@@ -9682,6 +9889,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                             },
                                                           ],
                                                         },
+                                                      },
+                                                      Object {
+                                                        "component": [Function],
+                                                        "eleType": "input",
+                                                        "mapTo": "legendSize",
+                                                        "name": "Legend size",
+                                                        "title": "Legend size",
                                                       },
                                                     ],
                                                   },
@@ -10219,6 +10433,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                 <InputFieldItem
                                                   currentValue=""
                                                   handleInputChange={[Function]}
+                                                  numValue=""
                                                   title="Label size"
                                                   vizState={Object {}}
                                                 >
@@ -10246,6 +10461,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                     onBlur={[Function]}
                                                     onChange={[Function]}
                                                     placeholder="auto"
+                                                    value=""
                                                   >
                                                     <EuiFormControlLayout
                                                       compressed={false}
@@ -10269,6 +10485,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                               onChange={[Function]}
                                                               placeholder="auto"
                                                               type="number"
+                                                              value=""
                                                             />
                                                           </EuiValidatableControl>
                                                           <EuiFormControlLayoutIcons
@@ -12266,6 +12483,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                             },
                                                           ],
                                                         },
+                                                      },
+                                                      Object {
+                                                        "component": [Function],
+                                                        "eleType": "input",
+                                                        "mapTo": "legendSize",
+                                                        "name": "Legend size",
+                                                        "title": "Legend size",
                                                       },
                                                     ],
                                                   },

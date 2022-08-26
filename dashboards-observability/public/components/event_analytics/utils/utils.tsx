@@ -320,4 +320,4 @@ export const lightenColor = (color: string, percent: number) => {
 };
 
 export const filterDataConfigParameter = (parameter: Array<ConfigListEntry>) =>
-  parameter.filter((i: ConfigListEntry) => i.label !== '');
+  parameter.filter((configItem: ConfigListEntry) => configItem.label !== '');

@@ -9,16 +9,18 @@ import { Plt } from '../../plotly/plot';
 import {
   LONG_CHART_COLOR,
   PLOTLY_COLOR,
-  visChartTypes,
+  FILLOPACITY_DIV_FACTOR,
+  THRESHOLD_LINE_WIDTH,
+  THRESHOLD_LINE_OPACITY,
+  MAX_BUCKET_LENGTH,
 } from '../../../../../common/constants/shared';
 import { AvailabilityUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_availability';
 import { ThresholdUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_thresholds';
-import { hexToRgb } from '../../../event_analytics/utils/utils';
+import { hexToRgb, filterDataConfigParameter } from '../../../event_analytics/utils/utils';
 import { EmptyPlaceholder } from '../../../event_analytics/explorer/visualizations/shared_components/empty_placeholder';
-import { FILLOPACITY_DIV_FACTOR } from '../../../../../common/constants/shared';
+import { ConfigListEntry } from '../../../../../common/types/explorer';
 
 export const Bar = ({ visualizations, layout, config }: any) => {
-  const DEFAULT_LABEL_SIZE = 10;
   const { vis } = visualizations;
   const {
     data,
@@ -26,7 +28,13 @@ export const Bar = ({ visualizations, layout, config }: any) => {
   } = visualizations.data.rawVizData;
   const lastIndex = fields.length - 1;
   const {
-    dataConfig = {},
+    dataConfig: {
+      chartStyles = {},
+      valueOptions = {},
+      legend = {},
+      colorTheme = [],
+      panelOptions = {},
+    },
     layoutConfig = {},
     availabilityConfig = {},
   } = visualizations?.data?.userConfigs;
@@ -63,55 +71,56 @@ export const Bar = ({ visualizations, layout, config }: any) => {
 
   useEffect(() => {
     const annotations = storedAnnotations ? JSON.parse(storedAnnotations) : [];
+    let annotationTexts;
     annotations.map((item) => {
       if (item.type === visualizations.vis.name) {
-        setAnnotationParam({
-          ...annotationParam,
-          annotationText: item.annotationTexts,
-        });
+        annotationTexts = item.annotationTexts;
       }
     });
-  }, []);
+
+    // Reset values on chart change
+    setAnnotationParam({
+      showInputBox: false,
+      xAnnotation: '',
+      yAnnotation: '',
+      annotationText: annotationTexts || Array(visualizations.data.rawVizData.size).fill(''),
+      annotationIndex: 0,
+    });
+  }, [visualizations.vis.name]);
 
   if (!isEmpty(xaxis) && !isEmpty(yaxis)) {
-    valueSeries = isVertical ? [...yaxis] : [...xaxis];
-    valueForXSeries = isVertical ? [...xaxis] : [...yaxis];
+    valueSeries = [...yaxis];
+    valueForXSeries = [...xaxis];
   } else {
     return <EmptyPlaceholder icon={visualizations?.vis?.icontype} />;
   }
-
-  const tickAngle = dataConfig?.chartStyles?.rotateBarLabels || vis.labelangle;
-  const lineWidth = dataConfig?.chartStyles?.lineWidth || vis.linewidth;
+  const tickAngle = chartStyles.rotateBarLabels || vis.labelangle;
+  const lineWidth = chartStyles.lineWidth || vis.linewidth;
   const fillOpacity =
-    dataConfig?.chartStyles?.fillOpacity !== undefined
-      ? dataConfig?.chartStyles?.fillOpacity / FILLOPACITY_DIV_FACTOR
-      : vis.fillOpacity / FILLOPACITY_DIV_FACTOR;
-  const barWidth = 1 - (dataConfig?.chartStyles?.barWidth || vis.barwidth);
-  const groupWidth = 1 - (dataConfig?.chartStyles?.groupWidth || vis.groupwidth);
-  const showLegend = !(
-    dataConfig?.legend?.showLegend && dataConfig.legend.showLegend !== vis.showlegend
-  );
-  const legendPosition = dataConfig?.legend?.position || vis.legendposition;
-  visualizations.data?.rawVizData?.dataConfig?.metrics
-    ? visualizations.data?.rawVizData?.dataConfig?.metrics
-    : [];
-  const labelSize = dataConfig?.chartStyles?.labelSize || DEFAULT_LABEL_SIZE;
+    chartStyles.fillOpacity !== undefined
+      ? chartStyles.fillOpacity / FILLOPACITY_DIV_FACTOR
+      : vis.fillopacity / FILLOPACITY_DIV_FACTOR;
+  const barWidth = 1 - (chartStyles.barWidth || vis.barwidth);
+  const groupWidth = 1 - (chartStyles.groupWidth || vis.groupwidth);
+  const showLegend = !(legend.showLegend && legend.showLegend !== vis.showlegend);
+  const legendPosition = legend.position || vis.legendposition;
+  const labelSize = chartStyles.labelSize;
+  const legendSize = legend.legendSize;
 
   const getSelectedColorTheme = (field: any, index: number) =>
-    (dataConfig?.colorTheme?.length > 0 &&
-      dataConfig.colorTheme.find((colorSelected) => colorSelected.name.name === field.label)
-        ?.color) ||
+    (colorTheme.length > 0 &&
+      colorTheme.find((colorSelected) => colorSelected.name.name === field.label)?.color) ||
     PLOTLY_COLOR[index % PLOTLY_COLOR.length];
 
   const prepareData = (valueForXSeries) => {
     return valueForXSeries
-      .map((dimension: any) => data[dimension.label])
-      .reduce((prev, cur) => {
+      .map((dimension: ConfigListEntry) => data[dimension.label])
+      ?.reduce((prev, cur) => {
         return prev.map((i, j) => `${i}, ${cur[j]}`);
       });
   };
 
-  const createNameData = (nameData, metricName: string) =>
+  const createNameData = (nameData: Array<string | number>, metricName: string) =>
     nameData?.map((el) => el + ',' + metricName);
 
   // for multiple dimention and metrics with timestamp
@@ -125,23 +134,22 @@ export const Bar = ({ visualizations, layout, config }: any) => {
               return prev.map((i, j) => `${i}, ${cur[j]}`);
             })
         : [];
-
     let dimensionsData = valueForXSeries
       .filter((item) => item.type === 'timestamp')
       .map((dimension) => data[dimension.label])
       .flat();
 
     bars = valueSeries
-      .map((field: any, index: number) => {
+      .map((field: ConfigListEntry, index: number) => {
         const selectedColor = getSelectedColorTheme(field, index);
-        return dimensionsData.map((dimension: any, j: number) => {
+        return dimensionsData.map((dimension: number | string, j: number) => {
           return {
             x: isVertical
               ? !isEmpty(xaxis)
                 ? dimension
                 : data[fields[lastIndex].name]
-              : data[field.label],
-            y: isVertical ? data[field.label][j] : dimensionsData, // TODO: orinetation
+              : data[field.label][j],
+            y: isVertical ? data[field.label][j] : dimension,
             type: vis.type,
             marker: {
               color: hexToRgb(selectedColor, fillOpacity),
@@ -164,15 +172,13 @@ export const Bar = ({ visualizations, layout, config }: any) => {
         acc[name] = acc[name] || { x: [], y: [], name, type, marker, orientation, hoverinfo };
         acc[name].x.push(x);
         acc[name].y.push(y);
-
         return acc;
       }, {})
     );
   } else {
     // for multiple dimention and metrics without timestamp
     const dimensionsData = prepareData(valueForXSeries);
-    const metricsData = prepareData(valueSeries);
-    bars = valueSeries.map((field: any, index: number) => {
+    bars = valueSeries.map((field: ConfigListEntry, index: number) => {
       const selectedColor = getSelectedColorTheme(field, index);
       return {
         x: isVertical
@@ -180,7 +186,7 @@ export const Bar = ({ visualizations, layout, config }: any) => {
             ? dimensionsData
             : data[fields[lastIndex].name]
           : data[field.name],
-        y: isVertical ? data[field.name] : metricsData, // TODO: add if isempty true
+        y: isVertical ? data[field.name] : dimensionsData,
         type: vis.type,
         marker: {
           color: hexToRgb(selectedColor, fillOpacity),
@@ -199,25 +205,41 @@ export const Bar = ({ visualizations, layout, config }: any) => {
   // If chart has length of result buckets < 16
   // then use the LONG_CHART_COLOR for all the bars in the chart
   const plotlyColorway =
-    data[fields[lastIndex].name].length < 16 ? PLOTLY_COLOR : [LONG_CHART_COLOR];
+    data[fields[lastIndex].name].length < MAX_BUCKET_LENGTH ? PLOTLY_COLOR : [LONG_CHART_COLOR];
   const mergedLayout = {
     colorway: plotlyColorway,
     ...layout,
     ...(layoutConfig.layout && layoutConfig.layout),
-    title: dataConfig?.panelOptions?.title || layoutConfig.layout?.title || '',
-    barmode: dataConfig?.chartStyles?.mode || visualizations.vis.mode,
-    font: {
-      size: labelSize,
-    },
+    title: panelOptions.title || layoutConfig.layout?.title || '',
+    barmode: chartStyles.mode || vis.mode,
     xaxis: {
-      tickangle: tickAngle,
+      ...(isVertical && { tickangle: tickAngle }),
       automargin: true,
+      tickfont: {
+        ...(labelSize && {
+          size: labelSize,
+        }),
+      },
+    },
+    yaxis: {
+      ...(!isVertical && { tickangle: tickAngle }),
+      automargin: true,
+      tickfont: {
+        ...(labelSize && {
+          size: labelSize,
+        }),
+      },
     },
     bargap: groupWidth,
     bargroupgap: barWidth,
     legend: {
       ...layout.legend,
       orientation: legendPosition,
+      ...(legendSize && {
+        font: {
+          size: legendSize,
+        },
+      }),
     },
     showlegend: showLegend,
     annotations: [
@@ -233,14 +255,14 @@ export const Bar = ({ visualizations, layout, config }: any) => {
       },
     ],
   };
-  if (dataConfig.thresholds || availabilityConfig.level) {
+  if (availabilityConfig.level) {
     const thresholdTraces = {
       x: [],
       y: [],
       mode: 'text',
       text: [],
     };
-    const thresholds = dataConfig.thresholds ? dataConfig.thresholds : [];
+
     const levels = availabilityConfig.level ? availabilityConfig.level : [];
 
     const mapToLine = (list: ThresholdUnitType[] | AvailabilityUnitType[], lineStyle: any) => {
@@ -257,17 +279,17 @@ export const Bar = ({ visualizations, layout, config }: any) => {
           x1: last(data[!isEmpty(xaxis) ? xaxis[0]?.label : fields[lastIndex].name]),
           y1: thr.value,
           name: thr.name || '',
-          opacity: 0.7,
+          opacity: THRESHOLD_LINE_OPACITY,
           line: {
             color: thr.color,
-            width: 3,
+            width: THRESHOLD_LINE_WIDTH,
             ...lineStyle,
           },
         };
       });
     };
 
-    mergedLayout.shapes = [...mapToLine(thresholds, { dash: 'dashdot' }), ...mapToLine(levels, {})];
+    mergedLayout.shapes = mapToLine(levels, {});
     bars = [...bars, thresholdTraces];
   }
 
@@ -331,8 +353,14 @@ export const Bar = ({ visualizations, layout, config }: any) => {
     myPlot?.on('plotly_click', (data) => {
       setAnnotationParam({
         ...annotationParam,
-        xAnnotation: `${data.points[0].x}`,
-        yAnnotation: `${parseFloat(data.points[0].y.toPrecision(4))}`,
+        xAnnotation:
+          visualizations.vis.name === 'bar'
+            ? `${data.points[0].x}`
+            : `${parseFloat(data.points[0].x.toPrecision(4))}`,
+        yAnnotation:
+          visualizations.vis.name === 'bar'
+            ? `${parseFloat(data.points[0].y.toPrecision(4))}`
+            : `${data.points[0].y}`,
         annotationIndex: data.points[0].pointIndex,
         showInputBox: true,
       });

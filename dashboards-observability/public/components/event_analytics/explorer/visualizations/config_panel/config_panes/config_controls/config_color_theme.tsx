@@ -29,6 +29,7 @@ export const ConfigColorTheme = ({
 }: any) => {
   const { data } = visualizations;
   const { data: vizData = {}, metadata: { fields = [] } = {} } = data?.rawVizData;
+  const metricsData = data?.userConfigs?.dataConfig?.valueOptions?.metrics ? data.userConfigs.dataConfig.valueOptions.metrics : [];
   const addButtonText = ADD_BUTTON_TEXT;
   const getColorThemeRow = () => ({
     ctid: htmlIdGenerator('ct')(),

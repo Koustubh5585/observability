@@ -1,7 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text component Renders text component 1`] = `
-<Text
+exports[`Bar component Renders bar component 1`] = `
+<Bar
+  config={true}
+  layout={
+    Object {
+      "colorway": Array [
+        "#8C55A3",
+      ],
+      "height": 220,
+      "margin": Object {
+        "b": 15,
+        "l": 60,
+        "pad": 0,
+        "r": 10,
+        "t": 30,
+      },
+      "showlegend": true,
+    }
+  }
   visualizations={
     Object {
       "data": Object {
@@ -215,66 +232,8 @@ exports[`Text component Renders text component 1`] = `
               "editor": [Function],
               "id": "data-panel",
               "mapTo": "dataConfig",
-              "name": "Style",
+              "name": "Data",
               "sections": Array [
-                Object {
-                  "editor": [Function],
-                  "id": "tooltip_options",
-                  "mapTo": "tooltipOptions",
-                  "name": "Tooltip options",
-                  "schemas": Array [
-                    Object {
-                      "component": null,
-                      "mapTo": "tooltipMode",
-                      "name": "Tooltip mode",
-                      "props": Object {
-                        "defaultSelections": Array [
-                          Object {
-                            "id": "show",
-                            "name": "Show",
-                          },
-                        ],
-                        "options": Array [
-                          Object {
-                            "id": "show",
-                            "name": "Show",
-                          },
-                          Object {
-                            "id": "hidden",
-                            "name": "Hidden",
-                          },
-                        ],
-                      },
-                    },
-                    Object {
-                      "component": null,
-                      "mapTo": "tooltipText",
-                      "name": "Tooltip text",
-                      "props": Object {
-                        "defaultSelections": Array [
-                          Object {
-                            "id": "all",
-                            "name": "All",
-                          },
-                        ],
-                        "options": Array [
-                          Object {
-                            "id": "all",
-                            "name": "All",
-                          },
-                          Object {
-                            "id": "x",
-                            "name": "Dimension",
-                          },
-                          Object {
-                            "id": "y",
-                            "name": "Metrics",
-                          },
-                        ],
-                      },
-                    },
-                  ],
-                },
                 Object {
                   "editor": [Function],
                   "id": "legend",
@@ -475,18 +434,18 @@ exports[`Text component Renders text component 1`] = `
           ],
         },
         "fillopacity": 40,
-        "fulllabel": "Vertical bar",
+        "fulllabel": "Horizontal bar",
         "groupwidth": 0.7,
         "icon": [Function],
-        "icontype": "visBarVerticalStacked",
-        "id": "bar",
-        "label": "Vertical bar",
+        "icontype": "visBarHorizontalStacked",
+        "id": "horizontal_bar",
+        "label": "Horizontal bar",
         "labelangle": 0,
         "legendposition": "v",
         "linewidth": 1,
         "mode": "group",
-        "name": "bar",
-        "orientation": "v",
+        "name": "horizontal_bar",
+        "orientation": "h",
         "selection": Object {
           "dataLoss": "nothing",
         },
@@ -519,36 +478,241 @@ exports[`Text component Renders text component 1`] = `
     }
   }
 >
-  <div
-    data-test-subj="workspace__viz_markdown"
+  <Plt
+    annotationIndex={0}
+    chartType="horizontal_bar"
+    config={Object {}}
+    data={
+      Array [
+        Object {
+          "marker": Object {
+            "color": "rgba(60,161,199,0.2)",
+            "line": Object {
+              "color": "#3CA1C7",
+              "width": 1,
+            },
+          },
+          "name": "count()",
+          "orientation": "h",
+          "type": "bar",
+          "x": Array [
+            154,
+            1753,
+            116,
+            468,
+            1964,
+            219,
+          ],
+          "y": Array [
+            "error",
+            "info",
+            "login",
+            "security",
+            "success",
+            "warning",
+          ],
+        },
+      ]
+    }
+    isEditMode=""
+    layout={
+      Object {
+        "annotations": Array [
+          Object {
+            "showarrow": true,
+            "text": "",
+            "x": "",
+            "xref": "x",
+            "y": "",
+            "yref": "y",
+          },
+        ],
+        "bargap": 0.30000000000000004,
+        "bargroupgap": 0.030000000000000027,
+        "barmode": "group",
+        "colorway": Array [
+          "#8C55A3",
+        ],
+        "height": 220,
+        "legend": Object {
+          "orientation": "v",
+        },
+        "margin": Object {
+          "b": 15,
+          "l": 60,
+          "pad": 0,
+          "r": 10,
+          "t": 30,
+        },
+        "showlegend": true,
+        "title": "",
+        "xaxis": Object {
+          "automargin": true,
+          "tickfont": Object {},
+        },
+        "yaxis": Object {
+          "automargin": true,
+          "tickangle": 0,
+          "tickfont": Object {},
+        },
+      }
+    }
+    onAddAnnotationHandler={[Function]}
+    onCancelAnnotationHandler={[Function]}
+    onChangeHandler={[Function]}
+    onClickHandler={[Function]}
+    onDeleteAnnotationHandler={[Function]}
+    onEditAnnotationHandler={[Function]}
+    showAnnotationInput={false}
   >
-    <EuiMarkdownFormat>
-      <div
-        className="euiMarkdownFormat"
+    <div>
+      <Annotations
+        annotationIndex={0}
+        chartType="horizontal_bar"
+        data={
+          Array [
+            Object {
+              "marker": Object {
+                "color": "rgba(60,161,199,0.2)",
+                "line": Object {
+                  "color": "#3CA1C7",
+                  "width": 1,
+                },
+              },
+              "name": "count()",
+              "orientation": "h",
+              "type": "bar",
+              "x": Array [
+                154,
+                1753,
+                116,
+                468,
+                1964,
+                219,
+              ],
+              "y": Array [
+                "error",
+                "info",
+                "login",
+                "security",
+                "success",
+                "warning",
+              ],
+            },
+          ]
+        }
+        isEditMode=""
+        onAddAnnotation={[Function]}
+        onCancelAnnotation={[Function]}
+        onDeleteAnnotation={[Function]}
+        onEditAnnotation={[Function]}
+        onTextChange={[Function]}
+        showInputBox={false}
+      />
+      <PlotlyComponent
+        config={
+          Object {
+            "displayModeBar": false,
+          }
+        }
+        data={
+          Array [
+            Object {
+              "marker": Object {
+                "color": "rgba(60,161,199,0.2)",
+                "line": Object {
+                  "color": "#3CA1C7",
+                  "width": 1,
+                },
+              },
+              "name": "count()",
+              "orientation": "h",
+              "type": "bar",
+              "x": Array [
+                154,
+                1753,
+                116,
+                468,
+                1964,
+                219,
+              ],
+              "y": Array [
+                "error",
+                "info",
+                "login",
+                "security",
+                "success",
+                "warning",
+              ],
+            },
+          ]
+        }
+        debug={false}
+        divId="explorerPlotComponent"
+        layout={
+          Object {
+            "annotations": Array [
+              Object {
+                "showarrow": true,
+                "text": "",
+                "x": "",
+                "xref": "x",
+                "y": "",
+                "yref": "y",
+              },
+            ],
+            "autosize": true,
+            "bargap": 0.30000000000000004,
+            "bargroupgap": 0.030000000000000027,
+            "barmode": "group",
+            "colorway": Array [
+              "#8C55A3",
+            ],
+            "height": 220,
+            "hovermode": "closest",
+            "legend": Object {
+              "orientation": "v",
+            },
+            "margin": Object {
+              "b": 15,
+              "l": 60,
+              "pad": 0,
+              "r": 10,
+              "t": 30,
+            },
+            "showlegend": true,
+            "title": "",
+            "xaxis": Object {
+              "automargin": true,
+              "tickfont": Object {},
+            },
+            "yaxis": Object {
+              "automargin": true,
+              "tickangle": 0,
+              "tickfont": Object {},
+            },
+          }
+        }
+        onClick={[Function]}
+        style={
+          Object {
+            "height": "100%",
+            "width": "100%",
+          }
+        }
+        useResizeHandler={true}
       >
-        <div>
-          <h2
-            key="h-2"
-          >
-            Text
-          </h2>
-          
-
-          <p
-            key="h-3"
-          >
-            Welcome to text editor!
-          </p>
-          
-
-          <p
-            key="h-4"
-          >
-            With text editor, you are able to add text description(s) to your dashboards.
-          </p>
-        </div>
-      </div>
-    </EuiMarkdownFormat>
-  </div>
-</Text>
+        <div
+          id="explorerPlotComponent"
+          style={
+            Object {
+              "height": "100%",
+              "width": "100%",
+            }
+          }
+        />
+      </PlotlyComponent>
+    </div>
+  </Plt>
+</Bar>
 `;

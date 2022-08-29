@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Heatmap component Renders heatmap component 1`] = `
-<HeatMap
-  config={Object {}}
+exports[`Bar component Renders bar component 1`] = `
+<Bar
+  config={true}
   layout={
     Object {
       "colorway": Array [
@@ -434,18 +434,18 @@ exports[`Heatmap component Renders heatmap component 1`] = `
           ],
         },
         "fillopacity": 40,
-        "fulllabel": "Vertical bar",
+        "fulllabel": "Horizontal bar",
         "groupwidth": 0.7,
         "icon": [Function],
-        "icontype": "visBarVerticalStacked",
-        "id": "bar",
-        "label": "Vertical bar",
+        "icontype": "visBarHorizontalStacked",
+        "id": "horizontal_bar",
+        "label": "Horizontal bar",
         "labelangle": 0,
         "legendposition": "v",
         "linewidth": 1,
         "mode": "group",
-        "name": "bar",
-        "orientation": "v",
+        "name": "horizontal_bar",
+        "orientation": "h",
         "selection": Object {
           "dataLoss": "nothing",
         },
@@ -478,82 +478,241 @@ exports[`Heatmap component Renders heatmap component 1`] = `
     }
   }
 >
-  <EmptyPlaceholder
-    icon="visBarVerticalStacked"
+  <Plt
+    annotationIndex={0}
+    chartType="horizontal_bar"
+    config={Object {}}
+    data={
+      Array [
+        Object {
+          "marker": Object {
+            "color": "rgba(60,161,199,0.2)",
+            "line": Object {
+              "color": "#3CA1C7",
+              "width": 1,
+            },
+          },
+          "name": "count()",
+          "orientation": "h",
+          "type": "bar",
+          "x": Array [
+            154,
+            1753,
+            116,
+            468,
+            1964,
+            219,
+          ],
+          "y": Array [
+            "error",
+            "info",
+            "login",
+            "security",
+            "success",
+            "warning",
+          ],
+        },
+      ]
+    }
+    isEditMode=""
+    layout={
+      Object {
+        "annotations": Array [
+          Object {
+            "showarrow": true,
+            "text": "",
+            "x": "",
+            "xref": "x",
+            "y": "",
+            "yref": "y",
+          },
+        ],
+        "bargap": 0.30000000000000004,
+        "bargroupgap": 0.030000000000000027,
+        "barmode": "group",
+        "colorway": Array [
+          "#8C55A3",
+        ],
+        "height": 220,
+        "legend": Object {
+          "orientation": "v",
+        },
+        "margin": Object {
+          "b": 15,
+          "l": 60,
+          "pad": 0,
+          "r": 10,
+          "t": 30,
+        },
+        "showlegend": true,
+        "title": "",
+        "xaxis": Object {
+          "automargin": true,
+          "tickfont": Object {},
+        },
+        "yaxis": Object {
+          "automargin": true,
+          "tickangle": 0,
+          "tickfont": Object {},
+        },
+      }
+    }
+    onAddAnnotationHandler={[Function]}
+    onCancelAnnotationHandler={[Function]}
+    onChangeHandler={[Function]}
+    onClickHandler={[Function]}
+    onDeleteAnnotationHandler={[Function]}
+    onEditAnnotationHandler={[Function]}
+    showAnnotationInput={false}
   >
-    <EuiText
-      className="lnsChart__empty"
-      color="subdued"
-      data-test-subj="vizWorkspace__noData"
-      size="xs"
-      textAlign="center"
-    >
-      <div
-        className="euiText euiText--extraSmall lnsChart__empty"
-        data-test-subj="vizWorkspace__noData"
+    <div>
+      <Annotations
+        annotationIndex={0}
+        chartType="horizontal_bar"
+        data={
+          Array [
+            Object {
+              "marker": Object {
+                "color": "rgba(60,161,199,0.2)",
+                "line": Object {
+                  "color": "#3CA1C7",
+                  "width": 1,
+                },
+              },
+              "name": "count()",
+              "orientation": "h",
+              "type": "bar",
+              "x": Array [
+                154,
+                1753,
+                116,
+                468,
+                1964,
+                219,
+              ],
+              "y": Array [
+                "error",
+                "info",
+                "login",
+                "security",
+                "success",
+                "warning",
+              ],
+            },
+          ]
+        }
+        isEditMode=""
+        onAddAnnotation={[Function]}
+        onCancelAnnotation={[Function]}
+        onDeleteAnnotation={[Function]}
+        onEditAnnotation={[Function]}
+        onTextChange={[Function]}
+        showInputBox={false}
+      />
+      <PlotlyComponent
+        config={
+          Object {
+            "displayModeBar": false,
+          }
+        }
+        data={
+          Array [
+            Object {
+              "marker": Object {
+                "color": "rgba(60,161,199,0.2)",
+                "line": Object {
+                  "color": "#3CA1C7",
+                  "width": 1,
+                },
+              },
+              "name": "count()",
+              "orientation": "h",
+              "type": "bar",
+              "x": Array [
+                154,
+                1753,
+                116,
+                468,
+                1964,
+                219,
+              ],
+              "y": Array [
+                "error",
+                "info",
+                "login",
+                "security",
+                "success",
+                "warning",
+              ],
+            },
+          ]
+        }
+        debug={false}
+        divId="explorerPlotComponent"
+        layout={
+          Object {
+            "annotations": Array [
+              Object {
+                "showarrow": true,
+                "text": "",
+                "x": "",
+                "xref": "x",
+                "y": "",
+                "yref": "y",
+              },
+            ],
+            "autosize": true,
+            "bargap": 0.30000000000000004,
+            "bargroupgap": 0.030000000000000027,
+            "barmode": "group",
+            "colorway": Array [
+              "#8C55A3",
+            ],
+            "height": 220,
+            "hovermode": "closest",
+            "legend": Object {
+              "orientation": "v",
+            },
+            "margin": Object {
+              "b": 15,
+              "l": 60,
+              "pad": 0,
+              "r": 10,
+              "t": 30,
+            },
+            "showlegend": true,
+            "title": "",
+            "xaxis": Object {
+              "automargin": true,
+              "tickfont": Object {},
+            },
+            "yaxis": Object {
+              "automargin": true,
+              "tickangle": 0,
+              "tickfont": Object {},
+            },
+          }
+        }
+        onClick={[Function]}
+        style={
+          Object {
+            "height": "100%",
+            "width": "100%",
+          }
+        }
+        useResizeHandler={true}
       >
-        <EuiTextAlign
-          textAlign="center"
-        >
-          <div
-            className="euiTextAlign euiTextAlign--center"
-          >
-            <EuiTextColor
-              color="subdued"
-              component="div"
-            >
-              <div
-                className="euiTextColor euiTextColor--subdued"
-              >
-                <EuiIcon
-                  color="subdued"
-                  size="xxl"
-                  type="visBarVerticalStacked"
-                >
-                  <EuiIconEmpty
-                    aria-hidden={true}
-                    className="euiIcon euiIcon--xxLarge euiIcon--subdued euiIcon-isLoading"
-                    focusable="false"
-                    role="img"
-                    style={null}
-                  >
-                    <svg
-                      aria-hidden={true}
-                      className="euiIcon euiIcon--xxLarge euiIcon--subdued euiIcon-isLoading"
-                      focusable="false"
-                      height={16}
-                      role="img"
-                      style={null}
-                      viewBox="0 0 16 16"
-                      width={16}
-                      xmlns="http://www.w3.org/2000/svg"
-                    />
-                  </EuiIconEmpty>
-                </EuiIcon>
-                <EuiSpacer
-                  size="l"
-                >
-                  <div
-                    className="euiSpacer euiSpacer--l"
-                  />
-                </EuiSpacer>
-                <p>
-                  <FormattedMessage
-                    defaultMessage="No results found"
-                    id="visualization_noData"
-                    values={Object {}}
-                  >
-                    <span>
-                      No results found
-                    </span>
-                  </FormattedMessage>
-                </p>
-              </div>
-            </EuiTextColor>
-          </div>
-        </EuiTextAlign>
-      </div>
-    </EuiText>
-  </EmptyPlaceholder>
-</HeatMap>
+        <div
+          id="explorerPlotComponent"
+          style={
+            Object {
+              "height": "100%",
+              "width": "100%",
+            }
+          }
+        />
+      </PlotlyComponent>
+    </div>
+  </Plt>
+</Bar>
 `;

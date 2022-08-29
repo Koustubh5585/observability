@@ -12,6 +12,7 @@ import {
   ExplorerData,
 } from '../../../../../common/types/explorer';
 import { visChartTypes } from '../../../../../common/constants/shared';
+// import { getVisTypeData } from '../../../custom_panels/helpers/utils';
 
 interface IVizContainerProps {
   vizId: string;
@@ -130,6 +131,19 @@ const getUserConfigs = (userSelectedConfigs: object, vizFields: IField[], visNam
   return isEmpty(configOfUser) ? userSelectedConfigs : configOfUser;
 };
 
+export const getVisTypeData = (vizId: string) => {
+  if (
+    vizId === visChartTypes.Line ||
+    vizId === visChartTypes.Scatter ||
+    vizId === visChartTypes.HorizontalBar ||
+    vizId === visChartTypes.Bar
+  ) {
+    return getVisType(vizId, { type: vizId });
+  } else {
+    return getVisType(vizId);
+  }
+};
+
 export const getVizContainerProps = ({
   vizId,
   rawVizData = {},
@@ -139,11 +153,7 @@ export const getVizContainerProps = ({
   appData = {},
   explorer = { explorerData: { jsonData: [], jsonDataAll: [] } },
 }: IVizContainerProps): IVisualizationContainerProps => {
-  const getVisTypeData = () =>
-    vizId === visChartTypes.Line || vizId === visChartTypes.Scatter
-      ? { ...getVisType(vizId, { type: vizId }) }
-      : { ...getVisType(vizId) };
-
+  
   return {
     data: {
       appData: { ...appData },
@@ -151,15 +161,15 @@ export const getVizContainerProps = ({
       query: { ...query },
       indexFields: { ...indexFields },
       userConfigs: {
-        ...getUserConfigs(userConfigs, rawVizData?.metadata?.fields, getVisTypeData().name),
+        ...getUserConfigs(userConfigs, rawVizData?.metadata?.fields, getVisTypeData(vizId).name),
       },
       defaultAxes: {
-        ...getDefaultXYAxisLabels(rawVizData?.metadata?.fields, getVisTypeData().name),
+        ...getDefaultXYAxisLabels(rawVizData?.metadata?.fields, getVisTypeData(vizId).name),
       },
       explorer: { ...explorer },
     },
     vis: {
-      ...getVisTypeData(),
+      ...getVisTypeData(vizId),
     },
   };
 };

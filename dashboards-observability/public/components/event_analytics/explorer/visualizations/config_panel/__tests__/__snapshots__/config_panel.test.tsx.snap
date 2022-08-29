@@ -198,7 +198,27 @@ exports[`Config panel component Renders config panel with visualization data 1`]
             "status": 200,
           },
         },
-        "userConfigs": Object {},
+        "userConfigs": Object {
+          "dataConfig": Object {
+            "valueOptions": Object {
+              "dimensions": Array [
+                Object {
+                  "label": "tags",
+                  "name": "tags",
+                  "type": "text",
+                },
+              ],
+              "metrics": Array [
+                Object {
+                  "label": "count()",
+                  "name": "count()",
+                  "side": "left",
+                  "type": "integer",
+                },
+              ],
+            },
+          },
+        },
       },
       "vis": Object {
         "barwidth": 0.97,
@@ -265,6 +285,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                         ],
                       },
                     },
+                    Object {
+                      "component": [Function],
+                      "eleType": "input",
+                      "mapTo": "legendSize",
+                      "name": "Legend size",
+                      "title": "Legend size",
+                    },
                   ],
                 },
                 Object {
@@ -273,30 +300,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                   "mapTo": "chartStyles",
                   "name": "Chart styles",
                   "schemas": Array [
-                    Object {
-                      "component": [Function],
-                      "eleType": "buttons",
-                      "mapTo": "orientation",
-                      "name": "Orientation",
-                      "props": Object {
-                        "defaultSelections": Array [
-                          Object {
-                            "id": "v",
-                            "name": "Vertical",
-                          },
-                        ],
-                        "options": Array [
-                          Object {
-                            "id": "v",
-                            "name": "Vertical",
-                          },
-                          Object {
-                            "id": "h",
-                            "name": "Horizontal",
-                          },
-                        ],
-                      },
-                    },
                     Object {
                       "component": [Function],
                       "eleType": "buttons",
@@ -395,7 +398,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                     },
                     Object {
                       "component": [Function],
-                      "defaultState": 80,
+                      "defaultState": 40,
                       "eleType": "slider",
                       "mapTo": "fillOpacity",
                       "name": "Fill opacity",
@@ -429,7 +432,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
             },
           ],
         },
-        "fillOpacity": 80,
+        "fillopacity": 40,
         "fulllabel": "Vertical bar",
         "groupwidth": 0.7,
         "icon": [Function],
@@ -572,6 +575,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   ],
                                 },
                               },
+                              Object {
+                                "component": [Function],
+                                "eleType": "input",
+                                "mapTo": "legendSize",
+                                "name": "Legend size",
+                                "title": "Legend size",
+                              },
                             ],
                           },
                           Object {
@@ -580,30 +590,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                             "mapTo": "chartStyles",
                             "name": "Chart styles",
                             "schemas": Array [
-                              Object {
-                                "component": [Function],
-                                "eleType": "buttons",
-                                "mapTo": "orientation",
-                                "name": "Orientation",
-                                "props": Object {
-                                  "defaultSelections": Array [
-                                    Object {
-                                      "id": "v",
-                                      "name": "Vertical",
-                                    },
-                                  ],
-                                  "options": Array [
-                                    Object {
-                                      "id": "v",
-                                      "name": "Vertical",
-                                    },
-                                    Object {
-                                      "id": "h",
-                                      "name": "Horizontal",
-                                    },
-                                  ],
-                                },
-                              },
                               Object {
                                 "component": [Function],
                                 "eleType": "buttons",
@@ -702,7 +688,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                               },
                               Object {
                                 "component": [Function],
-                                "defaultState": 80,
+                                "defaultState": 40,
                                 "eleType": "slider",
                                 "mapTo": "fillOpacity",
                                 "name": "Fill opacity",
@@ -736,7 +722,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                       },
                     ],
                   },
-                  "fillOpacity": 80,
+                  "fillopacity": 40,
                   "fulllabel": "Vertical bar",
                   "groupwidth": 0.7,
                   "icon": [Function],
@@ -750,6 +736,260 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                   "mode": "group",
                   "name": "bar",
                   "orientation": "v",
+                  "selection": Object {
+                    "dataLoss": "nothing",
+                  },
+                  "seriesaxis": "yaxis",
+                  "showlegend": "show",
+                  "type": "bar",
+                  "visconfig": Object {
+                    "config": Object {
+                      "displaylogo": false,
+                      "responsive": true,
+                    },
+                    "isUniColor": false,
+                    "layout": Object {
+                      "height": 1180,
+                      "legend": Object {
+                        "orientation": "v",
+                        "traceorder": "normal",
+                      },
+                      "margin": Object {
+                        "b": 30,
+                        "l": 60,
+                        "pad": 0,
+                        "r": 30,
+                        "t": 50,
+                      },
+                      "showlegend": true,
+                    },
+                  },
+                },
+                Object {
+                  "barwidth": 0.97,
+                  "category": "Visualizations",
+                  "categoryaxis": "xaxis",
+                  "component": [Function],
+                  "editorconfig": Object {
+                    "panelTabs": Array [
+                      Object {
+                        "editor": [Function],
+                        "id": "data-panel",
+                        "mapTo": "dataConfig",
+                        "name": "Data",
+                        "sections": Array [
+                          Object {
+                            "editor": [Function],
+                            "id": "legend",
+                            "mapTo": "legend",
+                            "name": "Legend",
+                            "schemas": Array [
+                              Object {
+                                "component": null,
+                                "mapTo": "showLegend",
+                                "name": "Show legend",
+                                "props": Object {
+                                  "defaultSelections": Array [
+                                    Object {
+                                      "id": "show",
+                                      "name": "Show",
+                                    },
+                                  ],
+                                  "options": Array [
+                                    Object {
+                                      "id": "show",
+                                      "name": "Show",
+                                    },
+                                    Object {
+                                      "id": "hidden",
+                                      "name": "Hidden",
+                                    },
+                                  ],
+                                },
+                              },
+                              Object {
+                                "component": null,
+                                "mapTo": "position",
+                                "name": "Position",
+                                "props": Object {
+                                  "defaultSelections": Array [
+                                    Object {
+                                      "id": "v",
+                                      "name": "Right",
+                                    },
+                                  ],
+                                  "options": Array [
+                                    Object {
+                                      "id": "v",
+                                      "name": "Right",
+                                    },
+                                    Object {
+                                      "id": "h",
+                                      "name": "Bottom",
+                                    },
+                                  ],
+                                },
+                              },
+                              Object {
+                                "component": [Function],
+                                "eleType": "input",
+                                "mapTo": "legendSize",
+                                "name": "Legend size",
+                                "title": "Legend size",
+                              },
+                            ],
+                          },
+                          Object {
+                            "editor": [Function],
+                            "id": "chart_styles",
+                            "mapTo": "chartStyles",
+                            "name": "Chart styles",
+                            "schemas": Array [
+                              Object {
+                                "component": [Function],
+                                "eleType": "buttons",
+                                "mapTo": "mode",
+                                "name": "Mode",
+                                "props": Object {
+                                  "defaultSelections": Array [
+                                    Object {
+                                      "id": "group",
+                                      "name": "Group",
+                                    },
+                                  ],
+                                  "options": Array [
+                                    Object {
+                                      "id": "group",
+                                      "name": "Group",
+                                    },
+                                    Object {
+                                      "id": "stack",
+                                      "name": "Stack",
+                                    },
+                                  ],
+                                },
+                              },
+                              Object {
+                                "component": [Function],
+                                "eleType": "input",
+                                "mapTo": "labelSize",
+                                "name": "Label size",
+                              },
+                              Object {
+                                "component": [Function],
+                                "defaultState": 0,
+                                "eleType": "slider",
+                                "mapTo": "rotateBarLabels",
+                                "name": "Rotate bar labels",
+                                "props": Object {
+                                  "max": 90,
+                                  "min": -90,
+                                  "showTicks": true,
+                                  "ticks": Array [
+                                    Object {
+                                      "label": "-90°",
+                                      "value": -90,
+                                    },
+                                    Object {
+                                      "label": "-45°",
+                                      "value": -45,
+                                    },
+                                    Object {
+                                      "label": "0°",
+                                      "value": 0,
+                                    },
+                                    Object {
+                                      "label": "45°",
+                                      "value": 45,
+                                    },
+                                    Object {
+                                      "label": "90°",
+                                      "value": 90,
+                                    },
+                                  ],
+                                },
+                              },
+                              Object {
+                                "component": [Function],
+                                "defaultState": 0.7,
+                                "eleType": "slider",
+                                "mapTo": "groupWidth",
+                                "name": "Group width",
+                                "props": Object {
+                                  "max": 1,
+                                  "step": 0.01,
+                                },
+                              },
+                              Object {
+                                "component": [Function],
+                                "defaultState": 0.97,
+                                "eleType": "slider",
+                                "mapTo": "barWidth",
+                                "name": "Bar width",
+                                "props": Object {
+                                  "max": 1,
+                                  "step": 0.01,
+                                },
+                              },
+                              Object {
+                                "component": [Function],
+                                "defaultState": 1,
+                                "eleType": "slider",
+                                "mapTo": "lineWidth",
+                                "name": "Line width",
+                                "props": Object {
+                                  "max": 10,
+                                },
+                              },
+                              Object {
+                                "component": [Function],
+                                "defaultState": 40,
+                                "eleType": "slider",
+                                "mapTo": "fillOpacity",
+                                "name": "Fill opacity",
+                                "props": Object {
+                                  "max": 100,
+                                },
+                              },
+                            ],
+                          },
+                          Object {
+                            "editor": [Function],
+                            "id": "color-theme",
+                            "mapTo": "colorTheme",
+                            "name": "Color theme",
+                            "schemas": Array [],
+                          },
+                        ],
+                      },
+                      Object {
+                        "content": Array [],
+                        "editor": [Function],
+                        "id": "style-panel",
+                        "mapTo": "layoutConfig",
+                        "name": "Layout",
+                      },
+                      Object {
+                        "editor": [Function],
+                        "id": "availability-panel",
+                        "mapTo": "availabilityConfig",
+                        "name": "Availability",
+                      },
+                    ],
+                  },
+                  "fillopacity": 40,
+                  "fulllabel": "Horizontal bar",
+                  "groupwidth": 0.7,
+                  "icon": [Function],
+                  "icontype": "visBarHorizontalStacked",
+                  "id": "horizontal_bar",
+                  "label": "Horizontal bar",
+                  "labelangle": 0,
+                  "legendposition": "v",
+                  "linewidth": 1,
+                  "mode": "group",
+                  "name": "horizontal_bar",
+                  "orientation": "h",
                   "selection": Object {
                     "dataLoss": "nothing",
                   },
@@ -2910,6 +3150,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   ],
                                 },
                               },
+                              Object {
+                                "component": [Function],
+                                "eleType": "input",
+                                "mapTo": "legendSize",
+                                "name": "Legend size",
+                                "title": "Legend size",
+                              },
                             ],
                           },
                           Object {
@@ -2918,30 +3165,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                             "mapTo": "chartStyles",
                             "name": "Chart styles",
                             "schemas": Array [
-                              Object {
-                                "component": [Function],
-                                "eleType": "buttons",
-                                "mapTo": "orientation",
-                                "name": "Orientation",
-                                "props": Object {
-                                  "defaultSelections": Array [
-                                    Object {
-                                      "id": "v",
-                                      "name": "Vertical",
-                                    },
-                                  ],
-                                  "options": Array [
-                                    Object {
-                                      "id": "v",
-                                      "name": "Vertical",
-                                    },
-                                    Object {
-                                      "id": "h",
-                                      "name": "Horizontal",
-                                    },
-                                  ],
-                                },
-                              },
                               Object {
                                 "component": [Function],
                                 "eleType": "buttons",
@@ -3040,7 +3263,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                               },
                               Object {
                                 "component": [Function],
-                                "defaultState": 80,
+                                "defaultState": 40,
                                 "eleType": "slider",
                                 "mapTo": "fillOpacity",
                                 "name": "Fill opacity",
@@ -3074,7 +3297,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                       },
                     ],
                   },
-                  "fillOpacity": 80,
+                  "fillopacity": 40,
                   "fulllabel": "Vertical bar",
                   "groupwidth": 0.7,
                   "icon": [Function],
@@ -3214,6 +3437,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                       ],
                                     },
                                   },
+                                  Object {
+                                    "component": [Function],
+                                    "eleType": "input",
+                                    "mapTo": "legendSize",
+                                    "name": "Legend size",
+                                    "title": "Legend size",
+                                  },
                                 ],
                               },
                               Object {
@@ -3222,30 +3452,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 "mapTo": "chartStyles",
                                 "name": "Chart styles",
                                 "schemas": Array [
-                                  Object {
-                                    "component": [Function],
-                                    "eleType": "buttons",
-                                    "mapTo": "orientation",
-                                    "name": "Orientation",
-                                    "props": Object {
-                                      "defaultSelections": Array [
-                                        Object {
-                                          "id": "v",
-                                          "name": "Vertical",
-                                        },
-                                      ],
-                                      "options": Array [
-                                        Object {
-                                          "id": "v",
-                                          "name": "Vertical",
-                                        },
-                                        Object {
-                                          "id": "h",
-                                          "name": "Horizontal",
-                                        },
-                                      ],
-                                    },
-                                  },
                                   Object {
                                     "component": [Function],
                                     "eleType": "buttons",
@@ -3344,7 +3550,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   },
                                   Object {
                                     "component": [Function],
-                                    "defaultState": 80,
+                                    "defaultState": 40,
                                     "eleType": "slider",
                                     "mapTo": "fillOpacity",
                                     "name": "Fill opacity",
@@ -3378,7 +3584,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                           },
                         ],
                       },
-                      "fillOpacity": 80,
+                      "fillopacity": 40,
                       "fulllabel": "Vertical bar",
                       "groupwidth": 0.7,
                       "icon": [Function],
@@ -3523,6 +3729,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                             ],
                                           },
                                         },
+                                        Object {
+                                          "component": [Function],
+                                          "eleType": "input",
+                                          "mapTo": "legendSize",
+                                          "name": "Legend size",
+                                          "title": "Legend size",
+                                        },
                                       ],
                                     },
                                     Object {
@@ -3531,30 +3744,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                       "mapTo": "chartStyles",
                                       "name": "Chart styles",
                                       "schemas": Array [
-                                        Object {
-                                          "component": [Function],
-                                          "eleType": "buttons",
-                                          "mapTo": "orientation",
-                                          "name": "Orientation",
-                                          "props": Object {
-                                            "defaultSelections": Array [
-                                              Object {
-                                                "id": "v",
-                                                "name": "Vertical",
-                                              },
-                                            ],
-                                            "options": Array [
-                                              Object {
-                                                "id": "v",
-                                                "name": "Vertical",
-                                              },
-                                              Object {
-                                                "id": "h",
-                                                "name": "Horizontal",
-                                              },
-                                            ],
-                                          },
-                                        },
                                         Object {
                                           "component": [Function],
                                           "eleType": "buttons",
@@ -3653,7 +3842,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         },
                                         Object {
                                           "component": [Function],
-                                          "defaultState": 80,
+                                          "defaultState": 40,
                                           "eleType": "slider",
                                           "mapTo": "fillOpacity",
                                           "name": "Fill opacity",
@@ -3688,7 +3877,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                               ],
                             }
                           }
-                          fillOpacity={80}
+                          fillopacity={40}
                           fulllabel="Vertical bar"
                           groupwidth={0.7}
                           icon={[Function]}
@@ -3767,6 +3956,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               ],
                                             },
                                           },
+                                          Object {
+                                            "component": [Function],
+                                            "eleType": "input",
+                                            "mapTo": "legendSize",
+                                            "name": "Legend size",
+                                            "title": "Legend size",
+                                          },
                                         ],
                                       },
                                       Object {
@@ -3775,30 +3971,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         "mapTo": "chartStyles",
                                         "name": "Chart styles",
                                         "schemas": Array [
-                                          Object {
-                                            "component": [Function],
-                                            "eleType": "buttons",
-                                            "mapTo": "orientation",
-                                            "name": "Orientation",
-                                            "props": Object {
-                                              "defaultSelections": Array [
-                                                Object {
-                                                  "id": "v",
-                                                  "name": "Vertical",
-                                                },
-                                              ],
-                                              "options": Array [
-                                                Object {
-                                                  "id": "v",
-                                                  "name": "Vertical",
-                                                },
-                                                Object {
-                                                  "id": "h",
-                                                  "name": "Horizontal",
-                                                },
-                                              ],
-                                            },
-                                          },
                                           Object {
                                             "component": [Function],
                                             "eleType": "buttons",
@@ -3897,7 +4069,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                           },
                                           Object {
                                             "component": [Function],
-                                            "defaultState": 80,
+                                            "defaultState": 40,
                                             "eleType": "slider",
                                             "mapTo": "fillOpacity",
                                             "name": "Fill opacity",
@@ -3931,7 +4103,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   },
                                 ],
                               },
-                              "fillOpacity": 80,
+                              "fillopacity": 40,
                               "fulllabel": "Vertical bar",
                               "groupwidth": 0.7,
                               "icon": [Function],
@@ -4077,6 +4249,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               ],
                                             },
                                           },
+                                          Object {
+                                            "component": [Function],
+                                            "eleType": "input",
+                                            "mapTo": "legendSize",
+                                            "name": "Legend size",
+                                            "title": "Legend size",
+                                          },
                                         ],
                                       },
                                       Object {
@@ -4085,30 +4264,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         "mapTo": "chartStyles",
                                         "name": "Chart styles",
                                         "schemas": Array [
-                                          Object {
-                                            "component": [Function],
-                                            "eleType": "buttons",
-                                            "mapTo": "orientation",
-                                            "name": "Orientation",
-                                            "props": Object {
-                                              "defaultSelections": Array [
-                                                Object {
-                                                  "id": "v",
-                                                  "name": "Vertical",
-                                                },
-                                              ],
-                                              "options": Array [
-                                                Object {
-                                                  "id": "v",
-                                                  "name": "Vertical",
-                                                },
-                                                Object {
-                                                  "id": "h",
-                                                  "name": "Horizontal",
-                                                },
-                                              ],
-                                            },
-                                          },
                                           Object {
                                             "component": [Function],
                                             "eleType": "buttons",
@@ -4207,7 +4362,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                           },
                                           Object {
                                             "component": [Function],
-                                            "defaultState": 80,
+                                            "defaultState": 40,
                                             "eleType": "slider",
                                             "mapTo": "fillOpacity",
                                             "name": "Fill opacity",
@@ -4242,7 +4397,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 ],
                               }
                             }
-                            fillOpacity={80}
+                            fillopacity={40}
                             fulllabel="Vertical bar"
                             groupwidth={0.7}
                             icon={[Function]}
@@ -4357,6 +4512,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                   ],
                                                 },
                                               },
+                                              Object {
+                                                "component": [Function],
+                                                "eleType": "input",
+                                                "mapTo": "legendSize",
+                                                "name": "Legend size",
+                                                "title": "Legend size",
+                                              },
                                             ],
                                           },
                                           Object {
@@ -4365,30 +4527,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                             "mapTo": "chartStyles",
                                             "name": "Chart styles",
                                             "schemas": Array [
-                                              Object {
-                                                "component": [Function],
-                                                "eleType": "buttons",
-                                                "mapTo": "orientation",
-                                                "name": "Orientation",
-                                                "props": Object {
-                                                  "defaultSelections": Array [
-                                                    Object {
-                                                      "id": "v",
-                                                      "name": "Vertical",
-                                                    },
-                                                  ],
-                                                  "options": Array [
-                                                    Object {
-                                                      "id": "v",
-                                                      "name": "Vertical",
-                                                    },
-                                                    Object {
-                                                      "id": "h",
-                                                      "name": "Horizontal",
-                                                    },
-                                                  ],
-                                                },
-                                              },
                                               Object {
                                                 "component": [Function],
                                                 "eleType": "buttons",
@@ -4487,7 +4625,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               },
                                               Object {
                                                 "component": [Function],
-                                                "defaultState": 80,
+                                                "defaultState": 40,
                                                 "eleType": "slider",
                                                 "mapTo": "fillOpacity",
                                                 "name": "Fill opacity",
@@ -4522,7 +4660,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                     ],
                                   }
                                 }
-                                fillOpacity={80}
+                                fillopacity={40}
                                 fulllabel="Vertical bar"
                                 groupwidth={0.7}
                                 icon={[Function]}
@@ -4821,6 +4959,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                     ],
                                   },
                                 },
+                                Object {
+                                  "component": [Function],
+                                  "eleType": "input",
+                                  "mapTo": "legendSize",
+                                  "name": "Legend size",
+                                  "title": "Legend size",
+                                },
                               ],
                             },
                             Object {
@@ -4829,30 +4974,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                               "mapTo": "chartStyles",
                               "name": "Chart styles",
                               "schemas": Array [
-                                Object {
-                                  "component": [Function],
-                                  "eleType": "buttons",
-                                  "mapTo": "orientation",
-                                  "name": "Orientation",
-                                  "props": Object {
-                                    "defaultSelections": Array [
-                                      Object {
-                                        "id": "v",
-                                        "name": "Vertical",
-                                      },
-                                    ],
-                                    "options": Array [
-                                      Object {
-                                        "id": "v",
-                                        "name": "Vertical",
-                                      },
-                                      Object {
-                                        "id": "h",
-                                        "name": "Horizontal",
-                                      },
-                                    ],
-                                  },
-                                },
                                 Object {
                                   "component": [Function],
                                   "eleType": "buttons",
@@ -4951,7 +5072,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 },
                                 Object {
                                   "component": [Function],
-                                  "defaultState": 80,
+                                  "defaultState": 40,
                                   "eleType": "slider",
                                   "mapTo": "fillOpacity",
                                   "name": "Fill opacity",
@@ -5151,7 +5272,27 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 "status": 200,
                               },
                             },
-                            "userConfigs": Object {},
+                            "userConfigs": Object {
+                              "dataConfig": Object {
+                                "valueOptions": Object {
+                                  "dimensions": Array [
+                                    Object {
+                                      "label": "tags",
+                                      "name": "tags",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "metrics": Array [
+                                    Object {
+                                      "label": "count()",
+                                      "name": "count()",
+                                      "side": "left",
+                                      "type": "integer",
+                                    },
+                                  ],
+                                },
+                              },
+                            },
                           },
                           "vis": Object {
                             "barwidth": 0.97,
@@ -5218,6 +5359,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                             ],
                                           },
                                         },
+                                        Object {
+                                          "component": [Function],
+                                          "eleType": "input",
+                                          "mapTo": "legendSize",
+                                          "name": "Legend size",
+                                          "title": "Legend size",
+                                        },
                                       ],
                                     },
                                     Object {
@@ -5226,30 +5374,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                       "mapTo": "chartStyles",
                                       "name": "Chart styles",
                                       "schemas": Array [
-                                        Object {
-                                          "component": [Function],
-                                          "eleType": "buttons",
-                                          "mapTo": "orientation",
-                                          "name": "Orientation",
-                                          "props": Object {
-                                            "defaultSelections": Array [
-                                              Object {
-                                                "id": "v",
-                                                "name": "Vertical",
-                                              },
-                                            ],
-                                            "options": Array [
-                                              Object {
-                                                "id": "v",
-                                                "name": "Vertical",
-                                              },
-                                              Object {
-                                                "id": "h",
-                                                "name": "Horizontal",
-                                              },
-                                            ],
-                                          },
-                                        },
                                         Object {
                                           "component": [Function],
                                           "eleType": "buttons",
@@ -5348,7 +5472,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         },
                                         Object {
                                           "component": [Function],
-                                          "defaultState": 80,
+                                          "defaultState": 40,
                                           "eleType": "slider",
                                           "mapTo": "fillOpacity",
                                           "name": "Fill opacity",
@@ -5382,7 +5506,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 },
                               ],
                             },
-                            "fillOpacity": 80,
+                            "fillopacity": 40,
                             "fulllabel": "Vertical bar",
                             "groupwidth": 0.7,
                             "icon": [Function],
@@ -5423,6 +5547,27 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 "showlegend": true,
                               },
                             },
+                          },
+                        }
+                      }
+                      vizState={
+                        Object {
+                          "valueOptions": Object {
+                            "dimensions": Array [
+                              Object {
+                                "label": "tags",
+                                "name": "tags",
+                                "type": "text",
+                              },
+                            ],
+                            "metrics": Array [
+                              Object {
+                                "label": "count()",
+                                "name": "count()",
+                                "side": "left",
+                                "type": "integer",
+                              },
+                            ],
                           },
                         }
                       }
@@ -5496,6 +5641,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                       ],
                                     },
                                   },
+                                  Object {
+                                    "component": [Function],
+                                    "eleType": "input",
+                                    "mapTo": "legendSize",
+                                    "name": "Legend size",
+                                    "title": "Legend size",
+                                  },
                                 ],
                               },
                               Object {
@@ -5504,30 +5656,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 "mapTo": "chartStyles",
                                 "name": "Chart styles",
                                 "schemas": Array [
-                                  Object {
-                                    "component": [Function],
-                                    "eleType": "buttons",
-                                    "mapTo": "orientation",
-                                    "name": "Orientation",
-                                    "props": Object {
-                                      "defaultSelections": Array [
-                                        Object {
-                                          "id": "v",
-                                          "name": "Vertical",
-                                        },
-                                      ],
-                                      "options": Array [
-                                        Object {
-                                          "id": "v",
-                                          "name": "Vertical",
-                                        },
-                                        Object {
-                                          "id": "h",
-                                          "name": "Horizontal",
-                                        },
-                                      ],
-                                    },
-                                  },
                                   Object {
                                     "component": [Function],
                                     "eleType": "buttons",
@@ -5626,7 +5754,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   },
                                   Object {
                                     "component": [Function],
-                                    "defaultState": 80,
+                                    "defaultState": 40,
                                     "eleType": "slider",
                                     "mapTo": "fillOpacity",
                                     "name": "Fill opacity",
@@ -5826,7 +5954,27 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   "status": 200,
                                 },
                               },
-                              "userConfigs": Object {},
+                              "userConfigs": Object {
+                                "dataConfig": Object {
+                                  "valueOptions": Object {
+                                    "dimensions": Array [
+                                      Object {
+                                        "label": "tags",
+                                        "name": "tags",
+                                        "type": "text",
+                                      },
+                                    ],
+                                    "metrics": Array [
+                                      Object {
+                                        "label": "count()",
+                                        "name": "count()",
+                                        "side": "left",
+                                        "type": "integer",
+                                      },
+                                    ],
+                                  },
+                                },
+                              },
                             },
                             "vis": Object {
                               "barwidth": 0.97,
@@ -5893,6 +6041,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               ],
                                             },
                                           },
+                                          Object {
+                                            "component": [Function],
+                                            "eleType": "input",
+                                            "mapTo": "legendSize",
+                                            "name": "Legend size",
+                                            "title": "Legend size",
+                                          },
                                         ],
                                       },
                                       Object {
@@ -5901,30 +6056,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         "mapTo": "chartStyles",
                                         "name": "Chart styles",
                                         "schemas": Array [
-                                          Object {
-                                            "component": [Function],
-                                            "eleType": "buttons",
-                                            "mapTo": "orientation",
-                                            "name": "Orientation",
-                                            "props": Object {
-                                              "defaultSelections": Array [
-                                                Object {
-                                                  "id": "v",
-                                                  "name": "Vertical",
-                                                },
-                                              ],
-                                              "options": Array [
-                                                Object {
-                                                  "id": "v",
-                                                  "name": "Vertical",
-                                                },
-                                                Object {
-                                                  "id": "h",
-                                                  "name": "Horizontal",
-                                                },
-                                              ],
-                                            },
-                                          },
                                           Object {
                                             "component": [Function],
                                             "eleType": "buttons",
@@ -6023,7 +6154,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                           },
                                           Object {
                                             "component": [Function],
-                                            "defaultState": 80,
+                                            "defaultState": 40,
                                             "eleType": "slider",
                                             "mapTo": "fillOpacity",
                                             "name": "Fill opacity",
@@ -6057,7 +6188,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   },
                                 ],
                               },
-                              "fillOpacity": 80,
+                              "fillopacity": 40,
                               "fulllabel": "Vertical bar",
                               "groupwidth": 0.7,
                               "icon": [Function],
@@ -6098,6 +6229,27 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   "showlegend": true,
                                 },
                               },
+                            },
+                          }
+                        }
+                        vizState={
+                          Object {
+                            "valueOptions": Object {
+                              "dimensions": Array [
+                                Object {
+                                  "label": "tags",
+                                  "name": "tags",
+                                  "type": "text",
+                                },
+                              ],
+                              "metrics": Array [
+                                Object {
+                                  "label": "count()",
+                                  "name": "count()",
+                                  "side": "left",
+                                  "type": "integer",
+                                },
+                              ],
                             },
                           }
                         }
@@ -6315,7 +6467,27 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   "status": 200,
                                 },
                               },
-                              "userConfigs": Object {},
+                              "userConfigs": Object {
+                                "dataConfig": Object {
+                                  "valueOptions": Object {
+                                    "dimensions": Array [
+                                      Object {
+                                        "label": "tags",
+                                        "name": "tags",
+                                        "type": "text",
+                                      },
+                                    ],
+                                    "metrics": Array [
+                                      Object {
+                                        "label": "count()",
+                                        "name": "count()",
+                                        "side": "left",
+                                        "type": "integer",
+                                      },
+                                    ],
+                                  },
+                                },
+                              },
                             },
                             "vis": Object {
                               "barwidth": 0.97,
@@ -6382,6 +6554,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               ],
                                             },
                                           },
+                                          Object {
+                                            "component": [Function],
+                                            "eleType": "input",
+                                            "mapTo": "legendSize",
+                                            "name": "Legend size",
+                                            "title": "Legend size",
+                                          },
                                         ],
                                       },
                                       Object {
@@ -6390,30 +6569,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         "mapTo": "chartStyles",
                                         "name": "Chart styles",
                                         "schemas": Array [
-                                          Object {
-                                            "component": [Function],
-                                            "eleType": "buttons",
-                                            "mapTo": "orientation",
-                                            "name": "Orientation",
-                                            "props": Object {
-                                              "defaultSelections": Array [
-                                                Object {
-                                                  "id": "v",
-                                                  "name": "Vertical",
-                                                },
-                                              ],
-                                              "options": Array [
-                                                Object {
-                                                  "id": "v",
-                                                  "name": "Vertical",
-                                                },
-                                                Object {
-                                                  "id": "h",
-                                                  "name": "Horizontal",
-                                                },
-                                              ],
-                                            },
-                                          },
                                           Object {
                                             "component": [Function],
                                             "eleType": "buttons",
@@ -6512,7 +6667,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                           },
                                           Object {
                                             "component": [Function],
-                                            "defaultState": 80,
+                                            "defaultState": 40,
                                             "eleType": "slider",
                                             "mapTo": "fillOpacity",
                                             "name": "Fill opacity",
@@ -6546,7 +6701,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                   },
                                 ],
                               },
-                              "fillOpacity": 80,
+                              "fillopacity": 40,
                               "fulllabel": "Vertical bar",
                               "groupwidth": 0.7,
                               "icon": [Function],
@@ -6749,6 +6904,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                     ],
                                   },
                                 },
+                                Object {
+                                  "component": [Function],
+                                  "eleType": "input",
+                                  "mapTo": "legendSize",
+                                  "name": "Legend size",
+                                  "title": "Legend size",
+                                },
                               ],
                             },
                             Object {
@@ -6757,30 +6919,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                               "mapTo": "chartStyles",
                               "name": "Chart styles",
                               "schemas": Array [
-                                Object {
-                                  "component": [Function],
-                                  "eleType": "buttons",
-                                  "mapTo": "orientation",
-                                  "name": "Orientation",
-                                  "props": Object {
-                                    "defaultSelections": Array [
-                                      Object {
-                                        "id": "v",
-                                        "name": "Vertical",
-                                      },
-                                    ],
-                                    "options": Array [
-                                      Object {
-                                        "id": "v",
-                                        "name": "Vertical",
-                                      },
-                                      Object {
-                                        "id": "h",
-                                        "name": "Horizontal",
-                                      },
-                                    ],
-                                  },
-                                },
                                 Object {
                                   "component": [Function],
                                   "eleType": "buttons",
@@ -6879,7 +7017,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 },
                                 Object {
                                   "component": [Function],
-                                  "defaultState": 80,
+                                  "defaultState": 40,
                                   "eleType": "slider",
                                   "mapTo": "fillOpacity",
                                   "name": "Fill opacity",
@@ -7079,7 +7217,27 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 "status": 200,
                               },
                             },
-                            "userConfigs": Object {},
+                            "userConfigs": Object {
+                              "dataConfig": Object {
+                                "valueOptions": Object {
+                                  "dimensions": Array [
+                                    Object {
+                                      "label": "tags",
+                                      "name": "tags",
+                                      "type": "text",
+                                    },
+                                  ],
+                                  "metrics": Array [
+                                    Object {
+                                      "label": "count()",
+                                      "name": "count()",
+                                      "side": "left",
+                                      "type": "integer",
+                                    },
+                                  ],
+                                },
+                              },
+                            },
                           },
                           "vis": Object {
                             "barwidth": 0.97,
@@ -7146,6 +7304,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                             ],
                                           },
                                         },
+                                        Object {
+                                          "component": [Function],
+                                          "eleType": "input",
+                                          "mapTo": "legendSize",
+                                          "name": "Legend size",
+                                          "title": "Legend size",
+                                        },
                                       ],
                                     },
                                     Object {
@@ -7154,30 +7319,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                       "mapTo": "chartStyles",
                                       "name": "Chart styles",
                                       "schemas": Array [
-                                        Object {
-                                          "component": [Function],
-                                          "eleType": "buttons",
-                                          "mapTo": "orientation",
-                                          "name": "Orientation",
-                                          "props": Object {
-                                            "defaultSelections": Array [
-                                              Object {
-                                                "id": "v",
-                                                "name": "Vertical",
-                                              },
-                                            ],
-                                            "options": Array [
-                                              Object {
-                                                "id": "v",
-                                                "name": "Vertical",
-                                              },
-                                              Object {
-                                                "id": "h",
-                                                "name": "Horizontal",
-                                              },
-                                            ],
-                                          },
-                                        },
                                         Object {
                                           "component": [Function],
                                           "eleType": "buttons",
@@ -7276,7 +7417,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         },
                                         Object {
                                           "component": [Function],
-                                          "defaultState": 80,
+                                          "defaultState": 40,
                                           "eleType": "slider",
                                           "mapTo": "fillOpacity",
                                           "name": "Fill opacity",
@@ -7310,7 +7451,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 },
                               ],
                             },
-                            "fillOpacity": 80,
+                            "fillopacity": 40,
                             "fulllabel": "Vertical bar",
                             "groupwidth": 0.7,
                             "icon": [Function],
@@ -7351,6 +7492,27 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                 "showlegend": true,
                               },
                             },
+                          },
+                        }
+                      }
+                      vizState={
+                        Object {
+                          "valueOptions": Object {
+                            "dimensions": Array [
+                              Object {
+                                "label": "tags",
+                                "name": "tags",
+                                "type": "text",
+                              },
+                            ],
+                            "metrics": Array [
+                              Object {
+                                "label": "count()",
+                                "name": "count()",
+                                "side": "left",
+                                "type": "integer",
+                              },
+                            ],
                           },
                         }
                       }
@@ -7564,7 +7726,27 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               "status": 200,
                                             },
                                           },
-                                          "userConfigs": Object {},
+                                          "userConfigs": Object {
+                                            "dataConfig": Object {
+                                              "valueOptions": Object {
+                                                "dimensions": Array [
+                                                  Object {
+                                                    "label": "tags",
+                                                    "name": "tags",
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "metrics": Array [
+                                                  Object {
+                                                    "label": "count()",
+                                                    "name": "count()",
+                                                    "side": "left",
+                                                    "type": "integer",
+                                                  },
+                                                ],
+                                              },
+                                            },
+                                          },
                                         },
                                         "vis": Object {
                                           "barwidth": 0.97,
@@ -7631,6 +7813,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                           ],
                                                         },
                                                       },
+                                                      Object {
+                                                        "component": [Function],
+                                                        "eleType": "input",
+                                                        "mapTo": "legendSize",
+                                                        "name": "Legend size",
+                                                        "title": "Legend size",
+                                                      },
                                                     ],
                                                   },
                                                   Object {
@@ -7639,30 +7828,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                     "mapTo": "chartStyles",
                                                     "name": "Chart styles",
                                                     "schemas": Array [
-                                                      Object {
-                                                        "component": [Function],
-                                                        "eleType": "buttons",
-                                                        "mapTo": "orientation",
-                                                        "name": "Orientation",
-                                                        "props": Object {
-                                                          "defaultSelections": Array [
-                                                            Object {
-                                                              "id": "v",
-                                                              "name": "Vertical",
-                                                            },
-                                                          ],
-                                                          "options": Array [
-                                                            Object {
-                                                              "id": "v",
-                                                              "name": "Vertical",
-                                                            },
-                                                            Object {
-                                                              "id": "h",
-                                                              "name": "Horizontal",
-                                                            },
-                                                          ],
-                                                        },
-                                                      },
                                                       Object {
                                                         "component": [Function],
                                                         "eleType": "buttons",
@@ -7761,7 +7926,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                       },
                                                       Object {
                                                         "component": [Function],
-                                                        "defaultState": 80,
+                                                        "defaultState": 40,
                                                         "eleType": "slider",
                                                         "mapTo": "fillOpacity",
                                                         "name": "Fill opacity",
@@ -7795,7 +7960,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               },
                                             ],
                                           },
-                                          "fillOpacity": 80,
+                                          "fillopacity": 40,
                                           "fulllabel": "Vertical bar",
                                           "groupwidth": 0.7,
                                           "icon": [Function],
@@ -8149,6 +8314,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                             ],
                                           },
                                         },
+                                        Object {
+                                          "component": [Function],
+                                          "eleType": "input",
+                                          "mapTo": "legendSize",
+                                          "name": "Legend size",
+                                          "title": "Legend size",
+                                        },
                                       ]
                                     }
                                     sectionId="legend"
@@ -8333,7 +8505,27 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               "status": 200,
                                             },
                                           },
-                                          "userConfigs": Object {},
+                                          "userConfigs": Object {
+                                            "dataConfig": Object {
+                                              "valueOptions": Object {
+                                                "dimensions": Array [
+                                                  Object {
+                                                    "label": "tags",
+                                                    "name": "tags",
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "metrics": Array [
+                                                  Object {
+                                                    "label": "count()",
+                                                    "name": "count()",
+                                                    "side": "left",
+                                                    "type": "integer",
+                                                  },
+                                                ],
+                                              },
+                                            },
+                                          },
                                         },
                                         "vis": Object {
                                           "barwidth": 0.97,
@@ -8400,6 +8592,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                           ],
                                                         },
                                                       },
+                                                      Object {
+                                                        "component": [Function],
+                                                        "eleType": "input",
+                                                        "mapTo": "legendSize",
+                                                        "name": "Legend size",
+                                                        "title": "Legend size",
+                                                      },
                                                     ],
                                                   },
                                                   Object {
@@ -8408,30 +8607,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                     "mapTo": "chartStyles",
                                                     "name": "Chart styles",
                                                     "schemas": Array [
-                                                      Object {
-                                                        "component": [Function],
-                                                        "eleType": "buttons",
-                                                        "mapTo": "orientation",
-                                                        "name": "Orientation",
-                                                        "props": Object {
-                                                          "defaultSelections": Array [
-                                                            Object {
-                                                              "id": "v",
-                                                              "name": "Vertical",
-                                                            },
-                                                          ],
-                                                          "options": Array [
-                                                            Object {
-                                                              "id": "v",
-                                                              "name": "Vertical",
-                                                            },
-                                                            Object {
-                                                              "id": "h",
-                                                              "name": "Horizontal",
-                                                            },
-                                                          ],
-                                                        },
-                                                      },
                                                       Object {
                                                         "component": [Function],
                                                         "eleType": "buttons",
@@ -8530,7 +8705,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                       },
                                                       Object {
                                                         "component": [Function],
-                                                        "defaultState": 80,
+                                                        "defaultState": 40,
                                                         "eleType": "slider",
                                                         "mapTo": "fillOpacity",
                                                         "name": "Fill opacity",
@@ -8564,7 +8739,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               },
                                             ],
                                           },
-                                          "fillOpacity": 80,
+                                          "fillopacity": 40,
                                           "fulllabel": "Vertical bar",
                                           "groupwidth": 0.7,
                                           "icon": [Function],
@@ -9231,6 +9406,80 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                     className="euiSpacer euiSpacer--s"
                                                   />
                                                 </EuiSpacer>
+                                                <InputFieldItem
+                                                  currentValue=""
+                                                  handleInputChange={[Function]}
+                                                  numValue=""
+                                                  title="Legend size"
+                                                  vizState={Object {}}
+                                                >
+                                                  <EuiTitle
+                                                    size="xxs"
+                                                  >
+                                                    <h3
+                                                      className="euiTitle euiTitle--xxsmall"
+                                                    >
+                                                      Legend size
+                                                    </h3>
+                                                  </EuiTitle>
+                                                  <EuiSpacer
+                                                    size="s"
+                                                  >
+                                                    <div
+                                                      className="euiSpacer euiSpacer--s"
+                                                    />
+                                                  </EuiSpacer>
+                                                  <EuiFieldNumber
+                                                    data-test-subj="valueFieldNumber"
+                                                    fullWidth={true}
+                                                    id="random_html_id"
+                                                    min={1}
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    placeholder="auto"
+                                                    value=""
+                                                  >
+                                                    <EuiFormControlLayout
+                                                      compressed={false}
+                                                      fullWidth={true}
+                                                      inputId="random_html_id"
+                                                      isLoading={false}
+                                                    >
+                                                      <div
+                                                        className="euiFormControlLayout euiFormControlLayout--fullWidth"
+                                                      >
+                                                        <div
+                                                          className="euiFormControlLayout__childrenWrapper"
+                                                        >
+                                                          <EuiValidatableControl>
+                                                            <input
+                                                              className="euiFieldNumber euiFieldNumber--fullWidth"
+                                                              data-test-subj="valueFieldNumber"
+                                                              id="random_html_id"
+                                                              min={1}
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              placeholder="auto"
+                                                              type="number"
+                                                              value=""
+                                                            />
+                                                          </EuiValidatableControl>
+                                                          <EuiFormControlLayoutIcons
+                                                            compressed={false}
+                                                            isLoading={false}
+                                                          />
+                                                        </div>
+                                                      </div>
+                                                    </EuiFormControlLayout>
+                                                  </EuiFieldNumber>
+                                                </InputFieldItem>
+                                                <EuiSpacer
+                                                  size="s"
+                                                >
+                                                  <div
+                                                    className="euiSpacer euiSpacer--s"
+                                                  />
+                                                </EuiSpacer>
                                               </div>
                                             </div>
                                           </EuiResizeObserver>
@@ -9264,30 +9513,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                     props={Object {}}
                                     schemas={
                                       Array [
-                                        Object {
-                                          "component": [Function],
-                                          "eleType": "buttons",
-                                          "mapTo": "orientation",
-                                          "name": "Orientation",
-                                          "props": Object {
-                                            "defaultSelections": Array [
-                                              Object {
-                                                "id": "v",
-                                                "name": "Vertical",
-                                              },
-                                            ],
-                                            "options": Array [
-                                              Object {
-                                                "id": "v",
-                                                "name": "Vertical",
-                                              },
-                                              Object {
-                                                "id": "h",
-                                                "name": "Horizontal",
-                                              },
-                                            ],
-                                          },
-                                        },
                                         Object {
                                           "component": [Function],
                                           "eleType": "buttons",
@@ -9386,7 +9611,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                         },
                                         Object {
                                           "component": [Function],
-                                          "defaultState": 80,
+                                          "defaultState": 40,
                                           "eleType": "slider",
                                           "mapTo": "fillOpacity",
                                           "name": "Fill opacity",
@@ -9578,7 +9803,27 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               "status": 200,
                                             },
                                           },
-                                          "userConfigs": Object {},
+                                          "userConfigs": Object {
+                                            "dataConfig": Object {
+                                              "valueOptions": Object {
+                                                "dimensions": Array [
+                                                  Object {
+                                                    "label": "tags",
+                                                    "name": "tags",
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "metrics": Array [
+                                                  Object {
+                                                    "label": "count()",
+                                                    "name": "count()",
+                                                    "side": "left",
+                                                    "type": "integer",
+                                                  },
+                                                ],
+                                              },
+                                            },
+                                          },
                                         },
                                         "vis": Object {
                                           "barwidth": 0.97,
@@ -9645,6 +9890,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                           ],
                                                         },
                                                       },
+                                                      Object {
+                                                        "component": [Function],
+                                                        "eleType": "input",
+                                                        "mapTo": "legendSize",
+                                                        "name": "Legend size",
+                                                        "title": "Legend size",
+                                                      },
                                                     ],
                                                   },
                                                   Object {
@@ -9653,30 +9905,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                     "mapTo": "chartStyles",
                                                     "name": "Chart styles",
                                                     "schemas": Array [
-                                                      Object {
-                                                        "component": [Function],
-                                                        "eleType": "buttons",
-                                                        "mapTo": "orientation",
-                                                        "name": "Orientation",
-                                                        "props": Object {
-                                                          "defaultSelections": Array [
-                                                            Object {
-                                                              "id": "v",
-                                                              "name": "Vertical",
-                                                            },
-                                                          ],
-                                                          "options": Array [
-                                                            Object {
-                                                              "id": "v",
-                                                              "name": "Vertical",
-                                                            },
-                                                            Object {
-                                                              "id": "h",
-                                                              "name": "Horizontal",
-                                                            },
-                                                          ],
-                                                        },
-                                                      },
                                                       Object {
                                                         "component": [Function],
                                                         "eleType": "buttons",
@@ -9775,7 +10003,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                       },
                                                       Object {
                                                         "component": [Function],
-                                                        "defaultState": 80,
+                                                        "defaultState": 40,
                                                         "eleType": "slider",
                                                         "mapTo": "fillOpacity",
                                                         "name": "Fill opacity",
@@ -9809,7 +10037,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               },
                                             ],
                                           },
-                                          "fillOpacity": 80,
+                                          "fillopacity": 40,
                                           "fulllabel": "Vertical bar",
                                           "groupwidth": 0.7,
                                           "icon": [Function],
@@ -9928,280 +10156,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               <div
                                                 className="euiAccordion__padding--s"
                                               >
-                                                <ButtonGroupItem
-                                                  defaultSelections={
-                                                    Array [
-                                                      Object {
-                                                        "id": "v",
-                                                        "name": "Vertical",
-                                                      },
-                                                    ]
-                                                  }
-                                                  groupOptions={
-                                                    Array [
-                                                      Object {
-                                                        "id": "v",
-                                                        "label": "Vertical",
-                                                        "name": "Vertical",
-                                                      },
-                                                      Object {
-                                                        "id": "h",
-                                                        "label": "Horizontal",
-                                                        "name": "Horizontal",
-                                                      },
-                                                    ]
-                                                  }
-                                                  handleButtonChange={[Function]}
-                                                  idSelected="v"
-                                                  legend="Orientation"
-                                                  options={
-                                                    Array [
-                                                      Object {
-                                                        "id": "v",
-                                                        "name": "Vertical",
-                                                      },
-                                                      Object {
-                                                        "id": "h",
-                                                        "name": "Horizontal",
-                                                      },
-                                                    ]
-                                                  }
-                                                  title="Orientation"
-                                                  vizState={Object {}}
-                                                >
-                                                  <EuiTitle
-                                                    size="xxs"
-                                                  >
-                                                    <h3
-                                                      className="euiTitle euiTitle--xxsmall"
-                                                    >
-                                                      Orientation
-                                                    </h3>
-                                                  </EuiTitle>
-                                                  <EuiSpacer
-                                                    size="s"
-                                                  >
-                                                    <div
-                                                      className="euiSpacer euiSpacer--s"
-                                                    />
-                                                  </EuiSpacer>
-                                                  <div
-                                                    style={
-                                                      Object {
-                                                        "width": "fit-content",
-                                                      }
-                                                    }
-                                                  >
-                                                    <EuiButtonGroup
-                                                      buttonSize="compressed"
-                                                      id="random_html_id"
-                                                      idSelected="v"
-                                                      isFullWidth={false}
-                                                      legend="Orientation"
-                                                      name="Orientation"
-                                                      onChange={[Function]}
-                                                      options={
-                                                        Array [
-                                                          Object {
-                                                            "id": "v",
-                                                            "label": "Vertical",
-                                                            "name": "Vertical",
-                                                          },
-                                                          Object {
-                                                            "id": "h",
-                                                            "label": "Horizontal",
-                                                            "name": "Horizontal",
-                                                          },
-                                                        ]
-                                                      }
-                                                    >
-                                                      <fieldset
-                                                        className="euiButtonGroup euiButtonGroup--compressed euiButtonGroup--text"
-                                                        disabled={false}
-                                                        id="random_html_id"
-                                                      >
-                                                        <EuiScreenReaderOnly>
-                                                          <legend
-                                                            className="euiScreenReaderOnly"
-                                                          >
-                                                            Orientation
-                                                          </legend>
-                                                        </EuiScreenReaderOnly>
-                                                        <div
-                                                          className="euiButtonGroup__buttons"
-                                                        >
-                                                          <EuiButtonGroupButton
-                                                            color="text"
-                                                            element="label"
-                                                            id="v"
-                                                            isDisabled={false}
-                                                            isIconOnly={false}
-                                                            isSelected={true}
-                                                            key="0"
-                                                            label="Vertical"
-                                                            name="Vertical"
-                                                            onChange={[Function]}
-                                                            size="compressed"
-                                                          >
-                                                            <EuiButtonDisplay
-                                                              baseClassName="euiButtonGroupButton"
-                                                              className="euiButtonGroupButton-isSelected"
-                                                              color="text"
-                                                              element="label"
-                                                              fill={false}
-                                                              htmlFor="random_html_id"
-                                                              isDisabled={false}
-                                                              onClick={[Function]}
-                                                              size="s"
-                                                              textProps={
-                                                                Object {
-                                                                  "className": "euiButtonGroupButton__textShift",
-                                                                  "data-text": "Vertical",
-                                                                  "ref": [Function],
-                                                                  "title": "Vertical",
-                                                                }
-                                                              }
-                                                            >
-                                                              <label
-                                                                className="euiButtonGroupButton euiButtonGroupButton--text euiButtonGroupButton--small euiButtonGroupButton-isSelected"
-                                                                disabled={false}
-                                                                htmlFor="random_html_id"
-                                                                onClick={[Function]}
-                                                                style={
-                                                                  Object {
-                                                                    "minWidth": undefined,
-                                                                  }
-                                                                }
-                                                              >
-                                                                <EuiButtonContent
-                                                                  className="euiButton__content"
-                                                                  iconSide="left"
-                                                                  textProps={
-                                                                    Object {
-                                                                      "className": "euiButton__text euiButtonGroupButton__textShift",
-                                                                      "data-text": "Vertical",
-                                                                      "ref": [Function],
-                                                                      "title": "Vertical",
-                                                                    }
-                                                                  }
-                                                                >
-                                                                  <span
-                                                                    className="euiButtonContent euiButton__content"
-                                                                  >
-                                                                    <span
-                                                                      className="euiButton__text euiButtonGroupButton__textShift"
-                                                                      data-text="Vertical"
-                                                                      title="Vertical"
-                                                                    >
-                                                                      <input
-                                                                        checked={true}
-                                                                        className="euiScreenReaderOnly"
-                                                                        data-test-subj="v"
-                                                                        disabled={false}
-                                                                        id="random_html_id"
-                                                                        name="Vertical"
-                                                                        onChange={[Function]}
-                                                                        type="radio"
-                                                                      />
-                                                                      Vertical
-                                                                    </span>
-                                                                  </span>
-                                                                </EuiButtonContent>
-                                                              </label>
-                                                            </EuiButtonDisplay>
-                                                          </EuiButtonGroupButton>
-                                                          <EuiButtonGroupButton
-                                                            color="text"
-                                                            element="label"
-                                                            id="h"
-                                                            isDisabled={false}
-                                                            isIconOnly={false}
-                                                            isSelected={false}
-                                                            key="1"
-                                                            label="Horizontal"
-                                                            name="Horizontal"
-                                                            onChange={[Function]}
-                                                            size="compressed"
-                                                          >
-                                                            <EuiButtonDisplay
-                                                              baseClassName="euiButtonGroupButton"
-                                                              className=""
-                                                              color="text"
-                                                              element="label"
-                                                              fill={false}
-                                                              htmlFor="random_html_id"
-                                                              isDisabled={false}
-                                                              onClick={[Function]}
-                                                              size="s"
-                                                              textProps={
-                                                                Object {
-                                                                  "className": "euiButtonGroupButton__textShift",
-                                                                  "data-text": "Horizontal",
-                                                                  "ref": [Function],
-                                                                  "title": "Horizontal",
-                                                                }
-                                                              }
-                                                            >
-                                                              <label
-                                                                className="euiButtonGroupButton euiButtonGroupButton--text euiButtonGroupButton--small"
-                                                                disabled={false}
-                                                                htmlFor="random_html_id"
-                                                                onClick={[Function]}
-                                                                style={
-                                                                  Object {
-                                                                    "minWidth": undefined,
-                                                                  }
-                                                                }
-                                                              >
-                                                                <EuiButtonContent
-                                                                  className="euiButton__content"
-                                                                  iconSide="left"
-                                                                  textProps={
-                                                                    Object {
-                                                                      "className": "euiButton__text euiButtonGroupButton__textShift",
-                                                                      "data-text": "Horizontal",
-                                                                      "ref": [Function],
-                                                                      "title": "Horizontal",
-                                                                    }
-                                                                  }
-                                                                >
-                                                                  <span
-                                                                    className="euiButtonContent euiButton__content"
-                                                                  >
-                                                                    <span
-                                                                      className="euiButton__text euiButtonGroupButton__textShift"
-                                                                      data-text="Horizontal"
-                                                                      title="Horizontal"
-                                                                    >
-                                                                      <input
-                                                                        checked={false}
-                                                                        className="euiScreenReaderOnly"
-                                                                        data-test-subj="h"
-                                                                        disabled={false}
-                                                                        id="random_html_id"
-                                                                        name="Horizontal"
-                                                                        onChange={[Function]}
-                                                                        type="radio"
-                                                                      />
-                                                                      Horizontal
-                                                                    </span>
-                                                                  </span>
-                                                                </EuiButtonContent>
-                                                              </label>
-                                                            </EuiButtonDisplay>
-                                                          </EuiButtonGroupButton>
-                                                        </div>
-                                                      </fieldset>
-                                                    </EuiButtonGroup>
-                                                  </div>
-                                                </ButtonGroupItem>
-                                                <EuiSpacer
-                                                  size="s"
-                                                >
-                                                  <div
-                                                    className="euiSpacer euiSpacer--s"
-                                                  />
-                                                </EuiSpacer>
                                                 <ButtonGroupItem
                                                   defaultSelections={
                                                     Array [
@@ -10479,6 +10433,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                 <InputFieldItem
                                                   currentValue=""
                                                   handleInputChange={[Function]}
+                                                  numValue=""
                                                   title="Label size"
                                                   vizState={Object {}}
                                                 >
@@ -10506,6 +10461,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                     onBlur={[Function]}
                                                     onChange={[Function]}
                                                     placeholder="auto"
+                                                    value=""
                                                   >
                                                     <EuiFormControlLayout
                                                       compressed={false}
@@ -10529,6 +10485,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                               onChange={[Function]}
                                                               placeholder="auto"
                                                               type="number"
+                                                              value=""
                                                             />
                                                           </EuiValidatableControl>
                                                           <EuiFormControlLayoutIcons
@@ -12040,7 +11997,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                   />
                                                 </EuiSpacer>
                                                 <SliderConfig
-                                                  currentRange={80}
+                                                  currentRange={40}
                                                   handleSliderChange={[Function]}
                                                   max={100}
                                                   maxRange={100}
@@ -12083,7 +12040,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                     showTicks={false}
                                                     showValue={false}
                                                     step={1}
-                                                    value={80}
+                                                    value={40}
                                                   >
                                                     <EuiRangeWrapper
                                                       className="euiRange euiRange--hasInput"
@@ -12102,7 +12059,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                           onChange={[Function]}
                                                           showTicks={false}
                                                           step={1}
-                                                          value={80}
+                                                          value={40}
                                                         >
                                                           <div
                                                             aria-hidden={true}
@@ -12120,7 +12077,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                               showTicks={false}
                                                               step={1}
                                                               tabIndex={-1}
-                                                              value={80}
+                                                              value={40}
                                                             >
                                                               <input
                                                                 aria-hidden={true}
@@ -12133,7 +12090,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                                 step={1}
                                                                 tabIndex={-1}
                                                                 type="range"
-                                                                value={80}
+                                                                value={40}
                                                               />
                                                             </EuiRangeSlider>
                                                           </div>
@@ -12154,7 +12111,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                           name="Fill opacity"
                                                           onChange={[Function]}
                                                           step={1}
-                                                          value={80}
+                                                          value={40}
                                                         >
                                                           <EuiFieldNumber
                                                             aria-label="change lineWidth slider"
@@ -12173,7 +12130,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                                 "width": "4.4em",
                                                               }
                                                             }
-                                                            value={80}
+                                                            value={40}
                                                           >
                                                             <EuiFormControlLayout
                                                               compressed={true}
@@ -12203,7 +12160,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                                         }
                                                                       }
                                                                       type="number"
-                                                                      value={80}
+                                                                      value={40}
                                                                     />
                                                                   </EuiValidatableControl>
                                                                   <EuiFormControlLayoutIcons
@@ -12440,7 +12397,27 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               "status": 200,
                                             },
                                           },
-                                          "userConfigs": Object {},
+                                          "userConfigs": Object {
+                                            "dataConfig": Object {
+                                              "valueOptions": Object {
+                                                "dimensions": Array [
+                                                  Object {
+                                                    "label": "tags",
+                                                    "name": "tags",
+                                                    "type": "text",
+                                                  },
+                                                ],
+                                                "metrics": Array [
+                                                  Object {
+                                                    "label": "count()",
+                                                    "name": "count()",
+                                                    "side": "left",
+                                                    "type": "integer",
+                                                  },
+                                                ],
+                                              },
+                                            },
+                                          },
                                         },
                                         "vis": Object {
                                           "barwidth": 0.97,
@@ -12507,6 +12484,13 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                           ],
                                                         },
                                                       },
+                                                      Object {
+                                                        "component": [Function],
+                                                        "eleType": "input",
+                                                        "mapTo": "legendSize",
+                                                        "name": "Legend size",
+                                                        "title": "Legend size",
+                                                      },
                                                     ],
                                                   },
                                                   Object {
@@ -12515,30 +12499,6 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                     "mapTo": "chartStyles",
                                                     "name": "Chart styles",
                                                     "schemas": Array [
-                                                      Object {
-                                                        "component": [Function],
-                                                        "eleType": "buttons",
-                                                        "mapTo": "orientation",
-                                                        "name": "Orientation",
-                                                        "props": Object {
-                                                          "defaultSelections": Array [
-                                                            Object {
-                                                              "id": "v",
-                                                              "name": "Vertical",
-                                                            },
-                                                          ],
-                                                          "options": Array [
-                                                            Object {
-                                                              "id": "v",
-                                                              "name": "Vertical",
-                                                            },
-                                                            Object {
-                                                              "id": "h",
-                                                              "name": "Horizontal",
-                                                            },
-                                                          ],
-                                                        },
-                                                      },
                                                       Object {
                                                         "component": [Function],
                                                         "eleType": "buttons",
@@ -12637,7 +12597,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                                       },
                                                       Object {
                                                         "component": [Function],
-                                                        "defaultState": 80,
+                                                        "defaultState": 40,
                                                         "eleType": "slider",
                                                         "mapTo": "fillOpacity",
                                                         "name": "Fill opacity",
@@ -12671,7 +12631,7 @@ exports[`Config panel component Renders config panel with visualization data 1`]
                                               },
                                             ],
                                           },
-                                          "fillOpacity": 80,
+                                          "fillopacity": 40,
                                           "fulllabel": "Vertical bar",
                                           "groupwidth": 0.7,
                                           "icon": [Function],

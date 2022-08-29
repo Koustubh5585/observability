@@ -603,151 +603,110 @@ exports[`Pie component Renders pie component 1`] = `
       }
     }
   >
-    <div>
-      <Annotations
-        data={
-          Array [
-            Object {
-              "automargin": true,
-              "domain": Object {
-                "column": 0,
-                "row": 0,
-              },
-              "hole": 0,
-              "hoverinfo": "all",
-              "labels": Array [
-                "error",
-                "info",
-                "login",
-                "security",
-                "success",
-                "warning",
-              ],
-              "name": "count()",
-              "outsidetextfont": Object {
-                "size": undefined,
-              },
-              "text": "count()",
-              "textinfo": "percent",
-              "textposition": "outside",
-              "type": "pie",
-              "values": Array [
-                154,
-                1753,
-                116,
-                468,
-                1964,
-                219,
-              ],
-            },
-          ]
+    <PlotlyComponent
+      config={
+        Object {
+          "displayModeBar": false,
         }
-      />
-      <PlotlyComponent
-        config={
+      }
+      data={
+        Array [
           Object {
-            "displayModeBar": false,
-          }
-        }
-        data={
-          Array [
-            Object {
-              "automargin": true,
-              "domain": Object {
-                "column": 0,
-                "row": 0,
-              },
-              "hole": 0,
-              "hoverinfo": "all",
-              "labels": Array [
-                "error",
-                "info",
-                "login",
-                "security",
-                "success",
-                "warning",
-              ],
-              "name": "count()",
-              "outsidetextfont": Object {
-                "size": undefined,
-              },
-              "text": "count()",
-              "textinfo": "percent",
-              "textposition": "outside",
-              "type": "pie",
-              "values": Array [
-                154,
-                1753,
-                116,
-                468,
-                1964,
-                219,
-              ],
+            "automargin": true,
+            "domain": Object {
+              "column": 0,
+              "row": 0,
             },
-          ]
-        }
-        debug={false}
-        divId="explorerPlotComponent"
-        layout={
-          Object {
-            "autosize": true,
-            "barmode": "stack",
-            "colorway": Array [
-              "#8C55A3",
+            "hole": 0,
+            "hoverinfo": "all",
+            "labels": Array [
+              "error",
+              "info",
+              "login",
+              "security",
+              "success",
+              "warning",
             ],
-            "grid": Object {
-              "columns": 1,
-              "rows": 1,
+            "name": "count()",
+            "outsidetextfont": Object {
+              "size": undefined,
             },
-            "height": 220,
-            "hovermode": "closest",
-            "legend": Object {
-              "font": Object {
-                "size": undefined,
-              },
-              "orientation": "v",
+            "text": "count()",
+            "textinfo": "percent",
+            "textposition": "outside",
+            "type": "pie",
+            "values": Array [
+              154,
+              1753,
+              116,
+              468,
+              1964,
+              219,
+            ],
+          },
+        ]
+      }
+      debug={false}
+      divId="explorerPlotComponent"
+      layout={
+        Object {
+          "autosize": true,
+          "barmode": "stack",
+          "colorway": Array [
+            "#8C55A3",
+          ],
+          "grid": Object {
+            "columns": 1,
+            "rows": 1,
+          },
+          "height": 220,
+          "hovermode": "closest",
+          "legend": Object {
+            "font": Object {
+              "size": undefined,
             },
-            "margin": Object {
-              "b": 15,
-              "l": 60,
-              "pad": 0,
-              "r": 10,
-              "t": 30,
-            },
-            "showlegend": "show",
-            "title": "",
-            "xaxis": Object {
-              "automargin": true,
-              "rangemode": "normal",
-              "showgrid": true,
-              "zeroline": false,
-            },
-            "yaxis": Object {
-              "rangemode": "normal",
-              "showgrid": true,
-              "zeroline": false,
-            },
-          }
+            "orientation": "v",
+          },
+          "margin": Object {
+            "b": 15,
+            "l": 60,
+            "pad": 0,
+            "r": 10,
+            "t": 30,
+          },
+          "showlegend": "show",
+          "title": "",
+          "xaxis": Object {
+            "automargin": true,
+            "rangemode": "normal",
+            "showgrid": true,
+            "zeroline": false,
+          },
+          "yaxis": Object {
+            "rangemode": "normal",
+            "showgrid": true,
+            "zeroline": false,
+          },
         }
+      }
+      style={
+        Object {
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+      useResizeHandler={true}
+    >
+      <div
+        id="explorerPlotComponent"
         style={
           Object {
             "height": "100%",
             "width": "100%",
           }
         }
-        useResizeHandler={true}
-      >
-        <div
-          id="explorerPlotComponent"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
-        />
-      </PlotlyComponent>
-    </div>
+      />
+    </PlotlyComponent>
   </Plt>
 </Pie>
 `;

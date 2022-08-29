@@ -29,7 +29,9 @@ export const ConfigColorTheme = ({
 }: any) => {
   const { data } = visualizations;
   const { data: vizData = {}, metadata: { fields = [] } = {} } = data?.rawVizData;
-  const metricsData = data?.userConfigs?.dataConfig?.valueOptions?.metrics ? data.userConfigs.dataConfig.valueOptions.metrics : [];
+  const metricsData = data?.userConfigs?.dataConfig?.valueOptions?.metrics
+    ? data.userConfigs.dataConfig.valueOptions.metrics
+    : [];
   const addButtonText = ADD_BUTTON_TEXT;
   const getColorThemeRow = () => ({
     ctid: htmlIdGenerator('ct')(),
@@ -37,11 +39,10 @@ export const ConfigColorTheme = ({
     color: '#FC0505',
   });
 
-  const options = (metricsData.length > 0 ? metricsData : fields)
-    .map((item) => ({
-      ...item,
-      label: item.name,
-    }));
+  const options = (metricsData.length > 0 ? metricsData : fields).map((item) => ({
+    ...item,
+    label: item.name,
+  }));
   const getUpdatedOptions = () =>
     options.filter((option) => !vizState.some((vizOpt) => option.name === vizOpt?.name?.name));
 

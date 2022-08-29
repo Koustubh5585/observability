@@ -537,13 +537,12 @@ exports[`Bar component Renders bar component 1`] = `
   }
 >
   <Plt
-    annotationIndex={0}
-    chartType="bar"
     config={Object {}}
     data={
       Array [
         Object {
           "hoverinfo": "all",
+          "hovertext": undefined,
           "marker": Object {
             "color": "rgba(60,161,199,0.2)",
             "line": Object {
@@ -573,19 +572,8 @@ exports[`Bar component Renders bar component 1`] = `
         },
       ]
     }
-    isEditMode=""
     layout={
       Object {
-        "annotations": Array [
-          Object {
-            "showarrow": true,
-            "text": "",
-            "x": "",
-            "xref": "x",
-            "y": "",
-            "yref": "y",
-          },
-        ],
         "bargap": 0.30000000000000004,
         "bargroupgap": 0.030000000000000027,
         "barmode": "group",
@@ -593,6 +581,7 @@ exports[`Bar component Renders bar component 1`] = `
           "#8C55A3",
         ],
         "height": 220,
+        "hovermode": "closest",
         "legend": Object {
           "orientation": "v",
         },
@@ -616,164 +605,101 @@ exports[`Bar component Renders bar component 1`] = `
         },
       }
     }
-    onAddAnnotationHandler={[Function]}
-    onCancelAnnotationHandler={[Function]}
-    onChangeHandler={[Function]}
-    onClickHandler={[Function]}
-    onDeleteAnnotationHandler={[Function]}
-    onEditAnnotationHandler={[Function]}
-    showAnnotationInput={false}
   >
-    <div>
-      <Annotations
-        annotationIndex={0}
-        chartType="bar"
-        data={
-          Array [
-            Object {
-              "hoverinfo": "all",
-              "marker": Object {
-                "color": "rgba(60,161,199,0.2)",
-                "line": Object {
-                  "color": "#3CA1C7",
-                  "width": 1,
-                },
-              },
-              "name": "count()",
-              "orientation": "v",
-              "type": "bar",
-              "x": Array [
-                "error",
-                "info",
-                "login",
-                "security",
-                "success",
-                "warning",
-              ],
-              "y": Array [
-                154,
-                1753,
-                116,
-                468,
-                1964,
-                219,
-              ],
-            },
-          ]
+    <PlotlyComponent
+      config={
+        Object {
+          "displayModeBar": false,
         }
-        isEditMode=""
-        onAddAnnotation={[Function]}
-        onCancelAnnotation={[Function]}
-        onDeleteAnnotation={[Function]}
-        onEditAnnotation={[Function]}
-        onTextChange={[Function]}
-        showInputBox={false}
-      />
-      <PlotlyComponent
-        config={
+      }
+      data={
+        Array [
           Object {
-            "displayModeBar": false,
-          }
-        }
-        data={
-          Array [
-            Object {
-              "hoverinfo": "all",
-              "marker": Object {
-                "color": "rgba(60,161,199,0.2)",
-                "line": Object {
-                  "color": "#3CA1C7",
-                  "width": 1,
-                },
+            "hoverinfo": "all",
+            "hovertext": undefined,
+            "marker": Object {
+              "color": "rgba(60,161,199,0.2)",
+              "line": Object {
+                "color": "#3CA1C7",
+                "width": 1,
               },
-              "name": "count()",
-              "orientation": "v",
-              "type": "bar",
-              "x": Array [
-                "error",
-                "info",
-                "login",
-                "security",
-                "success",
-                "warning",
-              ],
-              "y": Array [
-                154,
-                1753,
-                116,
-                468,
-                1964,
-                219,
-              ],
             },
-          ]
-        }
-        debug={false}
-        divId="explorerPlotComponent"
-        layout={
-          Object {
-            "annotations": Array [
-              Object {
-                "showarrow": true,
-                "text": "",
-                "x": "",
-                "xref": "x",
-                "y": "",
-                "yref": "y",
-              },
+            "name": "count()",
+            "orientation": "v",
+            "type": "bar",
+            "x": Array [
+              "error",
+              "info",
+              "login",
+              "security",
+              "success",
+              "warning",
             ],
-            "autosize": true,
-            "bargap": 0.30000000000000004,
-            "bargroupgap": 0.030000000000000027,
-            "barmode": "group",
-            "colorway": Array [
-              "#8C55A3",
+            "y": Array [
+              154,
+              1753,
+              116,
+              468,
+              1964,
+              219,
             ],
-            "height": 220,
-            "hovermode": "closest",
-            "legend": Object {
-              "orientation": "v",
-            },
-            "margin": Object {
-              "b": 15,
-              "l": 60,
-              "pad": 0,
-              "r": 10,
-              "t": 30,
-            },
-            "showlegend": true,
-            "title": "",
-            "xaxis": Object {
-              "automargin": true,
-              "tickangle": 0,
-              "tickfont": Object {},
-            },
-            "yaxis": Object {
-              "automargin": true,
-              "tickfont": Object {},
-            },
-          }
+          },
+        ]
+      }
+      debug={false}
+      divId="explorerPlotComponent"
+      layout={
+        Object {
+          "autosize": true,
+          "bargap": 0.30000000000000004,
+          "bargroupgap": 0.030000000000000027,
+          "barmode": "group",
+          "colorway": Array [
+            "#8C55A3",
+          ],
+          "height": 220,
+          "hovermode": "closest",
+          "legend": Object {
+            "orientation": "v",
+          },
+          "margin": Object {
+            "b": 15,
+            "l": 60,
+            "pad": 0,
+            "r": 10,
+            "t": 30,
+          },
+          "showlegend": true,
+          "title": "",
+          "xaxis": Object {
+            "automargin": true,
+            "tickangle": 0,
+            "tickfont": Object {},
+          },
+          "yaxis": Object {
+            "automargin": true,
+            "tickfont": Object {},
+          },
         }
-        onClick={[Function]}
+      }
+      style={
+        Object {
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+      useResizeHandler={true}
+    >
+      <div
+        id="explorerPlotComponent"
         style={
           Object {
             "height": "100%",
             "width": "100%",
           }
         }
-        useResizeHandler={true}
-      >
-        <div
-          id="explorerPlotComponent"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
-        />
-      </PlotlyComponent>
-    </div>
+      />
+    </PlotlyComponent>
   </Plt>
 </Bar>
 `;

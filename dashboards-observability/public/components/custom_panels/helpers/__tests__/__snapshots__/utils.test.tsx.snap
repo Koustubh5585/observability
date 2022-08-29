@@ -1439,6 +1439,7 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
             Array [
               Object {
                 "hoverinfo": "all",
+                "hovertext": undefined,
                 "marker": Object {
                   "color": "rgba(60,161,199,0.2)",
                   "line": Object {
@@ -1493,6 +1494,7 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
                 "#4C636F",
               ],
               "height": 1180,
+              "hovermode": "closest",
               "legend": Object {
                 "orientation": "v",
                 "traceorder": "normal",
@@ -1569,21 +1571,13 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
             <PlotlyComponent
               config={
                 Object {
-                  "displayModeBar": false,
-                  "displaylogo": false,
-                  "responsive": true,
-                }
-              }
-              data={
-                Array [
-                  Object {
-                    "hoverinfo": "all",
-                    "marker": Object {
-                      "color": "rgba(60,161,199,0.2)",
-                      "line": Object {
-                        "color": "#3CA1C7",
-                        "width": 1,
-                      },
+                  "hoverinfo": "all",
+                  "hovertext": undefined,
+                  "marker": Object {
+                    "color": "rgba(60,161,199,0.2)",
+                    "line": Object {
+                      "color": "#3CA1C7",
+                      "width": 1,
                     },
                     "name": "avg(FlightDelayMin)",
                     "orientation": "v",
@@ -1633,31 +1627,59 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
                     "#BD6F26",
                     "#4C636F",
                   ],
-                  "height": 1180,
-                  "hovermode": "closest",
-                  "legend": Object {
-                    "orientation": "v",
-                    "traceorder": "normal",
-                  },
-                  "margin": Object {
-                    "b": 30,
-                    "l": 60,
-                    "pad": 0,
-                    "r": 30,
-                    "t": 50,
-                  },
-                  "showlegend": true,
-                  "title": "",
-                  "xaxis": Object {
-                    "automargin": true,
-                    "tickangle": 0,
-                    "tickfont": Object {},
-                  },
-                  "yaxis": Object {
-                    "automargin": true,
-                    "tickfont": Object {},
-                  },
-                }
+                },
+              ]
+            }
+            debug={false}
+            divId="explorerPlotComponent"
+            layout={
+              Object {
+                "autosize": true,
+                "bargap": 0.30000000000000004,
+                "bargroupgap": 0.030000000000000027,
+                "barmode": "group",
+                "colorway": Array [
+                  "#3CA1C7",
+                  "#8C55A3",
+                  "#DB748A",
+                  "#F2BE4B",
+                  "#68CCC2",
+                  "#2A7866",
+                  "#843769",
+                  "#374FB8",
+                  "#BD6F26",
+                  "#4C636F",
+                ],
+                "height": 1180,
+                "hovermode": "closest",
+                "legend": Object {
+                  "orientation": "v",
+                  "traceorder": "normal",
+                },
+                "margin": Object {
+                  "b": 30,
+                  "l": 60,
+                  "pad": 0,
+                  "r": 30,
+                  "t": 50,
+                },
+                "showlegend": true,
+                "title": "",
+                "xaxis": Object {
+                  "automargin": true,
+                  "tickangle": 0,
+                  "tickfont": Object {},
+                },
+                "yaxis": Object {
+                  "automargin": true,
+                  "tickfont": Object {},
+                },
+              }
+            }
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
               }
               onClick={[Function]}
               style={
@@ -3749,7 +3771,186 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                               "id": "stack",
                               "name": "Stack",
                             },
+                            Object {
+                              "id": "y",
+                              "name": "Metrics",
+                            },
                           ],
+                        },
+                      },
+                    ],
+                  },
+                  Object {
+                    "editor": [Function],
+                    "id": "legend",
+                    "mapTo": "legend",
+                    "name": "Legend",
+                    "schemas": Array [
+                      Object {
+                        "component": null,
+                        "mapTo": "showLegend",
+                        "name": "Show legend",
+                        "props": Object {
+                          "defaultSelections": Array [
+                            Object {
+                              "id": "show",
+                              "name": "Show",
+                            },
+                          ],
+                          "options": Array [
+                            Object {
+                              "id": "show",
+                              "name": "Show",
+                            },
+                            Object {
+                              "id": "hidden",
+                              "name": "Hidden",
+                            },
+                          ],
+                        },
+                      },
+                      Object {
+                        "component": null,
+                        "mapTo": "position",
+                        "name": "Position",
+                        "props": Object {
+                          "defaultSelections": Array [
+                            Object {
+                              "id": "v",
+                              "name": "Right",
+                            },
+                          ],
+                          "options": Array [
+                            Object {
+                              "id": "v",
+                              "name": "Right",
+                            },
+                            Object {
+                              "id": "h",
+                              "name": "Bottom",
+                            },
+                          ],
+                        },
+                      },
+                      Object {
+                        "component": [Function],
+                        "eleType": "input",
+                        "mapTo": "legendSize",
+                        "name": "Legend size",
+                        "title": "Legend size",
+                      },
+                    ],
+                  },
+                  Object {
+                    "editor": [Function],
+                    "id": "chart_styles",
+                    "mapTo": "chartStyles",
+                    "name": "Chart styles",
+                    "schemas": Array [
+                      Object {
+                        "component": [Function],
+                        "eleType": "buttons",
+                        "mapTo": "mode",
+                        "name": "Mode",
+                        "props": Object {
+                          "defaultSelections": Array [
+                            Object {
+                              "id": "group",
+                              "name": "Group",
+                            },
+                          ],
+                          "options": Array [
+                            Object {
+                              "id": "group",
+                              "name": "Group",
+                            },
+                            Object {
+                              "id": "stack",
+                              "name": "Stack",
+                            },
+                          ],
+                        },
+                      },
+                      Object {
+                        "component": [Function],
+                        "eleType": "input",
+                        "mapTo": "labelSize",
+                        "name": "Label size",
+                      },
+                      Object {
+                        "component": [Function],
+                        "defaultState": 0,
+                        "eleType": "slider",
+                        "mapTo": "rotateBarLabels",
+                        "name": "Rotate bar labels",
+                        "props": Object {
+                          "max": 90,
+                          "min": -90,
+                          "showTicks": true,
+                          "ticks": Array [
+                            Object {
+                              "label": "-90°",
+                              "value": -90,
+                            },
+                            Object {
+                              "label": "-45°",
+                              "value": -45,
+                            },
+                            Object {
+                              "label": "0°",
+                              "value": 0,
+                            },
+                            Object {
+                              "label": "45°",
+                              "value": 45,
+                            },
+                            Object {
+                              "label": "90°",
+                              "value": 90,
+                            },
+                          ],
+                        },
+                      },
+                      Object {
+                        "component": [Function],
+                        "defaultState": 0.7,
+                        "eleType": "slider",
+                        "mapTo": "groupWidth",
+                        "name": "Group width",
+                        "props": Object {
+                          "max": 1,
+                          "step": 0.01,
+                        },
+                      },
+                      Object {
+                        "component": [Function],
+                        "defaultState": 0.97,
+                        "eleType": "slider",
+                        "mapTo": "barWidth",
+                        "name": "Bar width",
+                        "props": Object {
+                          "max": 1,
+                          "step": 0.01,
+                        },
+                      },
+                      Object {
+                        "component": [Function],
+                        "defaultState": 1,
+                        "eleType": "slider",
+                        "mapTo": "lineWidth",
+                        "name": "Line width",
+                        "props": Object {
+                          "max": 10,
+                        },
+                      },
+                      Object {
+                        "component": [Function],
+                        "defaultState": 40,
+                        "eleType": "slider",
+                        "mapTo": "fillOpacity",
+                        "name": "Fill opacity",
+                        "props": Object {
+                          "max": 100,
                         },
                       },
                       Object {
@@ -4875,6 +5076,7 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
             Array [
               Object {
                 "hoverinfo": "all",
+                "hovertext": undefined,
                 "marker": Object {
                   "color": "rgba(60,161,199,0.2)",
                   "line": Object {
@@ -4886,16 +5088,16 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                 "orientation": "h",
                 "type": "bar",
                 "x": Array [
-                  "BeatsWest",
-                  "Logstash Airways",
-                  "OpenSearch Dashboards Airlines",
-                  "OpenSearch-Air",
-                ],
-                "y": Array [
                   53.65384615384615,
                   45.36144578313253,
                   63.1578947368421,
                   46.81318681318681,
+                ],
+                "y": Array [
+                  "BeatsWest",
+                  "Logstash Airways",
+                  "OpenSearch Dashboards Airlines",
+                  "OpenSearch-Air",
                 ],
               },
             ]
@@ -4903,16 +5105,6 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
           isEditMode=""
           layout={
             Object {
-              "annotations": Array [
-                Object {
-                  "showarrow": true,
-                  "text": "",
-                  "x": "",
-                  "xref": "x",
-                  "y": "",
-                  "yref": "y",
-                },
-              ],
               "bargap": 0.30000000000000004,
               "bargroupgap": 0.030000000000000027,
               "barmode": "group",
@@ -4929,6 +5121,7 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                 "#4C636F",
               ],
               "height": 1180,
+              "hovermode": "closest",
               "legend": Object {
                 "orientation": "v",
                 "traceorder": "normal",
@@ -4944,11 +5137,11 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
               "title": "",
               "xaxis": Object {
                 "automargin": true,
-                "tickangle": 0,
                 "tickfont": Object {},
               },
               "yaxis": Object {
                 "automargin": true,
+                "tickangle": 0,
                 "tickfont": Object {},
               },
             }
@@ -5005,39 +5198,77 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
             <PlotlyComponent
               config={
                 Object {
-                  "displayModeBar": false,
-                  "displaylogo": false,
-                  "responsive": true,
-                }
-              }
-              data={
-                Array [
-                  Object {
-                    "hoverinfo": "all",
-                    "marker": Object {
-                      "color": "rgba(60,161,199,0.2)",
-                      "line": Object {
-                        "color": "#3CA1C7",
-                        "width": 1,
-                      },
+                  "hoverinfo": "all",
+                  "hovertext": undefined,
+                  "marker": Object {
+                    "color": "rgba(60,161,199,0.2)",
+                    "line": Object {
+                      "color": "#3CA1C7",
+                      "width": 1,
                     },
-                    "name": "avg(FlightDelayMin)",
-                    "orientation": "h",
-                    "type": "bar",
-                    "x": Array [
-                      "BeatsWest",
-                      "Logstash Airways",
-                      "OpenSearch Dashboards Airlines",
-                      "OpenSearch-Air",
-                    ],
-                    "y": Array [
-                      53.65384615384615,
-                      45.36144578313253,
-                      63.1578947368421,
-                      46.81318681318681,
-                    ],
                   },
-                ]
+                  "name": "avg(FlightDelayMin)",
+                  "orientation": "h",
+                  "type": "bar",
+                  "x": Array [
+                    53.65384615384615,
+                    45.36144578313253,
+                    63.1578947368421,
+                    46.81318681318681,
+                  ],
+                  "y": Array [
+                    "BeatsWest",
+                    "Logstash Airways",
+                    "OpenSearch Dashboards Airlines",
+                    "OpenSearch-Air",
+                  ],
+                },
+              ]
+            }
+            debug={false}
+            divId="explorerPlotComponent"
+            layout={
+              Object {
+                "autosize": true,
+                "bargap": 0.30000000000000004,
+                "bargroupgap": 0.030000000000000027,
+                "barmode": "group",
+                "colorway": Array [
+                  "#3CA1C7",
+                  "#8C55A3",
+                  "#DB748A",
+                  "#F2BE4B",
+                  "#68CCC2",
+                  "#2A7866",
+                  "#843769",
+                  "#374FB8",
+                  "#BD6F26",
+                  "#4C636F",
+                ],
+                "height": 1180,
+                "hovermode": "closest",
+                "legend": Object {
+                  "orientation": "v",
+                  "traceorder": "normal",
+                },
+                "margin": Object {
+                  "b": 30,
+                  "l": 60,
+                  "pad": 0,
+                  "r": 30,
+                  "t": 50,
+                },
+                "showlegend": true,
+                "title": "",
+                "xaxis": Object {
+                  "automargin": true,
+                  "tickfont": Object {},
+                },
+                "yaxis": Object {
+                  "automargin": true,
+                  "tickangle": 0,
+                  "tickfont": Object {},
+                },
               }
               debug={false}
               divId="explorerPlotComponent"
@@ -5466,6 +5697,88 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
                           "max": 100,
                         },
                       },
+                      Object {
+                        "component": [Function],
+                        "eleType": "input",
+                        "mapTo": "labelSize",
+                        "name": "Label size",
+                      },
+                      Object {
+                        "component": [Function],
+                        "defaultState": 0,
+                        "eleType": "slider",
+                        "mapTo": "rotateBarLabels",
+                        "name": "Rotate bar labels",
+                        "props": Object {
+                          "max": 90,
+                          "min": -90,
+                          "showTicks": true,
+                          "ticks": Array [
+                            Object {
+                              "label": "-90°",
+                              "value": -90,
+                            },
+                            Object {
+                              "label": "-45°",
+                              "value": -45,
+                            },
+                            Object {
+                              "label": "0°",
+                              "value": 0,
+                            },
+                            Object {
+                              "label": "45°",
+                              "value": 45,
+                            },
+                            Object {
+                              "label": "90°",
+                              "value": 90,
+                            },
+                          ],
+                        },
+                      },
+                      Object {
+                        "component": [Function],
+                        "defaultState": 0.7,
+                        "eleType": "slider",
+                        "mapTo": "groupWidth",
+                        "name": "Group width",
+                        "props": Object {
+                          "max": 1,
+                          "step": 0.01,
+                        },
+                      },
+                      Object {
+                        "component": [Function],
+                        "defaultState": 0.97,
+                        "eleType": "slider",
+                        "mapTo": "barWidth",
+                        "name": "Bar width",
+                        "props": Object {
+                          "max": 1,
+                          "step": 0.01,
+                        },
+                      },
+                      Object {
+                        "component": [Function],
+                        "defaultState": 1,
+                        "eleType": "slider",
+                        "mapTo": "lineWidth",
+                        "name": "Line width",
+                        "props": Object {
+                          "max": 10,
+                        },
+                      },
+                      Object {
+                        "component": [Function],
+                        "defaultState": 40,
+                        "eleType": "slider",
+                        "mapTo": "fillOpacity",
+                        "name": "Fill opacity",
+                        "props": Object {
+                          "max": 100,
+                        },
+                      },
                     ],
                   },
                   Object {
@@ -5795,6 +6108,88 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
                                 "name": "Stack",
                               },
                             ],
+                          },
+                        },
+                        Object {
+                          "component": [Function],
+                          "eleType": "input",
+                          "mapTo": "labelSize",
+                          "name": "Label size",
+                        },
+                        Object {
+                          "component": [Function],
+                          "defaultState": 0,
+                          "eleType": "slider",
+                          "mapTo": "rotateBarLabels",
+                          "name": "Rotate bar labels",
+                          "props": Object {
+                            "max": 90,
+                            "min": -90,
+                            "showTicks": true,
+                            "ticks": Array [
+                              Object {
+                                "label": "-90°",
+                                "value": -90,
+                              },
+                              Object {
+                                "label": "-45°",
+                                "value": -45,
+                              },
+                              Object {
+                                "label": "0°",
+                                "value": 0,
+                              },
+                              Object {
+                                "label": "45°",
+                                "value": 45,
+                              },
+                              Object {
+                                "label": "90°",
+                                "value": 90,
+                              },
+                            ],
+                          },
+                        },
+                        Object {
+                          "component": [Function],
+                          "defaultState": 0.7,
+                          "eleType": "slider",
+                          "mapTo": "groupWidth",
+                          "name": "Group width",
+                          "props": Object {
+                            "max": 1,
+                            "step": 0.01,
+                          },
+                        },
+                        Object {
+                          "component": [Function],
+                          "defaultState": 0.97,
+                          "eleType": "slider",
+                          "mapTo": "barWidth",
+                          "name": "Bar width",
+                          "props": Object {
+                            "max": 1,
+                            "step": 0.01,
+                          },
+                        },
+                        Object {
+                          "component": [Function],
+                          "defaultState": 1,
+                          "eleType": "slider",
+                          "mapTo": "lineWidth",
+                          "name": "Line width",
+                          "props": Object {
+                            "max": 10,
+                          },
+                        },
+                        Object {
+                          "component": [Function],
+                          "defaultState": 40,
+                          "eleType": "slider",
+                          "mapTo": "fillOpacity",
+                          "name": "Fill opacity",
+                          "props": Object {
+                            "max": 100,
                           },
                         },
                         Object {
@@ -6398,16 +6793,6 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
           data={Array []}
           layout={
             Object {
-              "annotations": Array [
-                Object {
-                  "showarrow": true,
-                  "text": "",
-                  "x": "",
-                  "xref": "x",
-                  "y": "",
-                  "yref": "y",
-                },
-              ],
               "bargap": 0.30000000000000004,
               "bargroupgap": 0.030000000000000027,
               "barmode": "group",
@@ -6424,6 +6809,7 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
                 "#4C636F",
               ],
               "height": 1180,
+              "hovermode": "closest",
               "legend": Object {
                 "orientation": "v",
                 "traceorder": "normal",
@@ -6439,11 +6825,11 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
               "title": "",
               "xaxis": Object {
                 "automargin": true,
-                "tickangle": 0,
                 "tickfont": Object {},
               },
               "yaxis": Object {
                 "automargin": true,
+                "tickangle": 0,
                 "tickfont": Object {},
               },
             }
@@ -6456,25 +6842,59 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
           onEditAnnotationHandler={[Function]}
           showAnnotationInput={false}
         >
-          <div>
-            <Annotations
-              annotationIndex={0}
-              chartType="horizontal_bar"
-              data={Array []}
-              onAddAnnotation={[Function]}
-              onCancelAnnotation={[Function]}
-              onDeleteAnnotation={[Function]}
-              onEditAnnotation={[Function]}
-              onTextChange={[Function]}
-              showInputBox={false}
-            />
-            <PlotlyComponent
-              config={
-                Object {
-                  "displayModeBar": false,
-                  "displaylogo": false,
-                  "responsive": true,
-                }
+          <PlotlyComponent
+            config={
+              Object {
+                "displayModeBar": false,
+                "displaylogo": false,
+                "responsive": true,
+              }
+            }
+            data={Array []}
+            debug={false}
+            divId="explorerPlotComponent"
+            layout={
+              Object {
+                "autosize": true,
+                "bargap": 0.30000000000000004,
+                "bargroupgap": 0.030000000000000027,
+                "barmode": "group",
+                "colorway": Array [
+                  "#3CA1C7",
+                  "#8C55A3",
+                  "#DB748A",
+                  "#F2BE4B",
+                  "#68CCC2",
+                  "#2A7866",
+                  "#843769",
+                  "#374FB8",
+                  "#BD6F26",
+                  "#4C636F",
+                ],
+                "height": 1180,
+                "hovermode": "closest",
+                "legend": Object {
+                  "orientation": "v",
+                  "traceorder": "normal",
+                },
+                "margin": Object {
+                  "b": 30,
+                  "l": 60,
+                  "pad": 0,
+                  "r": 30,
+                  "t": 50,
+                },
+                "showlegend": true,
+                "title": "",
+                "xaxis": Object {
+                  "automargin": true,
+                  "tickfont": Object {},
+                },
+                "yaxis": Object {
+                  "automargin": true,
+                  "tickangle": 0,
+                  "tickfont": Object {},
+                },
               }
               data={Array []}
               debug={false}

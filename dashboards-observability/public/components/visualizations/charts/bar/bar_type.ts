@@ -17,9 +17,10 @@ import {
   ButtonGroupItem,
   ConfigAvailability,
 } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls';
-import { DefaultChartStyles, visChartTypes } from '../../../../../common/constants/shared';
 import { fetchConfigObject } from '../../../../components/event_analytics/utils/utils';
+import { DefaultChartStyles, visChartTypes } from '../../../../../common/constants/shared';
 import { DefaultBarChartStyles } from '../../../../../common/constants/explorer';
+
 const sharedConfigs = getPlotlySharedConfigs();
 const VIS_CATEGORY = getPlotlyCategory();
 
@@ -29,9 +30,9 @@ const isHorizontalBar = (paramstype: string) =>
   paramstype === visChartTypes.HorizontalBar ? true : false;
 
 export const createBarTypeDefinition = (params: any) => ({
-  name: params.type ? params.type : 'bar',
+  name: params.type || 'bar',
   type: 'bar',
-  id: params.type ? params.type : 'bar',
+  id: params.type || 'bar',
   label: isHorizontalBar(params.type) ? 'Horizontal bar' : 'Vertical bar',
   fulllabel: isHorizontalBar(params.type) ? 'Horizontal bar' : 'Vertical bar',
   icontype: isHorizontalBar(params.type) ? 'visBarHorizontalStacked' : 'visBarVerticalStacked',

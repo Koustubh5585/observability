@@ -547,6 +547,7 @@ exports[`Pie component Renders pie component 1`] = `
             "row": 0,
           },
           "hole": 0,
+          "hoverinfo": "all",
           "labels": Array [
             "error",
             "info",
@@ -613,6 +614,7 @@ exports[`Pie component Renders pie component 1`] = `
                 "row": 0,
               },
               "hole": 0,
+              "hoverinfo": "all",
               "labels": Array [
                 "error",
                 "info",
@@ -656,6 +658,7 @@ exports[`Pie component Renders pie component 1`] = `
                 "row": 0,
               },
               "hole": 0,
+              "hoverinfo": "all",
               "labels": Array [
                 "error",
                 "info",

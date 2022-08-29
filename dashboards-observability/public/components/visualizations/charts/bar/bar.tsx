@@ -16,7 +16,7 @@ import {
 } from '../../../../../common/constants/shared';
 import { AvailabilityUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_availability';
 import { ThresholdUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_thresholds';
-import { hexToRgb, filterDataConfigParameter } from '../../../event_analytics/utils/utils';
+import { hexToRgb } from '../../../event_analytics/utils/utils';
 import { EmptyPlaceholder } from '../../../event_analytics/explorer/visualizations/shared_components/empty_placeholder';
 import { ConfigListEntry } from '../../../../../common/types/explorer';
 
@@ -28,13 +28,7 @@ export const Bar = ({ visualizations, layout, config }: any) => {
   } = visualizations.data.rawVizData;
   const lastIndex = fields.length - 1;
   const {
-    dataConfig: {
-      chartStyles = {},
-      valueOptions = {},
-      legend = {},
-      colorTheme = [],
-      panelOptions = {},
-    },
+    dataConfig = {},
     layoutConfig = {},
     availabilityConfig = {},
   } = visualizations?.data?.userConfigs;
@@ -94,22 +88,22 @@ export const Bar = ({ visualizations, layout, config }: any) => {
   } else {
     return <EmptyPlaceholder icon={visualizations?.vis?.icontype} />;
   }
-  const tickAngle = chartStyles.rotateBarLabels || vis.labelangle;
-  const lineWidth = chartStyles.lineWidth || vis.linewidth;
+  const tickAngle = dataConfig?.chartStyles?.rotateBarLabels || vis.labelangle;
+  const lineWidth = dataConfig?.chartStyles?.lineWidth || vis.linewidth;
   const fillOpacity =
-    chartStyles.fillOpacity !== undefined
-      ? chartStyles.fillOpacity / FILLOPACITY_DIV_FACTOR
+  dataConfig?.chartStyles?.fillOpacity !== undefined
+      ? dataConfig?.chartStyles?.fillOpacity / FILLOPACITY_DIV_FACTOR
       : vis.fillopacity / FILLOPACITY_DIV_FACTOR;
-  const barWidth = 1 - (chartStyles.barWidth || vis.barwidth);
-  const groupWidth = 1 - (chartStyles.groupWidth || vis.groupwidth);
-  const showLegend = !(legend.showLegend && legend.showLegend !== vis.showlegend);
-  const legendPosition = legend.position || vis.legendposition;
-  const labelSize = chartStyles.labelSize;
-  const legendSize = legend.legendSize;
+  const barWidth = 1 - (dataConfig?.chartStyles?.barWidth || vis.barwidth);
+  const groupWidth = 1 - (dataConfig?.chartStyles?.groupWidth || vis.groupwidth);
+  const showLegend = !(dataConfig?.legend?.showLegend && dataConfig?.legend?.showLegend !== vis.showlegend);
+  const legendPosition = dataConfig?.legend?.position || vis.legendposition;
+  const labelSize = dataConfig?.chartStyles?.labelSize;
+  const legendSize = dataConfig?.legend?.legendSize;
 
   const getSelectedColorTheme = (field: any, index: number) =>
-    (colorTheme.length > 0 &&
-      colorTheme.find((colorSelected) => colorSelected.name.name === field.label)?.color) ||
+    (dataConfig?.colorTheme?.length > 0 &&
+      dataConfig?.colorTheme?.find((colorSelected) => colorSelected.name.name === field.label)?.color) ||
     PLOTLY_COLOR[index % PLOTLY_COLOR.length];
 
   const prepareData = (valueForXSeries) => {
@@ -210,8 +204,8 @@ export const Bar = ({ visualizations, layout, config }: any) => {
     colorway: plotlyColorway,
     ...layout,
     ...(layoutConfig.layout && layoutConfig.layout),
-    title: panelOptions.title || layoutConfig.layout?.title || '',
-    barmode: chartStyles.mode || vis.mode,
+    title: dataConfig?.panelOptions?.title || layoutConfig.layout?.title || '',
+    barmode: dataConfig?.chartStyles?.mode || vis.mode,
     xaxis: {
       ...(isVertical && { tickangle: tickAngle }),
       automargin: true,

@@ -37,10 +37,11 @@ export const ConfigColorTheme = ({
     color: '#FC0505',
   });
 
-  const options = fields.map((item) => ({
-    ...item,
-    label: item.name,
-  }));
+  const options = (metricsData.length > 0 ? metricsData : fields)
+    .map((item) => ({
+      ...item,
+      label: item.name,
+    }));
   const getUpdatedOptions = () =>
     options.filter((option) => !vizState.some((vizOpt) => option.name === vizOpt?.name?.name));
 

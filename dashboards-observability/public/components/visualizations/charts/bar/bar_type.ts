@@ -17,9 +17,9 @@ import {
   ButtonGroupItem,
   ConfigAvailability,
 } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls';
-import { DefaultChartStyles } from '../../../../../common/constants/shared';
+import { DefaultChartStyles, visChartTypes } from '../../../../../common/constants/shared';
 import { fetchConfigObject } from '../../../../components/event_analytics/utils/utils';
-import { ConfigColorTheme } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_color_theme';
+import { DefaultBarChartStyles } from '../../../../../common/constants/explorer';
 const sharedConfigs = getPlotlySharedConfigs();
 const VIS_CATEGORY = getPlotlyCategory();
 

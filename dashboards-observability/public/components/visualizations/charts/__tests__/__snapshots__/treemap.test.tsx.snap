@@ -600,6 +600,7 @@ exports[`Treemap component Renders treemap component 1`] = `
         data={
           Array [
             Object {
+              "hoverinfo": "all",
               "labels": Array [
                 "error",
                 "info",
@@ -644,6 +645,7 @@ exports[`Treemap component Renders treemap component 1`] = `
         data={
           Array [
             Object {
+              "hoverinfo": "all",
               "labels": Array [
                 "error",
                 "info",
@@ -682,23 +684,10 @@ exports[`Treemap component Renders treemap component 1`] = `
         divId="explorerPlotComponent"
         layout={
           Object {
-            "hoverinfo": "all",
-            "labels": Array [
-              "error",
-              "info",
-              "login",
-              "security",
-              "success",
-              "warning",
-            ],
-            "marker": Object {},
-            "parents": Array [
-              "",
-              "",
-              "",
-              "",
-              "",
-              "",
+            "autosize": true,
+            "barmode": "stack",
+            "colorway": Array [
+              "#8C55A3",
             ],
             "height": 220,
             "hovermode": "closest",

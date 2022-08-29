@@ -590,6 +590,7 @@ exports[`Histogram component Renders histogram component 1`] = `
         data={
           Array [
             Object {
+              "hoverinfo": "all",
               "marker": Object {
                 "color": "rgba(60,161,199,0.2)",
                 "line": Object {
@@ -615,12 +616,19 @@ exports[`Histogram component Renders histogram component 1`] = `
       <PlotlyComponent
         config={
           Object {
-            "hoverinfo": "all",
-            "marker": Object {
-              "color": "rgba(60,161,199,0.2)",
-              "line": Object {
-                "color": "rgba(60,161,199,1)",
-                "width": 2,
+            "displayModeBar": false,
+          }
+        }
+        data={
+          Array [
+            Object {
+              "hoverinfo": "all",
+              "marker": Object {
+                "color": "rgba(60,161,199,0.2)",
+                "line": Object {
+                  "color": "rgba(60,161,199,1)",
+                  "width": 2,
+                },
               },
               "name": "count()",
               "type": "histogram",

@@ -1532,6 +1532,7 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
               data={
                 Array [
                   Object {
+                    "hoverinfo": "all",
                     "marker": Object {
                       "color": "rgba(60,161,199,0.2)",
                       "line": Object {
@@ -1568,12 +1569,21 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
             <PlotlyComponent
               config={
                 Object {
-                  "hoverinfo": "all",
-                  "marker": Object {
-                    "color": "rgba(60,161,199,0.4)",
-                    "line": Object {
-                      "color": "#3CA1C7",
-                      "width": 1,
+                  "displayModeBar": false,
+                  "displaylogo": false,
+                  "responsive": true,
+                }
+              }
+              data={
+                Array [
+                  Object {
+                    "hoverinfo": "all",
+                    "marker": Object {
+                      "color": "rgba(60,161,199,0.2)",
+                      "line": Object {
+                        "color": "#3CA1C7",
+                        "width": 1,
+                      },
                     },
                     "name": "avg(FlightDelayMin)",
                     "orientation": "v",
@@ -3595,6 +3605,64 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                 "sections": Array [
                   Object {
                     "editor": [Function],
+                    "id": "tooltip_options",
+                    "mapTo": "tooltipOptions",
+                    "name": "Tooltip options",
+                    "schemas": Array [
+                      Object {
+                        "component": null,
+                        "mapTo": "tooltipMode",
+                        "name": "Tooltip mode",
+                        "props": Object {
+                          "defaultSelections": Array [
+                            Object {
+                              "id": "show",
+                              "name": "Show",
+                            },
+                          ],
+                          "options": Array [
+                            Object {
+                              "id": "show",
+                              "name": "Show",
+                            },
+                            Object {
+                              "id": "hidden",
+                              "name": "Hidden",
+                            },
+                          ],
+                        },
+                      },
+                      Object {
+                        "component": null,
+                        "mapTo": "tooltipText",
+                        "name": "Tooltip text",
+                        "props": Object {
+                          "defaultSelections": Array [
+                            Object {
+                              "id": "all",
+                              "name": "All",
+                            },
+                          ],
+                          "options": Array [
+                            Object {
+                              "id": "all",
+                              "name": "All",
+                            },
+                            Object {
+                              "id": "x",
+                              "name": "Dimension",
+                            },
+                            Object {
+                              "id": "y",
+                              "name": "Metrics",
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                  Object {
+                    "editor": [Function],
                     "id": "legend",
                     "mapTo": "legend",
                     "name": "Legend",
@@ -4002,6 +4070,64 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                   "mapTo": "dataConfig",
                   "name": "Style",
                   "sections": Array [
+                    Object {
+                      "editor": [Function],
+                      "id": "tooltip_options",
+                      "mapTo": "tooltipOptions",
+                      "name": "Tooltip options",
+                      "schemas": Array [
+                        Object {
+                          "component": null,
+                          "mapTo": "tooltipMode",
+                          "name": "Tooltip mode",
+                          "props": Object {
+                            "defaultSelections": Array [
+                              Object {
+                                "id": "show",
+                                "name": "Show",
+                              },
+                            ],
+                            "options": Array [
+                              Object {
+                                "id": "show",
+                                "name": "Show",
+                              },
+                              Object {
+                                "id": "hidden",
+                                "name": "Hidden",
+                              },
+                            ],
+                          },
+                        },
+                        Object {
+                          "component": null,
+                          "mapTo": "tooltipText",
+                          "name": "Tooltip text",
+                          "props": Object {
+                            "defaultSelections": Array [
+                              Object {
+                                "id": "all",
+                                "name": "All",
+                              },
+                            ],
+                            "options": Array [
+                              Object {
+                                "id": "all",
+                                "name": "All",
+                              },
+                              Object {
+                                "id": "x",
+                                "name": "Dimension",
+                              },
+                              Object {
+                                "id": "y",
+                                "name": "Metrics",
+                              },
+                            ],
+                          },
+                        },
+                      ],
+                    },
                     Object {
                       "editor": [Function],
                       "id": "legend",
@@ -4436,6 +4562,64 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                     "sections": Array [
                       Object {
                         "editor": [Function],
+                        "id": "tooltip_options",
+                        "mapTo": "tooltipOptions",
+                        "name": "Tooltip options",
+                        "schemas": Array [
+                          Object {
+                            "component": null,
+                            "mapTo": "tooltipMode",
+                            "name": "Tooltip mode",
+                            "props": Object {
+                              "defaultSelections": Array [
+                                Object {
+                                  "id": "show",
+                                  "name": "Show",
+                                },
+                              ],
+                              "options": Array [
+                                Object {
+                                  "id": "show",
+                                  "name": "Show",
+                                },
+                                Object {
+                                  "id": "hidden",
+                                  "name": "Hidden",
+                                },
+                              ],
+                            },
+                          },
+                          Object {
+                            "component": null,
+                            "mapTo": "tooltipText",
+                            "name": "Tooltip text",
+                            "props": Object {
+                              "defaultSelections": Array [
+                                Object {
+                                  "id": "all",
+                                  "name": "All",
+                                },
+                              ],
+                              "options": Array [
+                                Object {
+                                  "id": "all",
+                                  "name": "All",
+                                },
+                                Object {
+                                  "id": "x",
+                                  "name": "Dimension",
+                                },
+                                Object {
+                                  "id": "y",
+                                  "name": "Metrics",
+                                },
+                              ],
+                            },
+                          },
+                        ],
+                      },
+                      Object {
+                        "editor": [Function],
                         "id": "legend",
                         "mapTo": "legend",
                         "name": "Legend",
@@ -4702,16 +4886,16 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                 "orientation": "h",
                 "type": "bar",
                 "x": Array [
-                  53.65384615384615,
-                  45.36144578313253,
-                  63.1578947368421,
-                  46.81318681318681,
-                ],
-                "y": Array [
                   "BeatsWest",
                   "Logstash Airways",
                   "OpenSearch Dashboards Airlines",
                   "OpenSearch-Air",
+                ],
+                "y": Array [
+                  53.65384615384615,
+                  45.36144578313253,
+                  63.1578947368421,
+                  46.81318681318681,
                 ],
               },
             ]
@@ -4760,11 +4944,11 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
               "title": "",
               "xaxis": Object {
                 "automargin": true,
+                "tickangle": 0,
                 "tickfont": Object {},
               },
               "yaxis": Object {
                 "automargin": true,
-                "tickangle": 0,
                 "tickfont": Object {},
               },
             }
@@ -4784,6 +4968,7 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
               data={
                 Array [
                   Object {
+                    "hoverinfo": "all",
                     "marker": Object {
                       "color": "rgba(60,161,199,0.2)",
                       "line": Object {
@@ -4795,16 +4980,16 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                     "orientation": "h",
                     "type": "bar",
                     "x": Array [
-                      53.65384615384615,
-                      45.36144578313253,
-                      63.1578947368421,
-                      46.81318681318681,
-                    ],
-                    "y": Array [
                       "BeatsWest",
                       "Logstash Airways",
                       "OpenSearch Dashboards Airlines",
                       "OpenSearch-Air",
+                    ],
+                    "y": Array [
+                      53.65384615384615,
+                      45.36144578313253,
+                      63.1578947368421,
+                      46.81318681318681,
                     ],
                   },
                 ]
@@ -4820,27 +5005,36 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
             <PlotlyComponent
               config={
                 Object {
-                  "hoverinfo": "all",
-                  "marker": Object {
-                    "color": "rgba(60,161,199,NaN)",
-                    "line": Object {
-                      "color": "#3CA1C7",
-                      "width": undefined,
+                  "displayModeBar": false,
+                  "displaylogo": false,
+                  "responsive": true,
+                }
+              }
+              data={
+                Array [
+                  Object {
+                    "hoverinfo": "all",
+                    "marker": Object {
+                      "color": "rgba(60,161,199,0.2)",
+                      "line": Object {
+                        "color": "#3CA1C7",
+                        "width": 1,
+                      },
                     },
                     "name": "avg(FlightDelayMin)",
                     "orientation": "h",
                     "type": "bar",
                     "x": Array [
-                      53.65384615384615,
-                      45.36144578313253,
-                      63.1578947368421,
-                      46.81318681318681,
-                    ],
-                    "y": Array [
                       "BeatsWest",
                       "Logstash Airways",
                       "OpenSearch Dashboards Airlines",
                       "OpenSearch-Air",
+                    ],
+                    "y": Array [
+                      53.65384615384615,
+                      45.36144578313253,
+                      63.1578947368421,
+                      46.81318681318681,
                     ],
                   },
                 ]
@@ -4892,11 +5086,11 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
                   "title": "",
                   "xaxis": Object {
                     "automargin": true,
+                    "tickangle": 0,
                     "tickfont": Object {},
                   },
                   "yaxis": Object {
                     "automargin": true,
-                    "tickangle": 0,
                     "tickfont": Object {},
                   },
                 }
@@ -5041,6 +5235,64 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
                 "mapTo": "dataConfig",
                 "name": "Style",
                 "sections": Array [
+                  Object {
+                    "editor": [Function],
+                    "id": "tooltip_options",
+                    "mapTo": "tooltipOptions",
+                    "name": "Tooltip options",
+                    "schemas": Array [
+                      Object {
+                        "component": null,
+                        "mapTo": "tooltipMode",
+                        "name": "Tooltip mode",
+                        "props": Object {
+                          "defaultSelections": Array [
+                            Object {
+                              "id": "show",
+                              "name": "Show",
+                            },
+                          ],
+                          "options": Array [
+                            Object {
+                              "id": "show",
+                              "name": "Show",
+                            },
+                            Object {
+                              "id": "hidden",
+                              "name": "Hidden",
+                            },
+                          ],
+                        },
+                      },
+                      Object {
+                        "component": null,
+                        "mapTo": "tooltipText",
+                        "name": "Tooltip text",
+                        "props": Object {
+                          "defaultSelections": Array [
+                            Object {
+                              "id": "all",
+                              "name": "All",
+                            },
+                          ],
+                          "options": Array [
+                            Object {
+                              "id": "all",
+                              "name": "All",
+                            },
+                            Object {
+                              "id": "x",
+                              "name": "Dimension",
+                            },
+                            Object {
+                              "id": "y",
+                              "name": "Metrics",
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                   Object {
                     "editor": [Function],
                     "id": "legend",
@@ -5396,6 +5648,64 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
                   "mapTo": "dataConfig",
                   "name": "Style",
                   "sections": Array [
+                    Object {
+                      "editor": [Function],
+                      "id": "tooltip_options",
+                      "mapTo": "tooltipOptions",
+                      "name": "Tooltip options",
+                      "schemas": Array [
+                        Object {
+                          "component": null,
+                          "mapTo": "tooltipMode",
+                          "name": "Tooltip mode",
+                          "props": Object {
+                            "defaultSelections": Array [
+                              Object {
+                                "id": "show",
+                                "name": "Show",
+                              },
+                            ],
+                            "options": Array [
+                              Object {
+                                "id": "show",
+                                "name": "Show",
+                              },
+                              Object {
+                                "id": "hidden",
+                                "name": "Hidden",
+                              },
+                            ],
+                          },
+                        },
+                        Object {
+                          "component": null,
+                          "mapTo": "tooltipText",
+                          "name": "Tooltip text",
+                          "props": Object {
+                            "defaultSelections": Array [
+                              Object {
+                                "id": "all",
+                                "name": "All",
+                              },
+                            ],
+                            "options": Array [
+                              Object {
+                                "id": "all",
+                                "name": "All",
+                              },
+                              Object {
+                                "id": "x",
+                                "name": "Dimension",
+                              },
+                              Object {
+                                "id": "y",
+                                "name": "Metrics",
+                              },
+                            ],
+                          },
+                        },
+                      ],
+                    },
                     Object {
                       "editor": [Function],
                       "id": "legend",
@@ -5776,6 +6086,64 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
                     "sections": Array [
                       Object {
                         "editor": [Function],
+                        "id": "tooltip_options",
+                        "mapTo": "tooltipOptions",
+                        "name": "Tooltip options",
+                        "schemas": Array [
+                          Object {
+                            "component": null,
+                            "mapTo": "tooltipMode",
+                            "name": "Tooltip mode",
+                            "props": Object {
+                              "defaultSelections": Array [
+                                Object {
+                                  "id": "show",
+                                  "name": "Show",
+                                },
+                              ],
+                              "options": Array [
+                                Object {
+                                  "id": "show",
+                                  "name": "Show",
+                                },
+                                Object {
+                                  "id": "hidden",
+                                  "name": "Hidden",
+                                },
+                              ],
+                            },
+                          },
+                          Object {
+                            "component": null,
+                            "mapTo": "tooltipText",
+                            "name": "Tooltip text",
+                            "props": Object {
+                              "defaultSelections": Array [
+                                Object {
+                                  "id": "all",
+                                  "name": "All",
+                                },
+                              ],
+                              "options": Array [
+                                Object {
+                                  "id": "all",
+                                  "name": "All",
+                                },
+                                Object {
+                                  "id": "x",
+                                  "name": "Dimension",
+                                },
+                                Object {
+                                  "id": "y",
+                                  "name": "Metrics",
+                                },
+                              ],
+                            },
+                          },
+                        ],
+                      },
+                      Object {
+                        "editor": [Function],
                         "id": "legend",
                         "mapTo": "legend",
                         "name": "Legend",
@@ -6071,11 +6439,11 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
               "title": "",
               "xaxis": Object {
                 "automargin": true,
+                "tickangle": 0,
                 "tickfont": Object {},
               },
               "yaxis": Object {
                 "automargin": true,
-                "tickangle": 0,
                 "tickfont": Object {},
               },
             }
@@ -6156,11 +6524,11 @@ exports[`Utils helper functions renders displayVisualization function 4`] = `
                   "title": "",
                   "xaxis": Object {
                     "automargin": true,
+                    "tickangle": 0,
                     "tickfont": Object {},
                   },
                   "yaxis": Object {
                     "automargin": true,
-                    "tickangle": 0,
                     "tickfont": Object {},
                   },
                 }

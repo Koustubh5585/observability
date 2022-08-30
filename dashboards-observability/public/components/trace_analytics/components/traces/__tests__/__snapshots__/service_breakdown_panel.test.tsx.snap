@@ -163,83 +163,107 @@ exports[`Service breakdown panel component renders service breakdown panel 1`] =
                   }
                 }
               >
-                <PlotlyComponent
-                  config={
-                    Object {
-                      "displayModeBar": false,
-                    }
-                  }
-                  data={
-                    Array [
-                      Object {
-                        "hovertemplate": "%{label}<br>%{value:.2f}%<extra></extra>",
-                        "labels": Array [
-                          "inventory",
-                        ],
-                        "marker": Object {
-                          "colors": Array [
-                            "#7492e7",
+                <div>
+                  <Annotations
+                    data={
+                      Array [
+                        Object {
+                          "hovertemplate": "%{label}<br>%{value:.2f}%<extra></extra>",
+                          "labels": Array [
+                            "inventory",
+                          ],
+                          "marker": Object {
+                            "colors": Array [
+                              "#7492e7",
+                            ],
+                          },
+                          "textinfo": "none",
+                          "type": "pie",
+                          "values": Array [
+                            100,
                           ],
                         },
-                        "textinfo": "none",
-                        "type": "pie",
-                        "values": Array [
-                          100,
-                        ],
-                      },
-                    ]
-                  }
-                  debug={false}
-                  divId="explorerPlotComponent"
-                  layout={
-                    Object {
-                      "autosize": true,
-                      "barmode": "stack",
-                      "height": 200,
-                      "hovermode": "closest",
-                      "legend": Object {
-                        "orientation": "h",
-                        "traceorder": "normal",
-                      },
-                      "margin": Object {
-                        "b": 5,
-                        "l": 5,
-                        "r": 5,
-                        "t": 5,
-                      },
-                      "showlegend": false,
-                      "width": 200,
-                      "xaxis": Object {
-                        "automargin": true,
-                        "rangemode": "normal",
-                        "showgrid": true,
-                        "zeroline": false,
-                      },
-                      "yaxis": Object {
-                        "rangemode": "normal",
-                        "showgrid": true,
-                        "zeroline": false,
-                      },
+                      ]
                     }
-                  }
-                  style={
-                    Object {
-                      "height": "100%",
-                      "width": "100%",
+                  />
+                  <PlotlyComponent
+                    config={
+                      Object {
+                        "displayModeBar": false,
+                      }
                     }
-                  }
-                  useResizeHandler={true}
-                >
-                  <div
-                    id="explorerPlotComponent"
+                    data={
+                      Array [
+                        Object {
+                          "hovertemplate": "%{label}<br>%{value:.2f}%<extra></extra>",
+                          "labels": Array [
+                            "inventory",
+                          ],
+                          "marker": Object {
+                            "colors": Array [
+                              "#7492e7",
+                            ],
+                          },
+                          "textinfo": "none",
+                          "type": "pie",
+                          "values": Array [
+                            100,
+                          ],
+                        },
+                      ]
+                    }
+                    debug={false}
+                    divId="explorerPlotComponent"
+                    layout={
+                      Object {
+                        "autosize": true,
+                        "barmode": "stack",
+                        "height": 200,
+                        "hovermode": "closest",
+                        "legend": Object {
+                          "orientation": "h",
+                          "traceorder": "normal",
+                        },
+                        "margin": Object {
+                          "b": 5,
+                          "l": 5,
+                          "r": 5,
+                          "t": 5,
+                        },
+                        "showlegend": false,
+                        "width": 200,
+                        "xaxis": Object {
+                          "automargin": true,
+                          "rangemode": "normal",
+                          "showgrid": true,
+                          "zeroline": false,
+                        },
+                        "yaxis": Object {
+                          "rangemode": "normal",
+                          "showgrid": true,
+                          "zeroline": false,
+                        },
+                      }
+                    }
                     style={
                       Object {
                         "height": "100%",
                         "width": "100%",
                       }
                     }
-                  />
-                </PlotlyComponent>
+                    useResizeHandler={true}
+                  >
+                    <div
+                      id="explorerPlotComponent"
+                      style={
+                        Object {
+                          "height": "100%",
+                          "width": "100%",
+                        }
+                      }
+                    />
+                  </PlotlyComponent>
+                </div>
               </Plt>
             </div>
           </EuiFlexItem>

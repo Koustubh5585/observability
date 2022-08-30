@@ -199,7 +199,27 @@ exports[`Histogram component Renders histogram component 1`] = `
             "status": 200,
           },
         },
-        "userConfigs": Object {},
+        "userConfigs": Object {
+          "dataConfig": Object {
+            "valueOptions": Object {
+              "dimensions": Array [
+                Object {
+                  "label": "tags",
+                  "name": "tags",
+                  "type": "text",
+                },
+              ],
+              "metrics": Array [
+                Object {
+                  "label": "count()",
+                  "name": "count()",
+                  "side": "left",
+                  "type": "integer",
+                },
+              ],
+            },
+          },
+        },
       },
       "vis": Object {
         "barwidth": 0.97,
@@ -324,6 +344,13 @@ exports[`Histogram component Renders histogram component 1`] = `
                         ],
                       },
                     },
+                    Object {
+                      "component": [Function],
+                      "eleType": "input",
+                      "mapTo": "legendSize",
+                      "name": "Legend size",
+                      "title": "Legend size",
+                    },
                   ],
                 },
                 Object {
@@ -332,30 +359,6 @@ exports[`Histogram component Renders histogram component 1`] = `
                   "mapTo": "chartStyles",
                   "name": "Chart styles",
                   "schemas": Array [
-                    Object {
-                      "component": [Function],
-                      "eleType": "buttons",
-                      "mapTo": "orientation",
-                      "name": "Orientation",
-                      "props": Object {
-                        "defaultSelections": Array [
-                          Object {
-                            "id": "v",
-                            "name": "Vertical",
-                          },
-                        ],
-                        "options": Array [
-                          Object {
-                            "id": "v",
-                            "name": "Vertical",
-                          },
-                          Object {
-                            "id": "h",
-                            "name": "Horizontal",
-                          },
-                        ],
-                      },
-                    },
                     Object {
                       "component": [Function],
                       "eleType": "buttons",
@@ -454,7 +457,7 @@ exports[`Histogram component Renders histogram component 1`] = `
                     },
                     Object {
                       "component": [Function],
-                      "defaultState": 80,
+                      "defaultState": 40,
                       "eleType": "slider",
                       "mapTo": "fillOpacity",
                       "name": "Fill opacity",
@@ -488,7 +491,7 @@ exports[`Histogram component Renders histogram component 1`] = `
             },
           ],
         },
-        "fillOpacity": 80,
+        "fillopacity": 40,
         "fulllabel": "Vertical bar",
         "groupwidth": 0.7,
         "icon": [Function],
@@ -582,91 +585,120 @@ exports[`Histogram component Renders histogram component 1`] = `
       }
     }
   >
-    <PlotlyComponent
-      config={
-        Object {
-          "displayModeBar": false,
-        }
-      }
-      data={
-        Array [
-          Object {
-            "hoverinfo": "all",
-            "marker": Object {
-              "color": "rgba(60,161,199,0.2)",
-              "line": Object {
-                "color": "rgba(60,161,199,1)",
-                "width": 2,
+    <div>
+      <Annotations
+        data={
+          Array [
+            Object {
+              "hoverinfo": "all",
+              "marker": Object {
+                "color": "rgba(60,161,199,0.2)",
+                "line": Object {
+                  "color": "rgba(60,161,199,1)",
+                  "width": 2,
+                },
               },
+              "name": "count()",
+              "type": "histogram",
+              "x": Array [
+                154,
+                1753,
+                116,
+                468,
+                1964,
+                219,
+              ],
+              "xbins": undefined,
             },
-            "name": "count()",
-            "type": "histogram",
-            "x": Array [
-              154,
-              1753,
-              116,
-              468,
-              1964,
-              219,
+          ]
+        }
+      />
+      <PlotlyComponent
+        config={
+          Object {
+            "displayModeBar": false,
+          }
+        }
+        data={
+          Array [
+            Object {
+              "hoverinfo": "all",
+              "marker": Object {
+                "color": "rgba(60,161,199,0.2)",
+                "line": Object {
+                  "color": "rgba(60,161,199,1)",
+                  "width": 2,
+                },
+              },
+              "name": "count()",
+              "type": "histogram",
+              "x": Array [
+                154,
+                1753,
+                116,
+                468,
+                1964,
+                219,
+              ],
+              "xbins": undefined,
+            },
+          ]
+        }
+        debug={false}
+        divId="explorerPlotComponent"
+        layout={
+          Object {
+            "autosize": true,
+            "barmode": "group",
+            "colorway": Array [
+              "#8C55A3",
             ],
-            "xbins": undefined,
-          },
-        ]
-      }
-      debug={false}
-      divId="explorerPlotComponent"
-      layout={
-        Object {
-          "autosize": true,
-          "barmode": "group",
-          "colorway": Array [
-            "#8C55A3",
-          ],
-          "height": 220,
-          "hovermode": "closest",
-          "legend": Object {
-            "orientation": "v",
-          },
-          "margin": Object {
-            "b": 15,
-            "l": 60,
-            "pad": 0,
-            "r": 10,
-            "t": 30,
-          },
-          "showlegend": true,
-          "title": "",
-          "xaxis": Object {
-            "automargin": true,
-            "rangemode": "normal",
-            "showgrid": true,
-            "zeroline": false,
-          },
-          "yaxis": Object {
-            "rangemode": "normal",
-            "showgrid": true,
-            "zeroline": false,
-          },
+            "height": 220,
+            "hovermode": "closest",
+            "legend": Object {
+              "orientation": "v",
+            },
+            "margin": Object {
+              "b": 15,
+              "l": 60,
+              "pad": 0,
+              "r": 10,
+              "t": 30,
+            },
+            "showlegend": true,
+            "title": "",
+            "xaxis": Object {
+              "automargin": true,
+              "rangemode": "normal",
+              "showgrid": true,
+              "zeroline": false,
+            },
+            "yaxis": Object {
+              "rangemode": "normal",
+              "showgrid": true,
+              "zeroline": false,
+            },
+          }
         }
-      }
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
-      useResizeHandler={true}
-    >
-      <div
-        id="explorerPlotComponent"
         style={
           Object {
             "height": "100%",
             "width": "100%",
           }
         }
-      />
-    </PlotlyComponent>
+        useResizeHandler={true}
+      >
+        <div
+          id="explorerPlotComponent"
+          style={
+            Object {
+              "height": "100%",
+              "width": "100%",
+            }
+          }
+        />
+      </PlotlyComponent>
+    </div>
   </Plt>
 </Histogram>
 `;

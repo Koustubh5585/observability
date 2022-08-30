@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { take, isEmpty, last } from 'lodash';
 import { Plt } from '../../plotly/plot';
 import { AvailabilityUnitType } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls/config_availability';
@@ -34,6 +34,36 @@ export const Line = ({ visualizations, layout, config }: any) => {
     metadata: { fields },
   } = visualizations.data.rawVizData;
   const { defaultAxes } = visualizations.data;
+
+  const storedAnnotations = sessionStorage.getItem('ChartsAnnotations');
+  const [newAnnotationText, setNewAnnotationText] = useState<string>();
+  const [annotationParam, setAnnotationParam] = useState({
+    showInputBox: false,
+    xAnnotation: '',
+    yAnnotation: '',
+    annotationText: Array(visualizations.data.rawVizData.size).fill(''),
+    annotationIndex: 0,
+  });
+
+  useEffect(() => {
+    const annotations = storedAnnotations ? JSON.parse(storedAnnotations) : [];
+    let annotationTexts;
+    annotations.map((item) => {
+      if (item.type === visualizations.vis.name) {
+        annotationTexts = item.annotationTexts;
+      }
+    });
+
+    // Reset values on chart change
+    setAnnotationParam({
+      showInputBox: false,
+      xAnnotation: '',
+      yAnnotation: '',
+      annotationText: annotationTexts || Array(visualizations.data.rawVizData.size).fill(''),
+      annotationIndex: 0,
+    });
+  }, [visualizations.vis.name]);
+
   const {
     dataConfig = {},
     layoutConfig = {},
@@ -99,51 +129,33 @@ export const Line = ({ visualizations, layout, config }: any) => {
     : xaxis.length === 1 && xaxis[0].type === 'timestamp';
 
   let multiMetrics = {};
-  const [calculatedLayout, lineValues] = useMemo(() => {
-    const isBarMode = mode === 'bar';
-    let calculatedLineValues = valueSeries.map((field: any, index: number) => {
-      const selectedColor = getSelectedColorTheme(field, index);
-      const fillColor = hexToRgb(selectedColor, fillOpacity);
-      const barMarker = {
-        color: fillColor,
-        line: {
+  const isBarMode = mode === 'bar';
+  let calculatedLineValues = valueSeries.map((field: any, index: number) => {
+    const selectedColor = getSelectedColorTheme(field, index);
+    const fillColor = hexToRgb(selectedColor, fillOpacity);
+    const barMarker = {
+      color: fillColor,
+      line: {
+        color: selectedColor,
+        width: lineWidth,
+      },
+    };
+    const fillProperty = {
+      fill: 'tozeroy',
+      fillcolor: fillColor,
+    };
+    const multiYaxis = { yaxis: `y${index + 1}` };
+    multiMetrics = {
+      ...multiMetrics,
+      [`yaxis${index > 0 ? index + 1 : ''}`]: {
+        titlefont: {
           color: selectedColor,
-          width: lineWidth,
         },
-      };
-      const fillProperty = {
-        fill: 'tozeroy',
-        fillcolor: fillColor,
-      };
-      const multiYaxis = { yaxis: `y${index + 1}` };
-      multiMetrics = {
-        ...multiMetrics,
-        [`yaxis${index > 0 ? index + 1 : ''}`]: {
-          titlefont: {
-            color: selectedColor,
-          },
-          tickfont: {
-            color: selectedColor,
-            ...(labelSize && {
-              size: labelSize,
-            }),
-          },
-          overlaying: 'y',
-          side: field.side,
-        },
-      };
-
-      return {
-        x: data[!isEmpty(xaxis) ? xaxis[0]?.label : fields[lastIndex].name],
-        y: data[field.label],
-        type: isBarMode ? 'bar' : 'scatter',
-        name: field.label,
-        mode,
-        ...(!['bar', 'markers'].includes(mode) && fillProperty),
-        line: {
-          shape: lineShape,
-          width: lineWidth,
+        tickfont: {
           color: selectedColor,
+          ...(labelSize && {
+            size: labelSize,
+          }),
         },
         hoverinfo: tooltipMode === 'hidden' ? 'none' : tooltipText,
         marker: {
@@ -151,92 +163,196 @@ export const Line = ({ visualizations, layout, config }: any) => {
           ...(isBarMode && barMarker),
         },
         ...(index >= 1 && multiYaxis),
-      };
-    });
-
-    let layoutForBarMode = {
-      barmode: 'group',
+      }
     };
-    const mergedLayout = {
-      ...layout,
-      ...layoutConfig.layout,
-      title: dataConfig?.panelOptions?.title || layoutConfig.layout?.title || '',
-      legend: {
-        ...layout.legend,
-        orientation: legendPosition,
-        ...(legendSize && {
-          font: {
-            size: legendSize,
-          },
+
+    return {
+      x: data[!isEmpty(xaxis) ? xaxis[0]?.label : fields[lastIndex].name],
+      y: data[field.label],
+      type: isBarMode ? 'bar' : 'scatter',
+      name: field.label,
+      mode,
+      ...(!['bar', 'markers'].includes(mode) && fillProperty),
+      line: {
+        shape: lineShape,
+        width: lineWidth,
+        color: selectedColor,
+      },
+      marker: {
+        size: markerSize,
+        ...(isBarMode && barMarker),
+      },
+      ...(index >= 1 && multiYaxis),
+    };
+  });
+
+  let layoutForBarMode = {
+    barmode: 'group',
+  };
+
+  const mergedLayout = {
+    ...layout,
+    ...layoutConfig.layout,
+    title: dataConfig?.panelOptions?.title || layoutConfig.layout?.title || '',
+    legend: {
+      ...layout.legend,
+      orientation: legendPosition,
+      ...(legendSize && {
+        font: {
+          size: legendSize,
+        },
+      }),
+    },
+    xaxis: {
+      tickangle: tickAngle,
+      automargin: true,
+      tickfont: {
+        ...(labelSize && {
+          size: labelSize,
         }),
       },
-      xaxis: {
-        tickangle: tickAngle,
-        automargin: true,
-        tickfont: {
-          ...(labelSize && {
-            size: labelSize,
-          }),
-        },
+    },
+    annotations: [
+      {
+        x: annotationParam.xAnnotation,
+        y: annotationParam.yAnnotation,
+        xref: 'x',
+        yref: 'y',
+        text: annotationParam.xAnnotation
+          ? annotationParam.annotationText[annotationParam.annotationIndex]
+          : '',
+        showarrow: true,
       },
-      showlegend: showLegend,
-      ...(isBarMode && layoutForBarMode),
-      ...(multiMetrics && multiMetrics),
+    ],
+    showlegend: showLegend,
+    ...(isBarMode && layoutForBarMode),
+    ...(multiMetrics && multiMetrics),
+  };
+
+  if (dataConfig.thresholds || availabilityConfig.level) {
+    const thresholdTraces = {
+      x: [],
+      y: [],
+      mode: 'text',
+      text: [],
+    };
+    const thresholds = dataConfig.thresholds ? dataConfig.thresholds : [];
+    const levels = availabilityConfig.level ? availabilityConfig.level : [];
+
+    const mapToLine = (list: ThresholdUnitType[] | AvailabilityUnitType[], lineStyle: any) => {
+      return list.map((thr: ThresholdUnitType) => {
+        thresholdTraces.x.push(
+          data[!isEmpty(xaxis) ? xaxis[xaxis.length - 1]?.label : fields[lastIndex].name][0]
+        );
+        thresholdTraces.y.push(thr.value * (1 + 0.06));
+        thresholdTraces.text.push(thr.name);
+        return {
+          type: 'line',
+          x0: data[!isEmpty(xaxis) ? xaxis[0]?.label : fields[lastIndex].name][0],
+          y0: thr.value,
+          x1: last(data[!isEmpty(xaxis) ? xaxis[0]?.label : fields[lastIndex].name]),
+          y1: thr.value,
+          name: thr.name || '',
+          opacity: 0.7,
+          line: {
+            color: thr.color,
+            width: 3,
+            ...lineStyle,
+          },
+        };
+      });
     };
 
-    if (dataConfig.thresholds || availabilityConfig.level) {
-      const thresholdTraces = {
-        x: [],
-        y: [],
-        mode: 'text',
-        text: [],
-      };
-      const thresholds = dataConfig.thresholds ? dataConfig.thresholds : [];
-      const levels = availabilityConfig.level ? availabilityConfig.level : [];
+    mergedLayout.shapes = [...mapToLine(thresholds, { dash: 'dashdot' }), ...mapToLine(levels, {})];
+    calculatedLineValues = [...calculatedLineValues, thresholdTraces];
+  }
 
-      const mapToLine = (list: ThresholdUnitType[] | AvailabilityUnitType[], lineStyle: any) => {
-        return list.map((thr: ThresholdUnitType) => {
-          thresholdTraces.x.push(
-            data[!isEmpty(xaxis) ? xaxis[xaxis.length - 1]?.label : fields[lastIndex].name][0]
-          );
-          thresholdTraces.y.push(thr.value * (1 + 0.06));
-          thresholdTraces.text.push(thr.name);
-          return {
-            type: 'line',
-            x0: data[!isEmpty(xaxis) ? xaxis[0]?.label : fields[lastIndex].name][0],
-            y0: thr.value,
-            x1: last(data[!isEmpty(xaxis) ? xaxis[0]?.label : fields[lastIndex].name]),
-            y1: thr.value,
-            name: thr.name || '',
-            opacity: 0.7,
-            line: {
-              color: thr.color,
-              width: 3,
-              ...lineStyle,
-            },
-          };
-        });
-      };
+  const mergedConfigs = {
+    ...config,
+    ...(layoutConfig.config && layoutConfig.config),
+  };
 
-      mergedLayout.shapes = [
-        ...mapToLine(thresholds, { dash: 'dashdot' }),
-        ...mapToLine(levels, {}),
-      ];
-      calculatedLineValues = [...calculatedLineValues, thresholdTraces];
-    }
-    return [mergedLayout, calculatedLineValues];
-  }, [data, fields, lastIndex, layout, layoutConfig, xaxis, yaxis, mode, valueSeries]);
+  const onLineChartClick = () => {
+    const myPlot = document.getElementById('explorerPlotComponent');
+    myPlot?.on('plotly_click', (data) => {
+      setAnnotationParam({
+        ...annotationParam,
+        xAnnotation: `${data.points[0].x}`,
+        yAnnotation: `${parseFloat(data.points[0].y.toPrecision(4))}`,
+        annotationIndex: data.points[0].pointIndex,
+        showInputBox: true,
+      });
+      setNewAnnotationText(annotationParam.annotationText[data.points[0].pointIndex]);
+    });
+  };
 
-  const mergedConfigs = useMemo(
-    () => ({
-      ...config,
-      ...(layoutConfig.config && layoutConfig.config),
-    }),
-    [config, layoutConfig.config]
-  );
+  const handleChange = (event) => {
+    setNewAnnotationText(event.target.value);
+  };
+
+  const handleCancelAnnotation = () => {
+    setAnnotationParam({
+      ...annotationParam,
+      showInputBox: false,
+    });
+  };
+
+  const handleAddAnnotation = () => {
+    const newAnnotation = [
+      ...annotationParam.annotationText.slice(0, annotationParam.annotationIndex),
+      newAnnotationText,
+      ...annotationParam.annotationText.slice(annotationParam.annotationIndex + 1),
+    ];
+    setAnnotationParam({
+      ...annotationParam,
+      annotationText: newAnnotation,
+      showInputBox: false,
+    });
+  };
+
+  const handleEditAnnotation = () => {
+    const newAnnotation = [
+      ...annotationParam.annotationText.slice(0, annotationParam.annotationIndex),
+      newAnnotationText,
+      ...annotationParam.annotationText.slice(annotationParam.annotationIndex + 1),
+    ];
+    setAnnotationParam({
+      ...annotationParam,
+      annotationText: newAnnotation,
+      showInputBox: false,
+    });
+  };
+
+  const handleDeleteAnnotation = () => {
+    const newAnnotation = [
+      ...annotationParam.annotationText.slice(0, annotationParam.annotationIndex),
+      '',
+      ...annotationParam.annotationText.slice(annotationParam.annotationIndex + 1),
+    ];
+    setAnnotationParam({
+      ...annotationParam,
+      annotationText: newAnnotation,
+      showInputBox: false,
+    });
+  };
 
   return isDimensionTimestamp ? (
-    <Plt data={lineValues} layout={calculatedLayout} config={mergedConfigs} />
+    <Plt
+      data={calculatedLineValues}
+      layout={mergedLayout}
+      config={mergedConfigs}
+      onClickHandler={onLineChartClick}
+      showAnnotationInput={annotationParam.showInputBox}
+      onChangeHandler={handleChange}
+      onAddAnnotationHandler={handleAddAnnotation}
+      onEditAnnotationHandler={handleEditAnnotation}
+      onDeleteAnnotationHandler={handleDeleteAnnotation}
+      onCancelAnnotationHandler={handleCancelAnnotation}
+      isEditMode={annotationParam.annotationText[annotationParam.annotationIndex]}
+      annotationText={newAnnotationText}
+      chartType={visualizations.vis.name}
+      annotationIndex={annotationParam.annotationIndex}
+    />
   ) : (
     <EmptyPlaceholder icon={visualizations?.vis?.icontype} />
   );

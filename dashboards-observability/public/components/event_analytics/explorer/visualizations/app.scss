@@ -74,3 +74,21 @@
 .lensChartIcon__accent {
   fill: $euiColorVis0;
 }
+
+.annotationContainer { 
+  display: flex; 
+  justify-content: center; 
+}
+
+.addButton {
+  background-color: #0000ff;
+  border-color: #808080;
+  margin: 5px;
+  padding: 5px;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.buttonLeftMargin {
+  margin: 0px 0px 0px 5px;  
+}

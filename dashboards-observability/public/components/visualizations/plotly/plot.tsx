@@ -7,6 +7,7 @@ import React from 'react';
 import plotComponentFactory from 'react-plotly.js/factory';
 import Plotly from 'plotly.js-dist';
 import { uiSettingsService } from '../../../../common/utils';
+import { Annotations } from '../annotations/annotations';
 
 interface PltProps {
   data: Plotly.Data[];
@@ -17,6 +18,16 @@ interface PltProps {
   onClickHandler?: (event: Readonly<Plotly.PlotMouseEvent>) => void;
   height?: string;
   dispatch?: (props: any) => void;
+  chartType?: string;
+  annotationText?: string;
+  annotationIndex?: number;
+  showAnnotationInput?: boolean;
+  isEditMode?: boolean;
+  onChangeHandler?: Function;
+  onAddAnnotationHandler?: Function;
+  onEditAnnotationHandler?: Function;
+  onDeleteAnnotationHandler?: Function;
+  onCancelAnnotationHandler?: Function;
 }
 
 export function Plt(props: PltProps) {
@@ -68,16 +79,31 @@ export function Plt(props: PltProps) {
   };
 
   return (
-    <PlotComponent
-      divId="explorerPlotComponent"
-      data={props.data}
-      style={{ width: '100%', height: props.height || '100%' }}
-      onHover={props.onHoverHandler}
-      onUnhover={props.onUnhoverHandler}
-      onClick={props.onClickHandler}
-      useResizeHandler
-      config={finalConfig}
-      layout={finalLayout}
-    />
+    <div>
+      <Annotations
+        data={props.data}
+        chartType={props.chartType!}
+        annotationText={props.annotationText!}
+        annotationIndex={props.annotationIndex!}
+        showInputBox={props.showAnnotationInput!}
+        isEditMode={props.isEditMode!}
+        onTextChange={props.onChangeHandler!}
+        onAddAnnotation={props.onAddAnnotationHandler!}
+        onEditAnnotation={props.onEditAnnotationHandler!}
+        onDeleteAnnotation={props.onDeleteAnnotationHandler!}
+        onCancelAnnotation={props.onCancelAnnotationHandler!}
+      />
+      <PlotComponent
+        divId="explorerPlotComponent"
+        data={props.data}
+        style={{ width: '100%', height: props.height || '100%' }}
+        onHover={props.onHoverHandler}
+        onUnhover={props.onUnhoverHandler}
+        onClick={props.onClickHandler}
+        useResizeHandler
+        config={finalConfig}
+        layout={finalLayout}
+      />
+    </div>
   );
 }

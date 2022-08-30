@@ -12,7 +12,7 @@ import {
   ExplorerData,
 } from '../../../../../common/types/explorer';
 import { visChartTypes } from '../../../../../common/constants/shared';
-
+import { SIMILAR_VIZ_TYPES } from '../../../../../common/constants/explorer';
 interface IVizContainerProps {
   vizId: string;
   appData?: { fromApp: boolean };
@@ -40,12 +40,12 @@ const initialEntryTreemap = { label: '', name: '' };
 
 const getDefaultXYAxisLabels = (vizFields: IField[], visName: string) => {
   if (isEmpty(vizFields)) return {};
-  const vizFieldsWithLabel: { [key: string]: string }[] = vizFields.map((vizField) => ({
+  const vizFieldsWithLabel: Array<{ [key: string]: string }> = vizFields.map((vizField) => ({
     ...vizField,
     label: vizField.name,
   }));
 
-  const mapXaxis = (): { [key: string]: string }[] => {
+  const mapXaxis = (): Array<{ [key: string]: string }> => {
     const xaxis = vizFieldsWithLabel.filter((field) => field.type === 'timestamp');
     return visName === visChartTypes.Line
       ? xaxis.length === 0
@@ -54,7 +54,7 @@ const getDefaultXYAxisLabels = (vizFields: IField[], visName: string) => {
       : [vizFieldsWithLabel[vizFieldsWithLabel.length - 1]];
   };
 
-  const mapYaxis = (): { [key: string]: string }[] =>
+  const mapYaxis = (): Array<{ [key: string]: string }> =>
     visName === visChartTypes.Line
       ? vizFieldsWithLabel.filter((field) => field.type !== 'timestamp')
       : take(
@@ -143,6 +143,14 @@ const getUserConfigs = (userSelectedConfigs: object, vizFields: IField[], visNam
   return isEmpty(configOfUser) ? userSelectedConfigs : configOfUser;
 };
 
+export const getVisTypeData = (vizId: string) => {
+  if (SIMILAR_VIZ_TYPES.includes(vizId)) {
+    return getVisType(vizId, { type: vizId });
+  } else {
+    return getVisType(vizId);
+  }
+};
+
 export const getVizContainerProps = ({
   vizId,
   rawVizData = {},
@@ -152,11 +160,6 @@ export const getVizContainerProps = ({
   appData = {},
   explorer = { explorerData: { jsonData: [], jsonDataAll: [] } },
 }: IVizContainerProps): IVisualizationContainerProps => {
-  const getVisTypeData = () =>
-    vizId === visChartTypes.Line || vizId === visChartTypes.Scatter
-      ? { ...getVisType(vizId, { type: vizId }) }
-      : { ...getVisType(vizId) };
-
   return {
     data: {
       appData: { ...appData },
@@ -164,15 +167,15 @@ export const getVizContainerProps = ({
       query: { ...query },
       indexFields: { ...indexFields },
       userConfigs: {
-        ...getUserConfigs(userConfigs, rawVizData?.metadata?.fields, getVisTypeData().name),
+        ...getUserConfigs(userConfigs, rawVizData?.metadata?.fields, getVisTypeData(vizId).name),
       },
       defaultAxes: {
-        ...getDefaultXYAxisLabels(rawVizData?.metadata?.fields, getVisTypeData().name),
+        ...getDefaultXYAxisLabels(rawVizData?.metadata?.fields, getVisTypeData(vizId).name),
       },
       explorer: { ...explorer },
     },
     vis: {
-      ...getVisTypeData(),
+      ...getVisTypeData(vizId),
     },
   };
 };

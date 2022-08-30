@@ -1439,7 +1439,6 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
             Array [
               Object {
                 "hoverinfo": "all",
-                "hovertext": undefined,
                 "marker": Object {
                   "color": "rgba(60,161,199,0.2)",
                   "line": Object {
@@ -1572,7 +1571,6 @@ exports[`Utils helper functions renders displayVisualization function 1`] = `
               config={
                 Object {
                   "hoverinfo": "all",
-                  "hovertext": undefined,
                   "marker": Object {
                     "color": "rgba(60,161,199,0.2)",
                     "line": Object {
@@ -5076,7 +5074,6 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
             Array [
               Object {
                 "hoverinfo": "all",
-                "hovertext": undefined,
                 "marker": Object {
                   "color": "rgba(60,161,199,0.2)",
                   "line": Object {
@@ -5199,7 +5196,6 @@ exports[`Utils helper functions renders displayVisualization function 3`] = `
               config={
                 Object {
                   "hoverinfo": "all",
-                  "hovertext": undefined,
                   "marker": Object {
                     "color": "rgba(60,161,199,0.2)",
                     "line": Object {

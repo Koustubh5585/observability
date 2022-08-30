@@ -155,7 +155,6 @@ export const Bar = ({ visualizations, layout, config }: any) => {
               tooltipMode: tooltipOptions.tooltipMode,
               tooltipText: tooltipOptions.tooltipText,
             }),
-            hovertext: panelOptions.description,
           };
         });
       })
@@ -205,7 +204,6 @@ export const Bar = ({ visualizations, layout, config }: any) => {
           tooltipMode: tooltipOptions.tooltipMode,
           tooltipText: tooltipOptions.tooltipText,
         }),
-        hovertext: panelOptions.description,
       };
     });
   }

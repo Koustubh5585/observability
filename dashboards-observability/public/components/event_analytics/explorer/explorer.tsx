@@ -66,6 +66,7 @@ import { selectFields, updateFields, sortFields } from '../redux/slices/field_sl
 import { updateTabName } from '../redux/slices/query_tab_slice';
 import { selectCountDistribution } from '../redux/slices/count_distribution_slice';
 import { selectExplorerVisualization } from '../redux/slices/visualization_slice';
+import { change as changeVizConfig } from '../redux/slices/viualization_config_slice';
 import {
   selectVisualizationConfig,
   change as changeVisualizationConfig,
@@ -77,6 +78,7 @@ import { getVizContainerProps } from '../../visualizations/charts/helpers';
 import { parseGetSuggestions, onItemSelect } from '../../common/search/autocomplete_logic';
 import { formatError } from '../utils';
 import { sleep } from '../../common/live_tail/live_tail_button';
+import { QueryManager } from '../../../../common/query_manager/ppl_query_manager';
 
 const TYPE_TAB_MAPPING = {
   [SAVED_QUERY]: TAB_EVENT_ID,
@@ -489,6 +491,7 @@ export const Explorer = ({
     handleQuerySearch(availability);
   };
 
+
   /**
    * Toggle fields between selected and unselected sets
    * @param field field to be toggled
@@ -822,25 +825,55 @@ export const Explorer = ({
 
   const handleQuerySearch = useCallback(
     async (availability?: boolean) => {
+
       // clear previous selected timestamp when index pattern changes
       if (
         !isEmpty(tempQuery) &&
         !isEmpty(query[RAW_QUERY]) &&
         isIndexPatternChanged(tempQuery, query[RAW_QUERY])
       ) {
+
         await updateCurrentTimeStamp('');
       }
       if (availability !== true) {
         await updateQueryInStore(tempQuery);
       }
-      fetchData();
+      await fetchData();
+
+      if (selectedContentTabId === TAB_CHART_ID) {
+        // parse stats section on every search
+        const qm = new QueryManager();
+        const statsTokens = 
+          qm
+            .queryParser()
+            .parse(tempQuery)
+            .getStats();
+            
+        await dispatch(
+          changeVizConfig({
+            tabId,
+            vizId: curVisId,
+            data: {
+              dataConfig: {
+                metrics: statsTokens.aggregations.map((agg) => ({
+                  label: agg.function?.value_expression,
+                  name: agg.function?.value_expression,
+                  aggregation: agg.function?.name,
+                })),
+                dimensions: statsTokens.groupby?.group_fields?.map((agg) => ({
+                  label: agg.name ?? '',
+                  name: agg.name ?? '',
+                })),
+              },
+            },
+          })
+        );
+      }
     },
-    [tempQuery, query[RAW_QUERY]]
+    [tempQuery, query, selectedContentTabId]
   );
 
-  const handleQueryChange = async (newQuery: string) => {
-    setTempQuery(newQuery);
-  };
+  const handleQueryChange = async (newQuery: string) => setTempQuery(newQuery);
 
   const handleSavingObject = async () => {
     const currQuery = queryRef.current;
@@ -1150,6 +1183,10 @@ export const Explorer = ({
         explorerVisualizations,
         setToast,
         pplService,
+        handleQuerySearch,
+        handleQueryChange,
+        setTempQuery,
+        fetchData,
         explorerFields,
         explorerData,
         http,
@@ -1189,6 +1226,7 @@ export const Explorer = ({
           stopLive={stopLive}
           setIsLiveTailPopoverOpen={setIsLiveTailPopoverOpen}
           liveTailName={liveTailNameRef.current}
+          searchError={explorerVisualizations}
         />
         <EuiTabbedContent
           className="mainContentTabs"

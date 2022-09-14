@@ -92,7 +92,7 @@ export const CommentsList = ({ mode, commentsData, deleteComment }: Props) => {
   };
 
   return (
-    <EuiCommentList className={mode === 'popover' ? 'comments-list' : ''}>
+    <EuiCommentList className={mode === 'flyout' ? '' : 'comments-list'}>
       {commentsData && getComments()}
     </EuiCommentList>
   );

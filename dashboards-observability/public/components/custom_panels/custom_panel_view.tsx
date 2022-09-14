@@ -60,6 +60,7 @@ import {
 } from '../common/search/autocomplete_logic';
 import { AddVisualizationPopover } from './helpers/add_visualization_popover';
 import { DeleteModal } from '../common/helpers/delete_modal';
+import { CollaborationPopover } from './collaboration/collaboration';
 
 /*
  * "CustomPanelsView" module used to render an Operational Panel
@@ -157,6 +158,7 @@ export const CustomPanelView = (props: CustomPanelViewProps) => {
   const [panelsMenuPopover, setPanelsMenuPopover] = useState(false);
   const [editActionType, setEditActionType] = useState('');
   const [isHelpFlyoutVisible, setHelpIsFlyoutVisible] = useState(false);
+  const [isCollaborationFlyoutVisible, setIsCollaborationFlyoutVisible] = useState(false);
 
   const appPanel = page === 'app';
 
@@ -292,6 +294,7 @@ export const CustomPanelView = (props: CustomPanelViewProps) => {
     setIsFlyoutVisible(false);
     setAddVizDisabled(false);
     checkDisabledInputs();
+    setIsCollaborationFlyoutVisible(false);
   };
 
   const showFlyout = (isReplacement?: boolean, replaceVizId?: string) => {
@@ -438,6 +441,27 @@ export const CustomPanelView = (props: CustomPanelViewProps) => {
     </EuiButton>
   );
 
+  let collaborationFlyout;
+  if (isCollaborationFlyoutVisible) {
+    collaborationFlyout = (
+      <CollaborationPopover vizId={panelId} mode="flyout" closeFlyout={closeFlyout} />
+    );
+  }
+
+  const handleCommentsButtonClick = () => {
+    console.log('Comments button clicked');
+    setIsCollaborationFlyoutVisible(true);
+  };
+
+  // Comments button
+  const storedCollaborations = sessionStorage.getItem('Collaborations');
+  const comments = storedCollaborations ? JSON.parse(storedCollaborations) : [];
+  const commentsButton = (
+    <EuiButton iconType="editorComment" onClick={() => handleCommentsButtonClick()}>
+      {`Comments (${comments.length})`}
+    </EuiButton>
+  );
+
   let flyout;
   if (isFlyoutVisible) {
     flyout = (
@@ -551,6 +575,7 @@ export const CustomPanelView = (props: CustomPanelViewProps) => {
                 </EuiPageHeaderSection>
                 <EuiPageHeaderSection>
                   <EuiFlexGroup gutterSize="s">
+                    <EuiFlexItem>{commentsButton}</EuiFlexItem>
                     {editMode ? (
                       <>
                         <EuiFlexItem>{cancelButton}</EuiFlexItem>
@@ -667,6 +692,7 @@ export const CustomPanelView = (props: CustomPanelViewProps) => {
       {isModalVisible && modalLayout}
       {flyout}
       {helpFlyout}
+      {collaborationFlyout}
     </div>
   );
 };

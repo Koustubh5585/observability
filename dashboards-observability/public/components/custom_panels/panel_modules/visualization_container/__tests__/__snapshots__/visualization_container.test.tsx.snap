@@ -89,32 +89,122 @@ exports[`Visualization Container Component renders add visualization container 1
               <div
                 className="euiFlexItem euiFlexItem--flexGrowZero visualization-action-button"
               >
-                <EuiIcon
-                  onClick={[Function]}
-                  type="crossInACircleFilled"
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
                 >
-                  <EuiIconEmpty
-                    aria-hidden={true}
-                    className="euiIcon euiIcon--medium euiIcon-isLoading"
-                    focusable="false"
-                    onClick={[Function]}
-                    role="img"
-                    style={null}
+                  <CollaborationPopover
+                    vizId="panel_viz_9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
                   >
-                    <svg
+                    <div
+                      style={
+                        Object {
+                          "marginRight": "7px",
+                          "position": "relative",
+                        }
+                      }
+                    >
+                      <EuiPopover
+                        anchorPosition="downCenter"
+                        button={
+                          <EuiButtonIcon
+                            aria-label="actionCollaborationButton"
+                            iconSize="l"
+                            iconType="editorComment"
+                            onClick={[Function]}
+                          />
+                        }
+                        closePopover={[Function]}
+                        display="inlineBlock"
+                        hasArrow={true}
+                        initialFocus="#popover-comments-input"
+                        isOpen={false}
+                        ownFocus={true}
+                        panelPaddingSize="m"
+                      >
+                        <div
+                          className="euiPopover euiPopover--anchorDownCenter"
+                        >
+                          <div
+                            className="euiPopover__anchor"
+                          >
+                            <EuiButtonIcon
+                              aria-label="actionCollaborationButton"
+                              iconSize="l"
+                              iconType="editorComment"
+                              onClick={[Function]}
+                            >
+                              <button
+                                aria-label="actionCollaborationButton"
+                                className="euiButtonIcon euiButtonIcon--primary euiButtonIcon--empty euiButtonIcon--xSmall"
+                                disabled={false}
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                <EuiIcon
+                                  aria-hidden="true"
+                                  className="euiButtonIcon__icon"
+                                  color="inherit"
+                                  size="l"
+                                  type="editorComment"
+                                >
+                                  <EuiIconEmpty
+                                    aria-hidden={true}
+                                    className="euiIcon euiIcon--large euiIcon--inherit euiIcon-isLoading euiButtonIcon__icon"
+                                    focusable="false"
+                                    role="img"
+                                    style={null}
+                                  >
+                                    <svg
+                                      aria-hidden={true}
+                                      className="euiIcon euiIcon--large euiIcon--inherit euiIcon-isLoading euiButtonIcon__icon"
+                                      focusable="false"
+                                      height={16}
+                                      role="img"
+                                      style={null}
+                                      viewBox="0 0 16 16"
+                                      width={16}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    />
+                                  </EuiIconEmpty>
+                                </EuiIcon>
+                              </button>
+                            </EuiButtonIcon>
+                          </div>
+                        </div>
+                      </EuiPopover>
+                    </div>
+                  </CollaborationPopover>
+                  <EuiIcon
+                    onClick={[Function]}
+                    type="crossInACircleFilled"
+                  >
+                    <EuiIconEmpty
                       aria-hidden={true}
                       className="euiIcon euiIcon--medium euiIcon-isLoading"
                       focusable="false"
-                      height={16}
                       onClick={[Function]}
                       role="img"
                       style={null}
-                      viewBox="0 0 16 16"
-                      width={16}
-                      xmlns="http://www.w3.org/2000/svg"
-                    />
-                  </EuiIconEmpty>
-                </EuiIcon>
+                    >
+                      <svg
+                        aria-hidden={true}
+                        className="euiIcon euiIcon--medium euiIcon-isLoading"
+                        focusable="false"
+                        height={16}
+                        onClick={[Function]}
+                        role="img"
+                        style={null}
+                        viewBox="0 0 16 16"
+                        width={16}
+                        xmlns="http://www.w3.org/2000/svg"
+                      />
+                    </EuiIconEmpty>
+                  </EuiIcon>
+                </div>
               </div>
             </EuiFlexItem>
           </div>

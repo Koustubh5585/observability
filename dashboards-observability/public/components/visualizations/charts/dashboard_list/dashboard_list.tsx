@@ -6,7 +6,7 @@
 import React from 'react';
 import { EuiBasicTable, EuiLink } from '@elastic/eui';
 
-export const DashboardList = ({ visualizations }: any) => {
+export const DashboardList = () => {
   const getTableData = () => {
     const dashboards = [
       {

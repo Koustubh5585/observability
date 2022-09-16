@@ -3,17 +3,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { getPlotlySharedConfigs, getPlotlyCategory } from '../shared/shared_configs';
+import { getPlotlyCategory } from '../shared/shared_configs';
 import { LensIconChartLine } from '../../assets/chart_line';
-import { PLOTLY_COLOR } from '../../../../../common/constants/shared';
 import { DashboardList } from './dashboard_list';
 import { VizDataPanel } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/default_vis_editor';
 import { ConfigText } from '../../../event_analytics/explorer/visualizations/config_panel/config_panes/config_controls';
 
-const sharedConfigs = getPlotlySharedConfigs();
 const VIS_CATEGORY = getPlotlyCategory();
 
-export const createDashboardListTypeDefinition = (params: any = {}) => ({
+export const createDashboardListTypeDefinition = () => ({
   name: 'dashboard_list',
   type: 'dashboard_list',
   id: 'dashboard_list',
@@ -25,8 +23,6 @@ export const createDashboardListTypeDefinition = (params: any = {}) => ({
     dataLoss: 'nothing',
   },
   icon: LensIconChartLine,
-  categoryaxis: 'xaxis',
-  seriesaxis: 'yaxis',
   editorconfig: {
     panelTabs: [
       {
@@ -45,34 +41,6 @@ export const createDashboardListTypeDefinition = (params: any = {}) => ({
         ],
       },
     ],
-  },
-  visconfig: {
-    layout: {
-      ...sharedConfigs.layout,
-      colorway: PLOTLY_COLOR,
-      plot_bgcolor: 'rgba(0, 0, 0, 0)',
-      paper_bgcolor: 'rgba(0, 0, 0, 0)',
-      xaxis: {
-        fixedrange: true,
-        showgrid: false,
-        visible: true,
-      },
-      yaxis: {
-        fixedrange: true,
-        showgrid: false,
-        visible: true,
-      },
-    },
-    config: {
-      ...sharedConfigs.config,
-      barmode: 'line',
-      xaxis: {
-        automargin: true,
-      },
-      yaxis: {
-        automargin: true,
-      },
-    },
   },
   component: DashboardList,
 });

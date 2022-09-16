@@ -49,14 +49,6 @@ export const CollaborationPopover = ({ vizId, mode, closeFlyout }: Props) => {
 
   useEffect(() => {}, [allComments]);
 
-  const onCollaborationButtonClick = () => {
-    setIsCollaborationPopoverOpen(!isCollaborationPopoverOpen);
-  };
-
-  const onChange = (e) => {
-    setComment(e.target.value);
-  };
-
   const onSubmitSectionComments = () => {
     if (comment) {
       const newComment: CommentProps = {
@@ -82,7 +74,7 @@ export const CollaborationPopover = ({ vizId, mode, closeFlyout }: Props) => {
           id="popover-comments-input"
           value={comment}
           compressed
-          onChange={(e) => onChange(e)}
+          onChange={(e) => setComment(e.target.value)}
           placeholder="Add a comment"
           aria-label="popover-comments-input"
           className="textArea-leftMargin"
@@ -126,7 +118,7 @@ export const CollaborationPopover = ({ vizId, mode, closeFlyout }: Props) => {
 
   const flyoutFooter = (
     <>
-      <div style={{ height: '2px', backgroundColor: '#B3B3B3', width: '100%' }} />
+      <div className="divider" />
       <EuiFlyoutFooter style={{ backgroundColor: '#fff' }}>{commentBox}</EuiFlyoutFooter>
     </>
   );
@@ -161,7 +153,7 @@ export const CollaborationPopover = ({ vizId, mode, closeFlyout }: Props) => {
             iconSize="l"
             aria-label="actionCollaborationButton"
             iconType="editorComment"
-            onClick={onCollaborationButtonClick}
+            onClick={() => setIsCollaborationPopoverOpen(!isCollaborationPopoverOpen)}
           />
         }
         isOpen={isCollaborationPopoverOpen}

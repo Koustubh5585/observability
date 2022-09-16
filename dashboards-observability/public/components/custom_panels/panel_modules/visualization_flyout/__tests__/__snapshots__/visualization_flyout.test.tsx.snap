@@ -92,7 +92,7 @@ exports[`Visualization Flyout Component renders add visualization Flyout 1`] = `
         ownFocus={false}
         size="m"
       >
-        <EuiWindowEvent
+        <OuiWindowEvent
           event="keydown"
           handler={[Function]}
         />

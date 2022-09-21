@@ -18,6 +18,7 @@ import React, { useEffect, useState } from 'react';
 import './collaboration.scss';
 import { CommentsList } from './comments_list';
 import moment from 'moment';
+import { Collaboration } from 'public/components/strings';
 
 type Props = {
   vizId: string;
@@ -110,7 +111,7 @@ export const CollaborationPopover = ({ vizId, mode, closeFlyout }: Props) => {
             deleteComment={(index: number) => handleDeleteComment(index)}
           />
         ) : (
-          <EuiText size="m">No comments available...</EuiText>
+          <EuiText size="m">{Collaboration.NO_COMMENTS_AVAILABLE}</EuiText>
         )}
       </>
     </EuiFlyoutBody>
@@ -119,7 +120,7 @@ export const CollaborationPopover = ({ vizId, mode, closeFlyout }: Props) => {
   const flyoutFooter = (
     <>
       <div className="divider" />
-      <EuiFlyoutFooter style={{ backgroundColor: '#fff' }}>{commentBox}</EuiFlyoutFooter>
+      <EuiFlyoutFooter className="flyout-footer">{commentBox}</EuiFlyoutFooter>
     </>
   );
 
@@ -144,7 +145,7 @@ export const CollaborationPopover = ({ vizId, mode, closeFlyout }: Props) => {
       ariaLabel="collaborationFlyout"
     />
   ) : (
-    <div style={{ position: 'relative', marginRight: '7px' }}>
+    <div className="collaboration-button">
       <EuiPopover
         initialFocus="#popover-comments-input"
         panelPaddingSize="m"

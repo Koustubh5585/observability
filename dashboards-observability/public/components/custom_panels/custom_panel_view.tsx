@@ -441,23 +441,11 @@ export const CustomPanelView = (props: CustomPanelViewProps) => {
     </EuiButton>
   );
 
-  let collaborationFlyout;
-  if (isCollaborationFlyoutVisible) {
-    collaborationFlyout = (
-      <CollaborationPopover vizId={panelId} mode="flyout" closeFlyout={closeFlyout} />
-    );
-  }
-
-  const handleCommentsButtonClick = () => {
-    console.log('Comments button clicked');
-    setIsCollaborationFlyoutVisible(true);
-  };
-
   // Comments button
   const storedCollaborations = sessionStorage.getItem('Collaborations');
   const comments = storedCollaborations ? JSON.parse(storedCollaborations) : [];
   const commentsButton = (
-    <EuiButton iconType="editorComment" onClick={() => handleCommentsButtonClick()}>
+    <EuiButton iconType="editorComment" onClick={() => setIsCollaborationFlyoutVisible(true)}>
       {`Comments (${comments.length})`}
     </EuiButton>
   );
@@ -692,7 +680,9 @@ export const CustomPanelView = (props: CustomPanelViewProps) => {
       {isModalVisible && modalLayout}
       {flyout}
       {helpFlyout}
-      {collaborationFlyout}
+      {isCollaborationFlyoutVisible && (
+        <CollaborationPopover vizId={panelId} mode="flyout" closeFlyout={closeFlyout} />
+      )}
     </div>
   );
 };

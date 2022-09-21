@@ -18,7 +18,7 @@ import React, { useEffect, useState } from 'react';
 import './collaboration.scss';
 import { CommentsList } from './comments_list';
 import moment from 'moment';
-import { Collaboration } from 'public/components/strings';
+import { Collaboration } from '../../../components/strings';
 
 type Props = {
   vizId: string;

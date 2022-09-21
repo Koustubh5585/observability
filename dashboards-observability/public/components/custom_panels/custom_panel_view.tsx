@@ -61,6 +61,8 @@ import {
 import { AddVisualizationPopover } from './helpers/add_visualization_popover';
 import { DeleteModal } from '../common/helpers/delete_modal';
 import { CollaborationPopover } from './collaboration/collaboration';
+import { useSelector } from 'react-redux';
+import { savedComments } from './collaboration/redux/slices/comments_slice';
 
 /*
  * "CustomPanelsView" module used to render an Operational Panel
@@ -159,6 +161,8 @@ export const CustomPanelView = (props: CustomPanelViewProps) => {
   const [editActionType, setEditActionType] = useState('');
   const [isHelpFlyoutVisible, setHelpIsFlyoutVisible] = useState(false);
   const [isCollaborationFlyoutVisible, setIsCollaborationFlyoutVisible] = useState(false);
+  const storedCollaborations = useSelector(savedComments);
+  const comments = storedCollaborations ? storedCollaborations : [];
 
   const appPanel = page === 'app';
 
@@ -441,15 +445,6 @@ export const CustomPanelView = (props: CustomPanelViewProps) => {
     </EuiButton>
   );
 
-  // Comments button
-  const storedCollaborations = sessionStorage.getItem('Collaborations');
-  const comments = storedCollaborations ? JSON.parse(storedCollaborations) : [];
-  const commentsButton = (
-    <EuiButton iconType="editorComment" onClick={() => setIsCollaborationFlyoutVisible(true)}>
-      {`Comments (${comments.length})`}
-    </EuiButton>
-  );
-
   let flyout;
   if (isFlyoutVisible) {
     flyout = (
@@ -563,7 +558,14 @@ export const CustomPanelView = (props: CustomPanelViewProps) => {
                 </EuiPageHeaderSection>
                 <EuiPageHeaderSection>
                   <EuiFlexGroup gutterSize="s">
-                    <EuiFlexItem>{commentsButton}</EuiFlexItem>
+                    <EuiFlexItem>
+                      <EuiButton
+                        iconType="editorComment"
+                        onClick={() => setIsCollaborationFlyoutVisible(true)}
+                      >
+                        {`Comments (${comments.length})`}
+                      </EuiButton>
+                    </EuiFlexItem>
                     {editMode ? (
                       <>
                         <EuiFlexItem>{cancelButton}</EuiFlexItem>

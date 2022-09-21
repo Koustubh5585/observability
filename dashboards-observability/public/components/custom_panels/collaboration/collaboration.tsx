@@ -19,6 +19,8 @@ import './collaboration.scss';
 import { CommentsList } from './comments_list';
 import moment from 'moment';
 import { Collaboration } from '../../../components/strings';
+import { useDispatch, useSelector } from 'react-redux';
+import { addComments, deleteComment, savedComments } from './redux/slices/comments_slice';
 
 type Props = {
   vizId: string;
@@ -34,21 +36,18 @@ export interface CommentProps {
 }
 
 export const CollaborationPopover = ({ vizId, mode, closeFlyout }: Props) => {
+  const dispatch = useDispatch();
   const [comment, setComment] = useState('');
   const [isCollaborationPopoverOpen, setIsCollaborationPopoverOpen] = useState(false);
   const [sectionComments, setSectionComments] = useState<Array<CommentProps>>([]);
-  const [commentsCount, setCommentsCount] = useState(0);
 
   const closeCollaborationPopover = () => setIsCollaborationPopoverOpen(false);
-  const storedCollaborations = sessionStorage.getItem('Collaborations');
-  const allComments = storedCollaborations ? JSON.parse(storedCollaborations) : [];
+  const storedCollaborations = useSelector(savedComments);
+  const allComments = storedCollaborations ? storedCollaborations : [];
 
   useEffect(() => {
     setSectionComments(allComments.filter((item) => item.id === vizId));
-    setCommentsCount(allComments.length);
   }, []);
-
-  useEffect(() => {}, [allComments]);
 
   const onSubmitSectionComments = () => {
     if (comment) {
@@ -60,9 +59,8 @@ export const CollaborationPopover = ({ vizId, mode, closeFlyout }: Props) => {
       };
 
       setSectionComments([...sectionComments, newComment]);
-      sessionStorage.setItem('Collaborations', JSON.stringify([...allComments, newComment]));
+      dispatch(addComments([...allComments, newComment]));
       setComment('');
-      setCommentsCount((count) => count + 1);
     }
   };
 
@@ -96,7 +94,7 @@ export const CollaborationPopover = ({ vizId, mode, closeFlyout }: Props) => {
   const flyoutHeader = (
     <EuiFlyoutHeader hasBorder>
       <EuiTitle size="s">
-        <>{`Comments on this panel (${commentsCount})`}</>
+        <>{`Comments on this panel (${allComments.length})`}</>
       </EuiTitle>
     </EuiFlyoutHeader>
   );
@@ -126,9 +124,11 @@ export const CollaborationPopover = ({ vizId, mode, closeFlyout }: Props) => {
 
   const handleDeleteComment = (index: number) => {
     if (mode === 'flyout') {
-      allComments.splice(index, 1);
-      setCommentsCount((count) => count - 1);
-      sessionStorage.setItem('Collaborations', JSON.stringify(allComments));
+      dispatch(
+        deleteComment({
+          id: index,
+        })
+      );
     } else {
       sectionComments.splice(index, 1);
       setSectionComments(sectionComments);

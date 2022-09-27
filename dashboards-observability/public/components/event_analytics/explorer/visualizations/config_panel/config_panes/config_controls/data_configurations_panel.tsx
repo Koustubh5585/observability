@@ -18,6 +18,7 @@ import {
   EuiSpacer,
   EuiTitle,
   htmlIdGenerator,
+  EuiToolTip,
 } from '@elastic/eui';
 import { batch, useDispatch } from 'react-redux';
 import {

@@ -51,6 +51,10 @@ export const TEST_QUERIES = [
       'source = opensearch_dashboards_sample_data_logs | stats count(), max(bytes) by span(timestamp,1d), clientip, host',
     dateRangeDOM: YEAR_TO_DATE_DOM_ID,
   },
+  {
+    query: 'source = opensearch_dashboards_sample_data_logs | stats count() by tags',
+    dateRangeDOM: YEAR_TO_DATE_DOM_ID
+  }
 ];
 
 export const TESTING_PANEL = 'Mock Testing Panels';

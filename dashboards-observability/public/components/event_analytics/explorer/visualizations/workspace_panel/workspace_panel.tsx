@@ -11,6 +11,7 @@ import { EuiPanel, EuiSwitch } from '@elastic/eui';
 import { Visualization } from '../../../../visualizations/visualization';
 import { DataTable } from '../../../../visualizations/charts/data_table/data_table';
 import { uiSettingsService } from '../../../../../../common/utils';
+import { CollaborationPopover } from '../../../../custom_panels/collaboration/collaboration';
 
 interface IWorkSpacePanel {
   curVisId: string;
@@ -18,7 +19,7 @@ interface IWorkSpacePanel {
   visualizations: any;
 }
 
-export function WorkspacePanel({ visualizations }: IWorkSpacePanel) {
+export function WorkspacePanel({ curVisId, visualizations }: IWorkSpacePanel) {
   const [isTableViewOn, setIsTableViewOn] = useState(false);
   const VisualizationPanel = useMemo(() => {
     return (

@@ -21,6 +21,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { CoreStart } from '../../../../../../../src/core/public';
 import PPLService from '../../../../services/requests/ppl';
 import { displayVisualization, renderSavedVisualization } from '../../helpers/utils';
+import { CollaborationPopover } from '../../collaboration/collaboration';
 import './visualization_container.scss';
 
 /*
@@ -190,29 +191,32 @@ export const VisualizationContainer = ({
             </EuiText>
           </EuiFlexItem>
           <EuiFlexItem grow={false} className="visualization-action-button">
-            {disablePopover ? (
-              <EuiIcon
-                type="crossInACircleFilled"
-                onClick={() => {
-                  removeVisualization(visualizationId);
-                }}
-              />
-            ) : (
-              <EuiPopover
-                button={
-                  <EuiButtonIcon
-                    aria-label="actionMenuButton"
-                    iconType="boxesHorizontal"
-                    onClick={onActionsMenuClick}
-                  />
-                }
-                isOpen={isPopoverOpen}
-                closePopover={closeActionsMenu}
-                anchorPosition="downLeft"
-              >
-                <EuiContextMenuPanel items={popoverPanel} />
-              </EuiPopover>
-            )}
+            <div style={{display: 'flex'}}>
+              <CollaborationPopover vizId={visualizationId} />
+              {disablePopover ? (
+                <EuiIcon
+                  type="crossInACircleFilled"
+                  onClick={() => {
+                    removeVisualization(visualizationId);
+                  }}
+                />
+              ) : (
+                <EuiPopover
+                  button={
+                    <EuiButtonIcon
+                      aria-label="actionMenuButton"
+                      iconType="boxesHorizontal"
+                      onClick={onActionsMenuClick}
+                    />
+                  }
+                  isOpen={isPopoverOpen}
+                  closePopover={closeActionsMenu}
+                  anchorPosition="downLeft"
+                >
+                  <EuiContextMenuPanel items={popoverPanel} />
+                </EuiPopover>
+              )}
+            </div>
           </EuiFlexItem>
         </EuiFlexGroup>
       </div>

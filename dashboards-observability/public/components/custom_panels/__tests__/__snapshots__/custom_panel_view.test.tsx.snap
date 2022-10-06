@@ -170,6 +170,89 @@ exports[`Panels View Component renders panel view container with visualizations 
                             className="euiFlexItem"
                           >
                             <EuiButton
+                              iconType="editorComment"
+                              onClick={[Function]}
+                            >
+                              <EuiButtonDisplay
+                                baseClassName="euiButton"
+                                disabled={false}
+                                element="button"
+                                iconType="editorComment"
+                                isDisabled={false}
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                <button
+                                  className="euiButton euiButton--primary"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "minWidth": undefined,
+                                    }
+                                  }
+                                  type="button"
+                                >
+                                  <EuiButtonContent
+                                    className="euiButton__content"
+                                    iconSide="left"
+                                    iconType="editorComment"
+                                    textProps={
+                                      Object {
+                                        "className": "euiButton__text",
+                                      }
+                                    }
+                                  >
+                                    <span
+                                      className="euiButtonContent euiButton__content"
+                                    >
+                                      <EuiIcon
+                                        className="euiButtonContent__icon"
+                                        color="inherit"
+                                        size="m"
+                                        type="editorComment"
+                                      >
+                                        <EuiIconEditorComment
+                                          aria-hidden={true}
+                                          className="euiIcon euiIcon--medium euiIcon--inherit euiButtonContent__icon"
+                                          focusable="false"
+                                          role="img"
+                                          style={null}
+                                        >
+                                          <svg
+                                            aria-hidden={true}
+                                            className="euiIcon euiIcon--medium euiIcon--inherit euiButtonContent__icon"
+                                            focusable="false"
+                                            height={16}
+                                            role="img"
+                                            style={null}
+                                            viewBox="0 0 16 16"
+                                            width={16}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M6.111 10H12a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v4a1 1 0 001 1h1v1.297L6.111 10zm.46 1L4 14v-3a2 2 0 01-2-2V5a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H6.571z"
+                                            />
+                                          </svg>
+                                        </EuiIconEditorComment>
+                                      </EuiIcon>
+                                      <span
+                                        className="euiButton__text"
+                                      >
+                                        Comments (0)
+                                      </span>
+                                    </span>
+                                  </EuiButtonContent>
+                                </button>
+                              </EuiButtonDisplay>
+                            </EuiButton>
+                          </div>
+                        </EuiFlexItem>
+                        <EuiFlexItem>
+                          <div
+                            className="euiFlexItem"
+                          >
+                            <EuiButton
                               disabled={true}
                               iconType="pencil"
                               onClick={[Function]}
@@ -1799,6 +1882,85 @@ exports[`Panels View Component renders panel view container without visualizatio
                       <div
                         className="euiFlexGroup euiFlexGroup--gutterSmall euiFlexGroup--directionRow euiFlexGroup--responsive"
                       >
+                        <EuiFlexItem>
+                          <div
+                            className="euiFlexItem"
+                          >
+                            <EuiButton
+                              iconType="editorComment"
+                              onClick={[Function]}
+                            >
+                              <EuiButtonDisplay
+                                baseClassName="euiButton"
+                                disabled={false}
+                                element="button"
+                                iconType="editorComment"
+                                isDisabled={false}
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                <button
+                                  className="euiButton euiButton--primary"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "minWidth": undefined,
+                                    }
+                                  }
+                                  type="button"
+                                >
+                                  <EuiButtonContent
+                                    className="euiButton__content"
+                                    iconSide="left"
+                                    iconType="editorComment"
+                                    textProps={
+                                      Object {
+                                        "className": "euiButton__text",
+                                      }
+                                    }
+                                  >
+                                    <span
+                                      className="euiButtonContent euiButton__content"
+                                    >
+                                      <EuiIcon
+                                        className="euiButtonContent__icon"
+                                        color="inherit"
+                                        size="m"
+                                        type="editorComment"
+                                      >
+                                        <EuiIconEmpty
+                                          aria-hidden={true}
+                                          className="euiIcon euiIcon--medium euiIcon--inherit euiIcon-isLoading euiButtonContent__icon"
+                                          focusable="false"
+                                          role="img"
+                                          style={null}
+                                        >
+                                          <svg
+                                            aria-hidden={true}
+                                            className="euiIcon euiIcon--medium euiIcon--inherit euiIcon-isLoading euiButtonContent__icon"
+                                            focusable="false"
+                                            height={16}
+                                            role="img"
+                                            style={null}
+                                            viewBox="0 0 16 16"
+                                            width={16}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          />
+                                        </EuiIconEmpty>
+                                      </EuiIcon>
+                                      <span
+                                        className="euiButton__text"
+                                      >
+                                        Comments (0)
+                                      </span>
+                                    </span>
+                                  </EuiButtonContent>
+                                </button>
+                              </EuiButtonDisplay>
+                            </EuiButton>
+                          </div>
+                        </EuiFlexItem>
                         <EuiFlexItem>
                           <div
                             className="euiFlexItem"

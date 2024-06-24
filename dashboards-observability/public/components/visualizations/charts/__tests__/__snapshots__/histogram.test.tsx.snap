@@ -543,7 +543,7 @@ exports[`Histogram component Renders histogram component 1`] = `
             },
           },
           "name": "count()",
-          "type": undefined,
+          "type": "histogram",
           "x": Array [
             154,
             1753,
@@ -596,7 +596,7 @@ exports[`Histogram component Renders histogram component 1`] = `
               },
             },
             "name": "count()",
-            "type": undefined,
+            "type": "histogram",
             "x": Array [
               154,
               1753,
